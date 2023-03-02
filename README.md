@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # IT314_project_17
 ## A platform for creating and managing online polls and surveys.
 
@@ -7,3 +8,26 @@ Description:
 - There should be a dedicated analysis section after the polls where we can get a conclusion after that.
 - It helps conducting public or private surveys according to need.
 - Also, online polling and surveys help reach a wide range of people as physical interaction is not always an option
+=======
+# ONPoll.in
+***
+A online polls & Survey taker website
+***
+
+## Sprint 01:
+### Login + Logout functionality Backend & Frontend
+### Requirement / TODO
+**** 
+1. ### install the dependencies
+```
+npm install
+```
+2. ### setup the .ENV file
+Create a .ENV file in the server folder
+```
+PORT=3000
+MONGO_URI_USERNAME=
+MONGO_URI_PASSWORD=
+JWT_SECRET=
+```
+>>>>>>> 4c3656682ebb2f9d5b0d023d7664a55b6fecbe4a
