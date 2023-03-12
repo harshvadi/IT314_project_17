@@ -1,0 +1,1 @@
+var BACKEND_BASE_URL = 'https://pollnow.onrender.com';
