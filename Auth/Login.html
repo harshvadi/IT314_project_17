@@ -57,7 +57,11 @@ body{
     bottom: -90px;
 }
 form{
-    height: 520px;
+    height: auto;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -145,7 +149,7 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form>
+    <form id="login-form">
         <h3>Login Here</h3>
 
         <label for="username">Email or Username</label>
@@ -154,9 +158,12 @@ button{
         <label for="password">Password</label>
         <input type="password" placeholder="Password" id="password">
 
-        <button>Log In</button>
+        <button id="login-button">Log In</button>
         <div>
-            <p class="already_reg"> Don't have an account? <a href="/Signup"> Sign Up </a></p>
+            <p style="text-align: center; margin-top: 20px; color: red;" id="error-message"></p>
+        </div>
+        <div>
+            <p class="already_reg"> Don't have an account? <a href="./SignUp.html"> Sign Up </a></p>
         </div>
         <div class="social">
           <div class="go"><i class="fab fa-google"></i>  Google</div>
@@ -164,4 +171,7 @@ button{
         </div>
     </form>
 </body>
+    <script src="../Config/Config.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./login.js"></script>
 </html>
