@@ -37,12 +37,13 @@ a.nav-link:hover {
     border-radius: 10px;
     background-color: #282828;
     margin-right: 10px;
+    margin-bottom: 10px;
 }
 
 .right-col {
     border-radius: 10px;
     background-color: #282828;
-    margin-left: 10px
+/*     margin-left: 10px */
 }
 
 .poll {
@@ -65,3 +66,33 @@ a.nav-link:hover {
 .card {
     background-color: #373737;
 }
+     
+     @media all and (max-width:400px)
+     {
+
+    nav 
+    {
+        margin-bottom: 20px;
+        padding: 1%;
+        background-color: #282828;
+        margin: 4%;
+        width: 82%;
+    }
+
+    element.style 
+    {
+        width:90%; 
+
+    }
+
+    container text-center
+    {
+        margin: 4%;
+        width: 80%;
+    }
+
+    card
+    {
+         width: 16rem;
+
+    }
