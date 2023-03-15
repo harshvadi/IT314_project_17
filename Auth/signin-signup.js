@@ -1,4 +1,5 @@
-const signUpButton = document.getElementById('signUp');
+const signUpButton = document.getElementById('signup');
+const signUpHomeButton = document.getElementById('signup-home');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 
@@ -43,8 +44,12 @@ function changeStep(btn) {
 	steps[index].classList.add("active");
 }
 
-signUpButton.addEventListener('click', () => {
+signUpHomeButton.addEventListener('click', () => {
 	container.classList.add("right-panel-active");
+});
+
+signUpButton.addEventListener('click', () => {
+	window.location.href = '../Profile/profile.html';
 });
 
 signInButton.addEventListener('click', () => {
