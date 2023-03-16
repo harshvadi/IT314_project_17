@@ -9,7 +9,7 @@ p {
 
 nav {
     margin-bottom: 20px;
-    padding: 10px 110px;
+    padding: 10px;
     background-color: #282828;
 }
 
@@ -19,6 +19,18 @@ a.nav-link {
 
 a.nav-link:hover {
     color: white;
+}
+
+.nav-menu {
+    padding: 0;
+    border: none;
+    appearance: none;
+    background-color: inherit;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 35%;
 }
 
 .profile-img {
@@ -37,13 +49,12 @@ a.nav-link:hover {
     border-radius: 10px;
     background-color: #282828;
     margin-right: 10px;
-    margin-bottom: 10px;
 }
 
 .right-col {
     border-radius: 10px;
     background-color: #282828;
-/*     margin-left: 10px */
+    margin-left: 10px
 }
 
 .poll {
@@ -66,12 +77,10 @@ a.nav-link:hover {
 .card {
     background-color: #373737;
 }
-     
-     @media all and (max-width:400px)
-     {
 
-    nav 
-    {
+@media all and (max-width:400px) {
+
+    nav {
         margin-bottom: 20px;
         padding: 1%;
         background-color: #282828;
@@ -79,20 +88,18 @@ a.nav-link:hover {
         width: 82%;
     }
 
-    element.style 
-    {
-        width:90%; 
+    element.style {
+        width: 90%;
 
     }
 
-    container text-center
-    {
+    container text-center {
         margin: 4%;
         width: 80%;
     }
 
-    card
-    {
-         width: 16rem;
+    card {
+        width: 16rem;
 
     }
+}
