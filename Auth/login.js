@@ -1,16 +1,27 @@
-
-
-const Login = async (email, password) => {    // login function to send a post request to the backend to login a user
-    axios.post(`${BACKEND_BASE_URL}/api/auth/login`, {   // backend url is defined in the config.js file
-        "email": email,
-        "password": password
-    }).then((response) => {    // if the login is successful, the user is redirected to the profile page
-        localStorage.setItem('user', JSON.stringify(response.data.user));   
-        // window.location.href = '../Profile/profile.html';   
-    }).catch (error => {    // if the login is not successful, an error message is displayed
-        console.log(error);
-        document.getElementById('error-message').innerHTML = error.response.data.message;
-    })
+const Login = async (email, password) => {
+    // api call to locahost:3000/api/auth/login
+    const response = await fetch(`${BACKEND_BASE_URL}/api/auth/login`, {
+        method: 'POST',
+        headers: {
+            Accept: "applicaiton/json",
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            email,
+            password,
+        }),
+        withCredentials: true, // should be there
+        credentials: 'include' // should be there   
+    });
+    const data = await response.json();
+    console.log(data);
+    if(data) {
+        console.log('login successful');
+        window.location.href = '../Profile/profile.html';
+    }
+    else {
+        document.getElementById('error-message').innerHTML = data.message;
+    }
 }
 
 const loginForm = document.getElementById('login-form');  // get the login form ???
@@ -36,8 +47,8 @@ loginForm.addEventListener('submit', async (e) => {    // event listener for the
 
     /////////////////////////////////////////////////////////////////////////
     // access cookie from the api cookie section   
-    const cookie = document.cookie;
-    console.log(cookie.jwt);
+    // const cookie = document.cookie;
+    // console.log(cookie.jwt);
     /////////////////////////////////////////////////////////////////////////
 
     console.log("login successful")
