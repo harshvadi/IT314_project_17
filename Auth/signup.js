@@ -30,11 +30,12 @@ console.log("signup.js loaded")
 const signupForm = document.getElementById('signup-form');  // get the signup form ???
 console.log("signup.js loaded")
 signupForm.addEventListener('submit', async (e) => {    // event listener for the signup form
+    e.preventDefault();
     console.log("signup.js loaded")
-    document.getElementById('error-message').innerHTML = '';  
-    document.getElementById('signup-button').innerText = 'Signing up...';
-    console.log('Signup form submitted');
-    e.preventDefault();  
+    // document.getElementById('error-message').innerHTML = '';  
+    // document.getElementById('signup-button').innerText = 'Signing up...';
+    // console.log('Signup form submitted');
+    // e.preventDefault();  
     const firstname = document.getElementById('name').value;
     const email = document.getElementById('username').value;  
     const username = document.getElementById('username').value;
@@ -43,11 +44,13 @@ signupForm.addEventListener('submit', async (e) => {    // event listener for th
     const confirm_password = document.getElementById('confirm_password').value;
     
     if(!firstname || !email || !username || !password || !confirm_password) {    // check all fields
-        document.getElementById('error-message').innerHTML = 'Please enter all the fields';
+        // document.getElementById('error-message').innerHTML = 'Please enter all the fields';
+        console.log("Please enter all the fields")
         return;
     }
     if(!email.includes('@')) {   // check email
-        document.getElementById('error-message').innerHTML = 'Please enter a valid email';
+        // document.getElementById('error-message').innerHTML = 'Please enter a valid email';
+        console.log("Please enter all the fields")
         return;
     }
     // compare passwords  
