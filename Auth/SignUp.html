@@ -5,8 +5,8 @@
     <title>SignUp</title>
  
     <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link rel="stylesheet" href="./SignUp_files/all.min.css">
-    <link href="./SignUp_files/css2" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./SignUp_files/all.min.css">
+    <link href="./SignUp_files/css2" rel="stylesheet"> -->
     <!--Stylesheet-->
     <style media="screen">
       *,
@@ -162,7 +162,7 @@ button{
         <div class="shape"></div>
         <div class="shape"></div>
     </div>
-    <form action="https://lisbon-groupdocs-app.s3.us-west-2.amazonaws.com/Source/77f6c8df-b756-4023-89bb-a3261a8bb4ec/Updated_SignUp.html?X-Amz-Expires=3600&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA4XIV7DNDGGIIQ4N7/20230305/us-west-2/s3/aws4_request&amp;X-Amz-Date=20230305T075316Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=f72c72c2b78c1ead79da1dad16cf7d41dfa77c97e4f6b9ab0148ee1536020daa" method="POST">
+    <form id="signup-form" method="POST">
         <h3>Sign Up Here</h3>
 <br><br>
         <label for="name">Name</label>
@@ -196,7 +196,7 @@ button{
         <label for="confirm_password">Confirm Password</label>
         <input type="password" placeholder="Confirm Password" id="confirm_password">
 
-        <button>Sign Up</button>
+        <button href="Login.html">Sign Up</button>
         <div>
             <p class="already_reg"> Do you have an account? <a href="https://lisbon-groupdocs-app.s3.us-west-2.amazonaws.com/Login"> Login </a></p>
         </div>
@@ -207,6 +207,8 @@ button{
 
         <br><br>
     </form>
-
-
-</body></html>
+</body>
+    <script src="../Config/Config.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./signup.js"></script>
+</html>
