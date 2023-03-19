@@ -91,3 +91,14 @@ li {
 .card-btn:hover {
     background-color: #144b48;
 }
+
+@media all and (max-width:550px) {
+
+    .left-col {
+        display: none;
+    }
+
+    .right-col {
+        width: 100%;
+    }
+}
