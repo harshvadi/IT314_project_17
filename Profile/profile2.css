@@ -35,6 +35,13 @@ a.nav-link:hover {
     color: white;
 }
 
+button.navbar-toggler {
+    background-color: #eafcfc8e;
+    color: #eafcfc8e;
+    border: none;
+    scale: 0.75;
+}
+
 a {
     padding: 0px;
     text-decoration: none;
