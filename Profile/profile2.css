@@ -69,6 +69,11 @@ li {
     border-bottom: 0.2rem solid #144b48;
 }
 
+.avatar {
+    border-radius: 50%;
+    width: 2.5rem;
+}
+
 #profile {
     scroll-margin-top: 6rem;
 }
