@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="profile2.css">
+  <script src="https://kit.fontawesome.com/91d08a18ba.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://kit.fontawesome.com/91d08a18ba.css" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Logo</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link">Disabled</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Admin</a>
+            <div class="dropdown-menu dropdown-menu-end">
+              <a href="#" class="dropdown-item">Edit Profile</a>
+              <a href="#" class="dropdown-item">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a href="#" class="dropdown-item">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container-fluid">
+
+    <div class="row">
+      <div class="col col-md-2">
+        <ul class="nav flex-column menu">
+          <li class="nav-item profile current">
+            <a aria-current="page" href="#profile" onclick="profile()">Profile</a>
+          </li>
+          <li class="nav-item surveys">
+            <a href="#surveys" onclick="surveys()">Surveys & Polls</a>
+          </li>
+          <li class="nav-item contributions">
+            <a href="#contributions" onclick="contributions()">Contributions</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col">
+
+        <div class="container text-center" id="profile">
+          <h2>My Profile</h2>
+          <img class="profile-pic" src="https://picsum.photos/200" alt="profile-pic">
+          <h5>Manish Khare</h5>
+          <p>manish_khare</p>
+          <div class="row text-start community-stats">
+            <hr>
+            <h5>Community Stats</h5>
+            <p><i class="fa-solid fa-eye"></i> Following: 14</p>
+            <p><i class="fa-solid fa-user"></i> Followers: 5</p>
+            <p><i class="fa-sharp fa-solid fa-square-poll-vertical"></i> Surveys taken: 3</p>
+            <p><i class="fa-solid fa-list-check"></i> Surveys Answered: 2</p>
+          </div>
+          <div class="row text-start">
+            <hr>
+            <h5>Bio</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni doloremque rem non vero nostrum ullam ratione corporis ut impedit, eveniet perferendis suscipit at est consectetur delectus laborum ipsa minima praesentium?</p>
+          </div>
+          <div class="row social-media text-center">
+            <hr>
+            <h5>Social Media</h5>
+            <br>
+            <br>
+            <div class="col">
+              <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+            </div>
+            <div class="col">
+              <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+            </div>
+            <div class="col">
+              <a href="#"><i class="fa-brands fa-twitter fa-2x"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="container text-center" id="surveys">
+          <h2>Surveys & Polls</h2>
+          <div class="row">
+            <div class="col poll">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col poll">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col poll">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="container text-center" id="contributions">
+          <h2>Contributions</h2>
+          <div class="row">
+            <div class="col poll">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col poll">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col poll">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col poll">
+              <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  <script src="profile2.js"></script>
+</body>
+
+</html>
