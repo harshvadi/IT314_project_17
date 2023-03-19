@@ -69,6 +69,18 @@ li {
     border-bottom: 0.2rem solid #144b48;
 }
 
+#profile {
+    scroll-margin-top: 6rem;
+}
+
+#surveys {
+    scroll-margin-top: 6rem;
+}
+
+#contributions {
+    scroll-margin-top: 6rem;
+}
+
 .profile-pic {
     border-radius: 50%;
     width: 8rem;
