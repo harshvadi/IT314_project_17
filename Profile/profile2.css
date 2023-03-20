@@ -119,6 +119,25 @@ a{
 
 }
 
+/*---------------------------------------------social----------------------------------------*/
+
+.social{
+    margin: 20px 0;
+    background: white;
+}
+
+.social h2{
+    color: #333;
+    margin: 10px 15px 10px;
+    font-weight: 300;
+}
+
+.social img{
+    margin: 5px 15px;
+}
+
+/*---------------------------------------------social-end----------------------------------------*/
+
 .profile-menu-wrap{
     position: absolute;
     top: 100%;
