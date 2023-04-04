@@ -12,3 +12,20 @@ function contributions() {
   document.getElementsByClassName("current")[0].classList.remove("current");
   document.getElementsByClassName("contributions")[0].classList.add("current");
 }
+
+window.onload = (event) => {
+  const name = document.getElementById("name");
+  const username = document.getElementById("username");
+  const profile = document.getElementById("profile-pic");
+  const bio = document.getElementById("bio");
+
+  let user = localStorage.getItem("user");
+  user = JSON.parse(user);
+
+  name.innerText = user.name;
+  username.innerText = user.username;
+  bio.innerText = user.bio;
+  profile.src = user.profilepic;
+
+  console.log("user:", user);
+};
