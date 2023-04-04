@@ -22,6 +22,8 @@ window.onload = async (event) => {
   let user = localStorage.getItem("user");
   user = await JSON.parse(user);
 
+  showPage();
+
   if (user) {
     name.innerText = user.name;
     username.innerText = user.username;
@@ -44,3 +46,8 @@ logout.addEventListener("click", (e) => {
   localStorage.clear();
   window.location.href = "../Auth/signin-signup.html";
 });
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("main-content").style.display = "block";
+}
