@@ -89,6 +89,9 @@ const Signup = async (name, email, username, role, password) => {
 console.log("signup.js loaded");
 const signupForm = document.getElementById("signup-form"); // get the signup form ???
 console.log("signup.js loaded");
+signupForm.addEventListener("click", () => {
+  document.getElementById("error-message").innerHTML = "";
+});
 signupForm.addEventListener("submit", async (e) => {
   // event listener for the signup form
   e.preventDefault();
@@ -135,7 +138,7 @@ signupForm.addEventListener("submit", async (e) => {
   /////////////////////////////////////////////////////////////////////////
 
   console.log("Signup successful");
-  document.getElementById("signup-button").innerText = "Sign up";
+  document.getElementById("signup-button").innerText = "SIGN UP";
 });
 
 //////////login//////////////
