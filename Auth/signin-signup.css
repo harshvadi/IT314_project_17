@@ -156,6 +156,10 @@ input {
 	color: red;
 }
 
+#error-message-login {
+	color: red;
+}
+
 @keyframes show {
 
 	0%,

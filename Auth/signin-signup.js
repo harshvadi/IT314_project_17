@@ -56,6 +56,8 @@ signInButton.addEventListener("click", () => {
   container.classList.remove("right-panel-active");
 });
 
+//////////SIGN UP////////////
+
 const Signup = async (name, email, username, role, password) => {
   // api call to locahost:3000/api/auth/register
   const response = await fetch(`http://localhost:3000/api/auth/register`, {
@@ -134,4 +136,70 @@ signupForm.addEventListener("submit", async (e) => {
 
   console.log("Signup successful");
   document.getElementById("signup-button").innerText = "Sign up";
+});
+
+//////////login//////////////
+
+const Login = async (email, password) => {
+  // api call to locahost:3000/api/auth/login
+  const response = await fetch(`http://localhost:3000/api/auth/login`, {
+    method: "POST",
+    headers: {
+      Accept: "applicaiton/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+    withCredentials: true, // should be there
+    credentials: "include", // should be there
+  });
+  const data = await response.json();
+  console.log(data);
+  if (data && data.message == "User logged in successfully.") {
+    console.log("login successful");
+    localStorage.setItem("user", JSON.stringify(data.user));
+    window.location.href = "../Profile/profile2.html";
+  } else {
+    document.getElementById("error-message-login").innerHTML = data.message;
+  }
+};
+
+const loginForm = document.getElementById("signin-form"); // get the login form ???
+loginForm.addEventListener("click", () => {
+  document.getElementById("signin-btn").innerText = "SIGN IN";
+  document.getElementById("error-message-login").innerHTML = "";
+});
+loginForm.addEventListener("submit", async (e) => {
+  // event listener for the login form
+  document.getElementById("error-message-login").innerHTML = "";
+  document.getElementById("signin-btn").innerText = "Logging in...";
+  console.log("login form submitted");
+  e.preventDefault();
+  const email = document.getElementById("email-login").value;
+  const password = document.getElementById("password-login").value;
+
+  // check email and password
+  if (!email || !password) {
+    document.getElementById("error-message-login").innerHTML =
+      "Please enter your email and password";
+    return;
+  }
+  if (!email.includes("@")) {
+    document.getElementById("error-message-login").innerHTML =
+      "Please enter a valid email";
+    return;
+  }
+
+  await Login(email, password);
+
+  /////////////////////////////////////////////////////////////////////////
+  // access cookie from the api cookie section
+  // const cookie = document.cookie;
+  // console.log(cookie.jwt);
+  /////////////////////////////////////////////////////////////////////////
+
+  console.log("login successful");
+  document.getElementById("signin-btn").innerText = "SIGN IN";
 });
