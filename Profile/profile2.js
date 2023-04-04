@@ -37,3 +37,10 @@ window.onload = async (event) => {
 
   console.log("user:", user);
 };
+
+const logout = document.getElementById("logout");
+logout.addEventListener("click", (e) => {
+  e.preventDefault();
+  localStorage.clear();
+  window.location.href = "../Auth/signin-signup.html";
+});
