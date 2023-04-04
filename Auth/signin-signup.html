@@ -1,104 +1,110 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Sign in/up</title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'><link rel="stylesheet" href="./signin-signup.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css'>
+  <link rel="stylesheet" href="./signin-signup.css">
 
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<h2>Website name: Sign in/up Form</h2>
-<div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Create Account</h1>
-			
-			<div class="step step-1 active">
-				<div class="form-group">
-					<input type="text" placeholder="Name" />
-				</div>
-				<div class="form-group">
-					<input type="text" placeholder="Username" />
-				</div>
-				<div class="form-group">
-					<!-- <label for="role">Role</label> -->
-					<select name="role" id="role">
-						
-							<option value="" disabled selected hidden>Role</option>
-							<option value="student">Student</option>
-							<option value="teacher">Teacher</option>
-							<option value="doctor">Doctor</option>
-							<option value="engineer">Engineer</option>
-							<option value="lawyer">Lawyer</option>
-							<option value="business">Business</option>
-							<option value="politician">Politician</option>
-							<option value="other">Other</option>
-						
-					</select>
-				</div>
-				<button type="button" class="next-btn">Next</button>
-			</div>
+  <!-- partial:index.partial.html -->
+  <h2>Website name: Sign in/up Form</h2>
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form action="#" id="signup-form" method="POST">
+        <h1>Create Account</h1>
 
-			<div class="step step-2">
-				<div class="form-group">
-					<input type="email" placeholder="Email" />
-				</div>
-				<div class="form-group">
-					<input type="password1" placeholder="Password" />
-				</div>
-				<div class="form-group">
-					<input type="password2" placeholder="Confirm Password" />
-				</div>
-				<button type="button" class="previous-btn">Prev</button>
-                <button type="button" class="signup-btn" id="signup">Sign Up</button>
-			</div>
+        <div class="step step-1 active">
+          <div class="form-group">
+            <input type="text" placeholder="Name" id="name" name="name" />
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="Username" id="username" name="username" />
+          </div>
+          <div class="form-group">
+            <!-- <label for="role">Role</label> -->
+            <select name="role" id="role">
 
-			<!-- <button>Sign Up</button> -->
-			<span>or use your email for registration</span>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Sign in</h1>
-			
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
+              <option value="" disabled selected hidden>Role</option>
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+              <option value="doctor">Doctor</option>
+              <option value="engineer">Engineer</option>
+              <option value="lawyer">Lawyer</option>
+              <option value="business">Business</option>
+              <option value="politician">Politician</option>
+              <option value="other">Other</option>
 
-			<span>or continue with Google</span>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-				<!-- <a href="#" class="social"><i class="fab fa-google">   Google</i></a> -->
-			</div>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signup-home">Sign Up</button>
-			</div>
-		</div>
-	</div>
-</div>
+            </select>
+          </div>
+          <button type="button" class="next-btn">Next</button>
+        </div>
 
-<!-- partial -->
-  <script  src="./signin-signup.js"></script>
+        <div class="step step-2">
+          <div class="form-group">
+            <input type="email" placeholder="Email" id="email" name="email" />
+          </div>
+          <div class="form-group">
+            <input type="password1" placeholder="Password" id="password" name="password" />
+          </div>
+          <div class="form-group">
+            <input type="password2" placeholder="Confirm Password" id="confirm_password" name="confirm_password" />
+          </div>
+          <button type="button" class="previous-btn">Prev</button>
+          <button type="submit" class="signup-btn" id="signup">Sign Up</button>
+          <p id="error-message"></p>
+        </div>
+
+        <!-- <button>Sign Up</button> -->
+        <span>or use your email for registration</span>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+      <form action="#" id="signin-form" method="POST">
+        <h1>Sign in</h1>
+
+        <input type="email" placeholder="Email" id="email-login" name="email" />
+        <input type="password" placeholder="Password" id="password-login" name="password" />
+        <a href="#">Forgot your password?</a>
+        <button type="submit" id="signin-btn">Sign In</button>
+        <p id="error-message-login"></p>
+
+        <span>or continue with Google</span>
+        <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          <!-- <a href="#" class="social"><i class="fab fa-google">   Google</i></a> -->
+        </div>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your personal details and start journey with us</p>
+          <button class="ghost" id="signup-home">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- partial -->
+  <script src="./signin-signup.js"></script>
 
 </body>
+
 </html>
