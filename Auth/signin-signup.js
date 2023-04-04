@@ -58,7 +58,7 @@ signInButton.addEventListener("click", () => {
 
 const Signup = async (name, email, username, role, password) => {
   // api call to locahost:3000/api/auth/register
-  const response = await fetch(`${BACKEND_BASE_URL}/api/auth/register`, {
+  const response = await fetch(`http://localhost:3000/api/auth/register`, {
     method: "POST",
     headers: {
       Accept: "applicaiton/json",
@@ -76,7 +76,8 @@ const Signup = async (name, email, username, role, password) => {
   });
   const data = await response.json();
   console.log(data);
-  if (data) {
+  if (data && data.message != "Username already exists.") {
+    localStorage.setItem("user", JSON.stringify(data.user));
     console.log("Signup successful");
     window.location.href = "../Profile/profile2.html";
   } else {
@@ -95,13 +96,13 @@ signupForm.addEventListener("submit", async (e) => {
   // console.log('Signup form submitted');
   // e.preventDefault();
   const name = document.getElementById("name").value;
-  const email = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
   const username = document.getElementById("username").value;
   const role = document.getElementById("role").value;
   const password = document.getElementById("password").value;
   const confirm_password = document.getElementById("confirm_password").value;
 
-  console.log(name, email, password, confirm_password);
+  console.log(name, email, password, confirm_password, role);
 
   if (!name || !email || !username || !password || !confirm_password) {
     // check all fields
@@ -114,7 +115,6 @@ signupForm.addEventListener("submit", async (e) => {
     // check email
     document.getElementById("error-message").innerHTML =
       "Please enter a valid email";
-    console.log("Please enter all the fields");
     return;
   }
   // compare passwords
