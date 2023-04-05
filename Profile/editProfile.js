@@ -34,3 +34,10 @@ editForm.addEventListener("submit", (e) => {
 
   console.log(name, username, email, bio);
 });
+
+const logout = document.getElementById("logout");
+logout.addEventListener("click", (e) => {
+  e.preventDefault();
+  localStorage.clear();
+  window.location.href = "../Auth/signin-signup.html";
+});
