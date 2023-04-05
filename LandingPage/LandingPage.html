@@ -1,114 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>IT314 Project Group 17</title>
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="LandingPage.css" rel="stylesheet" />
-    </head>
-    
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-            <div class="container px-4">
-                <a class="navbar-brand" href="#page-top">Logo Design</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="#Dashboard">Dashboard</a></li> <!-- href to Dashboard Webpage-->
-                        <li class="nav-item"><a class="nav-link" href="#CreateSurvey">Create Survey</a></li> <!-- href to Dashboard Webpage-->                        
-                        <li class="nav-item"><a class="nav-link" href="#OpenSurveys">Open Surveys</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Header-->
-        <header class="bg-primary bg-gradient text-white">
-            <div class="container px-4 text-center">
-                <h1 class="fw-bolder">Welcome to QuickPolls</h1>
-            </div>
-        </header>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>IT314 Project Group 17</title>
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="/practice.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Playfair+Display&display=swap"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;600&family=Mulish:wght@200&family=Playfair+Display&display=swap"
+    rel="stylesheet">
+  <style>
+    #navbarResponsive {
+      position: inherit;
+      max-width: fit-content;
+    }
 
-        <!-- CreateSurvey section-->
-        <section id="CreateSurvey">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>
-                            <button type="button">Create Survey!</button>
-                        </h2>
-                        <p class="lead">Create Polls and Survey the way you want</p>
-                        <ul>
-                            <li>Engage with the right audience for the information you need</li>
-                            <li>Login to find templates and ideas to kickstart polls and surveys</li>
-                            <li>Stuck? Choose from the templates and explore variety of options at your doorstep</li>
-                            <li>Explore and find out more</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
+    .navbar-nav li {
+      margin: auto;
+    }
 
-        <!-- OpenSurveys section-->
-        <section id="OpenSurveys">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Open Surveys</h2>
-                        <p class="lead">Want to help? Find open polls and surveys to give your point of view to the world</p>
-                        <ul>
-                            <li>Board for latest Polls and Surveys</li>
-                            <li>To be updated soon</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Services section-->
-        <section class="bg-light" id="services">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Services we offer</h2>
-                        <p class="lead">Explore the options at your feet</p>
-                        <ul>
-                            <li>Create and Edit polls and surveys at your convenience</li>
-                            <li>Get detailed analysis on the responses you get</li>
-                            <li>Limit your questions to the people you want</li>
-                            <li>Explore the open surveys going around the corner</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact section-->
-        <section id="contact">
-            <div class="container px-4">
-                <div class="row gx-4 justify-content-center">
-                    <div class="col-lg-8">
-                        <h2>Contact us</h2>
-                        <p class="lead">Got an issue? Contact us here</p>
-                        <ul>
-                            <li>Name and email goes here</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Footer-->
-        <footer class="py-5 bg-dark">
-            <div class="container px-4"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
-        </footer>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="LandingPage.js"></script>
-    </body>
+    .search input {
+      border-radius: 5px;
+      display: inline-block;
+      width: 264px;
+      margin: 12px 75px;
+      padding: 5px;
+    }
+
+    .logo img {
+      width: 40px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .logo p {
+      text-align: left;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: smaller;
+      margin: -5px -41px;
+      color: #32d442;
+    }
+
+    .start {
+      width: 30%;
+      /* border: 2px solid firebrick; */
+      /* font-family: cursive; */
+      background-color: #afffada3;
+      font-size: 34px;
+      width: 450px;
+      /* height: 239px; */
+      border-radius: 10px;
+      color: currentColor;
+      font-family: 'Mulish', sans-serif;
+    }
+
+    .start h1 {
+      font-size: 41px;
+      margin: auto;
+      text-align: center;
+      font-weight: bolder;
+      /* font-family: sans-serif; */
+      background-color: #b4b481;
+      color: #370707;
+      font-family: 'Libre Franklin', sans-serif;
+    }
+  </style>
+
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav" height="80px">
+    <div class="container px-4">
+      <div class="logo">
+        <img src="/images/logo-no-background.png" href="#page-top">
+        <p>Make an impact with a vote</p>
+      </div>
+
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <div class="search">
+            <input type="text" name="search" id="search" placeholder="Search this website">
+          </div>
+          <li class="nav-item"><a class="nav-link" href="#page-top">Dashboard</a></li>
+          <!-- href to Dashboard Webpage-->
+          <li class="nav-item"><a class="nav-link" href="#CreateSurvey">Create Survey</a></li>
+          <!-- href to Dashboard Webpage-->
+          <li class="nav-item"><a class="nav-link" href="#OpenSurveys">Open Surveys</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <button class="btnn">
+            <li>Login</li>
+          </button>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Header-->
+  <header class="bg-primary bg-gradient text-white">
+    <div class="text-center">
+      <h1 class="fw-bolder">Welcome to QuickPolls</h1>
+      <p>'Get the customer feedback via online digital surveys'</p>
+    </div>
+  </header>
+
+  <div class="start">
+    <h1>Let's vote from here</h1>
+    <p>Useful for increased efficiency. Designed for group work. Recognized for its built-in protection. Hello and
+      welcome to the site that citizens adore.</p>
+    <button class="btn2">Create Survey</button>
+  </div>
+
+  <div class="contain">
+    <h1>Rate US</h1>
+    <form action="noaction.php">
+      <div class="form-group">
+        <input type="text" name="" placeholder="Enter your Email">
+      </div>
+      <div class="form-group">
+        <input type="text" name="" placeholder="Enter your Password">
+      </div>
+      <div class="form-group">
+        <input type="text" name="" placeholder="Write your feedback">
+      </div>
+      <!-- <div class="form-group">
+        <input type="text" name="" placeholder="Enter your Gender">
+      </div>
+      <div class="form-group">
+        <input type="text" name="" placeholder="Enter your Locality">
+      </div>
+      <div class="form-group">
+        <input type="text" name="" placeholder="Enter your Email Id">
+      </div>
+      <div class="form-group">
+        <input type="text" name="" placeholder="Enter your Phone Number">
+      </div> -->
+      <button class="btn">Submit</button>
+    </form>
+  </div>
+
+  <!-- CreateSurvey section-->
+  <!-- <section id="CreateSurvey">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h2>
+              <button type="button">Create Survey!</button>
+            </h2>
+            <p class="lead">Create Polls and Survey the way you want</p>
+            <ul>
+              <li>Engage with the right audience for the information you need</li>
+              <li>Login to find templates and ideas to kickstart polls and surveys</li>
+              <li>Stuck? Choose from the templates and explore variety of options at your doorstep</li>
+              <li>Explore and find out more</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+  <div class="details">
+    <!-- OpenSurveys section-->
+    <section id="OpenSurveys">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h2>Open Surveys</h2>
+            <p class="lead">Want to help? Find open polls and surveys to give your point of view to the world</p>
+            <ul>
+              <li>Board for latest Polls and Surveys</li>
+              <li>To be updated soon</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Services section-->
+    <section class="bg-light" id="services">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h2>Services we offer</h2>
+            <p class="lead">Explore the options at your feet</p>
+            <ul>
+              <li>Create and Edit polls and surveys at your convenience</li>
+              <li>Get detailed analysis on the responses you get</li>
+              <li>Limit your questions to the people you want</li>
+              <li>Explore the open surveys going around the corner</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact section-->
+    <section id="contact">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h2>Contact us</h2>
+            <p class="lead">Got an issue? Contact us here</p>
+            <ul>
+              <li>Name and email goes here</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer-->
+  <footer class="py-5 bg-dark">
+    <div class="container px-4">
+      <p class="m-0 text-center text-white">Copyright &copy; Quickpolls 2023</p>
+    </div>
+  </footer>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+</body>
+
 </html>
