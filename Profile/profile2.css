@@ -1,5 +1,5 @@
 body {
-    margin-top: 6rem;
+    margin-top: 8rem;
 }
 
 h2 {
@@ -115,15 +115,15 @@ li {
 }
 
 #profile {
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 8rem;
 }
 
 #surveys {
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 8rem;
 }
 
 #contributions {
-    scroll-margin-top: 6rem;
+    scroll-margin-top: 8rem;
 }
 
 .profile-pic {
@@ -134,7 +134,7 @@ li {
 
 .logo {
     border-radius: 50%;
-    width: 2rem;
+    width: 4rem;
     margin: 1rem;
 }
 
@@ -165,3 +165,4 @@ li {
         width: 100%;
     }
 }
+
