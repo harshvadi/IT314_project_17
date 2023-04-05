@@ -132,6 +132,12 @@ li {
     margin: 1rem;
 }
 
+.logo {
+    border-radius: 50%;
+    width: 2rem;
+    margin: 1rem;
+}
+
 .fa-brands {
     color: #144b48c0;
 }
