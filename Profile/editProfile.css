@@ -1,9 +1,15 @@
 body {
     margin-top: 6rem;
+    font-family: poppins;
 }
 
 h2 {
     color: #144b48;
+}
+
+.logo-editprofile{
+    height: 50px;
+    width: auto;
 }
 
 .navbar {
