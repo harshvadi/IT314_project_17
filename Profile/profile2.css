@@ -133,9 +133,9 @@ li {
 }
 
 .logo {
-    border-radius: 50%;
-    width: 4rem;
-    margin: 1rem;
+    height: 50px;
+    width: auto;
+    
 }
 
 .fa-brands {
