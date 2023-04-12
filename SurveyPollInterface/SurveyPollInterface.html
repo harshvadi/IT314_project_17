@@ -35,43 +35,54 @@
         </div>
 
         <div class="main-form">
-            <div class="question">
+            <div class="question" id="question1">
                 <div>
-                    <input type="text" class="question-box" placeholder="Question">
+                    <input type="text" name="question1" class="question-box" placeholder="Question">
+                    <button type="button" id="answer-type-button">Answer</button>
                 </div>
+                
                 <div>
-                    <input type="text" class="answer-box" placeholder="Answer">
+                    <input type="text" name="answer1" class="answer-box" placeholder="Answer">
+                </div>
+
+                <div>
+                    <input type="checkbox" id="checkbox-id1" name="checkbox-name1">
+                    <label for="checkbox-id1"><input type="text" name="addfield1" class="check-box" placeholder="Add Field"></label>
+                    <button type="button" id="add-field-button">Add Field</button>
+                </div>
+
+                <div>
+                    <input type="radio" id="radio-id1" name="radio-name1">
+                    <label for="radio-id1"><input type="text" name="addfield1" class="radio-box" placeholder="Add Field"></label>
+                    <button type="button" id="add-field-button">Add Field</button>
+                </div>
+
+                <div>
+                    <label for="file" class="file-input-text">Select a file to upload</label>
+                    <input type="file" class="file-input" id="file" name="file-name1">
+                </div>
+
+                <div>
+                    <input type="date" class="input-date" id="date">
+                </div>
+
+                <div>
+                    <input type="time" class="input-time" id="time">
+                </div>
+             
+                <div>
+                    <input type="date" class="input-date" id="date-time">
+                    <input type="time" class="input-time" id="date-time">
                 </div>
             </div>
 
-            <div class="question">
-                <div>
-                    <input type="text" class="question-box" placeholder="Question">
-                </div>
-                <div>
-                    <input type="text" class="answer-box" placeholder="Answer">
-                </div>
+            <div> 
+                <button type="button" id="add-question">Add Question</button> 
             </div>
 
-            <div class="question">
-                <div>
-                    <input type="text" class="question-box" placeholder="Question">
-                </div>
-                <div>
-                    <input type="text" class="answer-box" placeholder="Answer">
-                </div>
-            </div>
 
         </div>
-        
-        <!-- <div id="left-panel-container">
-            <div id="heading-title">Let's <span style="color: #144b48;">poll</span> from here</div>
-            <div id="subheading-title">Get the customer feedback via online digital surveys</div> -->
-        <!-- <button class="add-question-btn" id="addquestion">Add Question</button> -->
-        <!-- </div> -->
-        <!-- <div id="right-panel-container">
-            <img class="main-page-img" src="./images/image-left.svg" alt="mainpageimg">
-        </div>   -->
+
     </div>
 
 
@@ -100,6 +111,6 @@
     </footer>
 
 
-<script src="./index.js"></script>
+<script src="./SurveyPollInterface.js"></script>
 </body>
 </html>
