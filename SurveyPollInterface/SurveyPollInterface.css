@@ -31,12 +31,6 @@ body{
     border-radius: 10px;
   }
 
-  /* .heading-title{
-    margin: auto;
-    width: 90%;
-
-  } */
-
   .heading-box{
     margin: auto;
     width: 99%;
@@ -113,6 +107,121 @@ body{
     font-size: normal;
     border: none;
     border-bottom: solid 1px black;
+  }
+
+  #add-question{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    width: 20%;
+    height: 5vh;
+    word-wrap: normal;
+    font-size: normal;
+    border: none;
+    border: solid 1px black;  
+  }
+
+  /* #add-question:hover{
+    background-color: #4CAF50;
+    color: white
+  } */
+
+  #answer-type-button{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    width: 20%;
+    height: 5vh;
+    word-wrap: normal;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;   
+  }
+
+  .check-box{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    width: 45%;
+    height: 5vh;
+    word-wrap: normal;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;
+  }
+
+  .radio-box{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    width: 45%;
+    height: 5vh;
+    word-wrap: normal;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;
+  }
+
+  .file-input-text{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+  }
+
+  .file-input{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    width: 20%;
+    height: 5vh;
+    word-wrap: normal;
+    font-size: normal;
+    border: none;
+  }
+
+  .input-date{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    width: 20%;
+    height: 5vh;
+    word-wrap: normal;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;  
+  }
+
+  .input-time{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    width: 20%;
+    height: 5vh;
+    word-wrap: normal;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;  
+  }
+
+  #add-field-button{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    width: 20%;
+    height: 5vh;
+    word-wrap: normal;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;   
   }
 
   /* footer */
