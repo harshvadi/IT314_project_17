@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed Page</title>
     <link rel='stylesheet' href="../navbar.css">
     <link rel='stylesheet' href="./feed.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar-container">
@@ -28,11 +32,445 @@
             
             <li><a href="/">Create Survey</a></li>
 
-            <li class="services"><a href="/">Favorites</a></li>
+            <li><a href="/">Favorites</a></li>
             
-            <li class="services"><a href="/">Notifications</a></li>
-            
+            <li><a href="/">Notifications</a></li>
+
+            <li>
+                <!-- <a href="../Profile/profile2.html"><img class="profilepic" src="../images/profileimg.png" alt="profileimg"></a> -->
+            </li>
         </ul>
+
+        
     </nav>
+    
+    <div id="feed">
+        <div class="left-container">
+            <div class="left-top-container">
+                <div class="left-top-color-grid">
+                
+                </div>
+                <div class="left-top-container-bar">
+                    <img src="../images/profileimg.png" class="over-the-bar-img left-top-container-bar-img" alt="profileimg">
+                    <div class="content-box">
+                        <p style="font-size: 18px; font-weight: 700">Hardik Prajapati</p>
+                        <p class="shadow-color" style="font-size: 14px;">@hardik740</p>
+                        <hr>
+                        <p>Followings</p>
+                        <p style="font-size: 14px;">142</p>
+                        <hr>
+                        <p>Followers</p>
+                        <p style="font-size: 14px;">432</p>
+                        <hr>
+                        <a class="like-p" href="/" style="cursor:pointer;">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="left-bottom-container">
+                <div class="left-top-color-grid flex-grid">
+                    <p style="font-size: 18px;color:white;font-weight:900;text-align:center">User suggestions</p>
+                </div>
+                <div class="left-top-container-bar">
+                    <div class="content-box-2">
+                        <div class="user-suggestion-1">
+                            <div>
+                                <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                            </div>
+                            <div class="right-user-suggestion-1">
+                                <p class="right-user-suggestion-1-name" id="suggest-user1" style="font-size: 17px;">Hemil</p>
+                                <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="user-suggestion-1">
+                            <div>
+                                <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                            </div>
+                            <div class="right-user-suggestion-1">
+                                <p class="right-user-suggestion-1-name" id="suggest-user2" style="font-size: 17px;">HarshKumar Prajapati</p>
+                                <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="user-suggestion-1">
+                            <div>
+                                <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                            </div>
+                            <div class="right-user-suggestion-1">
+                                <p class="right-user-suggestion-1-name" id="suggest-user3" style="font-size: 17px;">Dishal Vala</p>
+                                <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="user-suggestion-1">
+                            <div>
+                                <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                            </div>
+                            <div class="right-user-suggestion-1">
+                                <p class="right-user-suggestion-1-name" id="suggest-user4" style="font-size: 17px;">HarshKumar Prajapati</p>
+                                <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="user-suggestion-1">
+                            <div>
+                                <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                            </div>
+                            <div class="right-user-suggestion-1">
+                                <p class="right-user-suggestion-1-name" id="suggest-user5" style="font-size: 17px;">Het Patel</p>
+                                <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                            </div>
+                            <div>
+                                <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="center-container">
+             <!-- survey form -->
+            <div class="center-feed-poll-item">
+                <div class="feed-center-title-bar-1">
+                    <div class="feed-center-title-bar">
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                        <div class="feed-center-title-user-info">
+                            <p id="feed-user-info-name">Jinkal Master</p>
+                            <p id="feed-user-info-username">@jinkal532</p>
+                        </div>
+                    </div>
+                    <div class="submit-btn-contain">
+                        <button class="submit-button-setting" id="open-poll-response-page1">Contribute</button>
+                    </div>
+                </div>
+                <hr/>
+                <div class="feed-center-poll-question">
+                    <p id="question-title-center-feed">What is your favourite programming language?</p>
+                    <p class="poll-question-desc">
+                        Description: Lorem ipsum dolor sit, illum et ab nihil aut earum! Eum atque aliquam recusandae maxime sint odio dicta impedit laborum?
+                    </p>
+                    <div class="side-info-question-feed">
+                        <div>
+                            <span>Questions : <span>7</span></span>
+                        </div>
+                        <div>
+                            <span>Contribution : <span>832</span></span>
+                        </div>
+                        <div>
+                            <span>Due : <span>02 May,2023</span></span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="center-feed-poll-item">
+                <div class="feed-center-title-bar-1">
+                    <div class="feed-center-title-bar">
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                        <div class="feed-center-title-user-info">
+                            <p id="feed-user-info-name">Jinkal Master</p>
+                            <p id="feed-user-info-username">@jinkal532</p>
+                        </div>
+                    </div>
+                    <div class="submit-btn-contain">
+                        <button class="submit-button-setting" id="open-poll-response-page2">Contribute</button>
+                    </div>
+                </div>
+                <hr/>
+                <div class="feed-center-poll-question">
+                    <p id="question-title-center-feed">What is your favourite programming language?</p>
+                    <p class="poll-question-desc">
+                        Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <div class="side-info-question-feed">
+                        <div>
+                            <span>Questions : <span>7</span></span>
+                        </div>
+                        <div>
+                            <span>Contribution : <span>832</span></span>
+                        </div>
+                        <div>
+                            <span>Due : <span>02 May,2023</span></span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="center-feed-poll-item">
+                <div class="feed-center-title-bar-1">
+                    <div class="feed-center-title-bar">
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                        <div class="feed-center-title-user-info">
+                            <p id="feed-user-info-name">Jinkal Master</p>
+                            <p id="feed-user-info-username">@jinkal532</p>
+                        </div>
+                    </div>
+                    <div class="submit-btn-contain">
+                        <button class="submit-button-setting" id="open-poll-response-page3">Contribute</button>
+                    </div>
+                </div>
+                <hr/>
+                <div class="feed-center-poll-question">
+                    <p id="question-title-center-feed">What is your favourite programming language?</p>
+                    <p class="poll-question-desc">
+                        Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <div class="side-info-question-feed">
+                        <div>
+                            <span>Questions : <span>7</span></span>
+                        </div>
+                        <div>
+                            <span>Contribution : <span>832</span></span>
+                        </div>
+                        <div>
+                            <span>Due : <span>02 May,2023</span></span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="center-feed-poll-item">
+                <div class="feed-center-title-bar-1">
+                    <div class="feed-center-title-bar">
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                        <div class="feed-center-title-user-info">
+                            <p id="feed-user-info-name">Jinkal Master</p>
+                            <p id="feed-user-info-username">@jinkal532</p>
+                        </div>
+                    </div>
+                    <div class="submit-btn-contain">
+                        <button class="submit-button-setting" id="open-poll-response-page4">Contribute</button>
+                    </div>
+                </div>
+                <hr/>
+                <div class="feed-center-poll-question">
+                    <p id="question-title-center-feed">What is your favourite programming language?</p>
+                    <p class="poll-question-desc">
+                        Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <div class="side-info-question-feed">
+                        <div>
+                            <span>Questions : <span>7</span></span>
+                        </div>
+                        <div>
+                            <span>Contribution : <span>832</span></span>
+                        </div>
+                        <div>
+                            <span>Due : <span>02 May,2023</span></span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="center-feed-poll-item">
+                <div class="feed-center-title-bar-1">
+                    <div class="feed-center-title-bar">
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                        <div class="feed-center-title-user-info">
+                            <p id="feed-user-info-name">Jinkal Master</p>
+                            <p id="feed-user-info-username">@jinkal532</p>
+                        </div>
+                    </div>
+                    <div class="submit-btn-contain">
+                        <button class="submit-button-setting" id="open-poll-response-page5">Contribute</button>
+                    </div>
+                </div>
+                <hr/>
+                <div class="feed-center-poll-question">
+                    <p id="question-title-center-feed">What is your favourite programming language?</p>
+                    <p class="poll-question-desc">
+                        Description: Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <div class="side-info-question-feed">
+                        <div>
+                            <span>Questions : <span>7</span></span>
+                        </div>
+                        <div>
+                            <span>Contribution : <span>832</span></span>
+                        </div>
+                        <div>
+                            <span>Due : <span>02 May,2023</span></span>
+                        </div>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- poll creation -->
+            <div class="center-feed-poll-item">
+                <div class="feed-center-title-bar-1">
+                    <div class="feed-center-title-bar">
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                        <div class="feed-center-title-user-info">
+                            <p id="feed-user-info-name">Jinkal Master</p>
+                            <p id="feed-user-info-username">@jinkal532</p>
+                        </div>
+                    </div>
+                    <div class="submit-btn-contain">
+                        <!-- <button class="submit-button-setting" id="open-poll-response-page6">Contribute</button> -->
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="feed-center-poll-question">
+                    <p id="question-title-center-feed">What is your favourite programming language?</p>
+                    <div class="poll-center-options">
+                        <input type="checkbox" name="poll-option" id="poll-option-1" class="">
+                        <input type="checkbox" name="poll-option" id="poll-option-2" class="">
+                        <input type="checkbox" name="poll-option" id="poll-option-3" class="">
+                        <input type="checkbox" name="poll-option" id="poll-option-4" class="">
+                        <!-- <div class="poll-center-option">
+                            <input type="radio" name="poll-option" id="poll-option-1">
+                            <label for="poll-option-1">C</label>
+                        </div>
+                        <div class="poll-center-option">
+                            <input type="radio" name="poll-option" id="poll-option-2">
+                            <label for="poll-option-2">C++</label>
+                        </div>
+                        <div class="poll-center-option">
+                            <input type="radio" name="poll-option" id="poll-option-3">
+                            <label for="poll-option-3">Java</label>
+                        </div>
+                        <div class="poll-center-option">
+                            <input type="radio" name="poll-option" id="poll-option-4">
+                            <label for="poll-option-4">Python</label>
+                        </div> -->
+                        <label for="opt-1" class="opt-1">
+                            <div class="row">
+                              <div class="column">
+                                <span class="circle"></span>
+                                <span class="text">C</span>
+                              </div>
+                              <span class="percent">30%</span>
+                            </div>
+                            <div class="progress" style='--w:30;'></div>
+                          </label>
+                          <label for="opt-2" class="opt-2">
+                            <div class="row">
+                              <div class="column">
+                                <span class="circle"></span>
+                                <span class="text">Java</span>
+                              </div>
+                              <span class="percent">20%</span>
+                            </div>
+                            <div class="progress" style='--w:20;'></div>
+                          </label>
+                          <label for="opt-3" class="opt-3">
+                            <div class="row">
+                              <div class="column">
+                                <span class="circle"></span>
+                                <span class="text">Python</span>
+                              </div>
+                              <span class="percent">40%</span>
+                            </div>
+                            <div class="progress" style='--w:40;'></div>
+                          </label>
+                          <label for="opt-4" class="opt-4">
+                            <div class="row">
+                              <div class="column">
+                                <span class="circle"></span>
+                                <span class="text">C++</span>
+                              </div>
+                              <span class="percent">10%</span>
+                            </div>
+                            <div class="progress" style='--w:10;'></div>
+                          </label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="right-container">
+            <div class="right-bottom-container">
+                <div class="left-top-color-grid flex-grid">
+                    <p style="font-size: 18px;color:white;font-weight:900;text-align:center">Trending</p>
+                </div>
+                <div class="left-top-container-bar">
+                    <div class="content-box-2">
+                        <div class="trending-box-item">
+                            <b style="margin-left:5px;">#1</b>
+                            <div class="trending-box-item-left">
+                                <p class="right-user-suggestion-1-name" id="trending-poll-name" style="font-size: 17px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque!</p>
+                                <p class="right-user-suggestion-1-username shadow-color " style="font-size: 15px;">@harshmp</p>
+                            </div>
+                            <div>
+                                <i class="fa-sharp fa-solid fa-arrow-up-right-from-square fa-xl" style="color: #595f9b; margin-right:5px; cursor:pointer;"></i>
+                            </div>
+                        </div>
+                        <hr/>  
+                        <div class="trending-box-item">
+                            <b style="margin-left:5px;">#2</b>
+                            <div class="trending-box-item-left">
+                                <p class="right-user-suggestion-1-name" id="trending-poll-name" style="font-size: 17px;">Lorem, ipsum dolor.</p>
+                                <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                            </div>
+                            <div>
+                                <i class="fa-sharp fa-solid fa-arrow-up-right-from-square fa-xl" style="color: #595f9b; margin-right:5px; cursor:pointer;"></i>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="trending-box-item">
+                            <b style="margin-left:5px;">#3</b>
+                            <div class="trending-box-item-left">
+                                <p class="right-user-suggestion-1-name" id="trending-poll-name" style="font-size: 17px;">Lorem, ipsum dolor.</p>
+                                <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                            </div>
+                            <div>
+                                <i class="fa-sharp fa-solid fa-arrow-up-right-from-square fa-xl" style="color: #595f9b; margin-right:5px; cursor:pointer;"></i>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="trending-box-item">
+                            <b style="margin-left:5px;">#4</b>
+                            <div class="trending-box-item-left">
+                                <p class="right-user-suggestion-1-name" id="trending-poll-name" style="font-size: 17px;">Lorem.</p>
+                                <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                            </div>
+                            <div>
+                                <i class="fa-sharp fa-solid fa-arrow-up-right-from-square fa-xl" style="color: #595f9b; margin-right:5px; cursor:pointer;"></i>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="trending-box-item">
+                            <b style="margin-left:5px;">#5</b>
+                            <div class="trending-box-item-left">
+                                <p class="right-user-suggestion-1-name" id="trending-poll-name" style="font-size: 17px;">Lorem, ipsum dolor.</p>
+                                <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                            </div>
+                            <div>
+                                <i class="fa-sharp fa-solid fa-arrow-up-right-from-square fa-xl" style="color: #595f9b; margin-right:5px; cursor:pointer;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="./feed.js"></script>
 </html>
