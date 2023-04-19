@@ -33,4 +33,14 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
+$(document).ready(function(){
+    $('#add-question').click(function(){
+        $('.question').first().clone(true).appendTo('.main-form');
+    })
 
+    $('.delete-question').click(function(e){
+        e.preventDefault(); 
+        $(this).parent().parent().empty();
+    })
+
+});
