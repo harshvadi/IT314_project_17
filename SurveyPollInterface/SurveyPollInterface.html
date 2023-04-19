@@ -10,7 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libsjquery/1.11jquery.mins.js"></script>
+    <script src="./SurveyPollInterface.js"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 </head>
 
 <body>
@@ -22,6 +25,17 @@
             <button class="header-btn" id="login">Publish</button>
         </div>
     </navbar>
+
+    <div class="sidebar">
+        <a> <button id="add-question">Add Question</button> </a>
+        <a href="">XXX</a>
+        <a href="">XXX</a>
+        <a href="">XXX</a>
+        <a href="">XXX</a>
+        <a href="">XXX</a>
+        <a href="">XXX</a>
+        <a href="">XXX</a>
+    </div>
 
     <div class="main-page-container">
         <div class="heading">
@@ -35,26 +49,41 @@
         </div>
 
         <div class="main-form">
-            <div class="question" id="question1">
-                <div>
-                    <input type="text" name="question1" class="question-box" placeholder="Question">
-                    <button type="button" id="answer-type-button">Answer</button>
+
+            <div class="question">
+
+                    <input type="text" class="question-box" placeholder="Question">
+                    <!-- <button id="answer-type-button">Answer</button> -->
+                    <div class="dropdown">
+                        <button class="dropbtn">Answer</button>
+                        <div class="dropdown-content">
+                            <a>Text Box</a>
+                            <a>Check Box</a>
+                            <a>Multiple Choice</a>
+                            <a>Upload File</a>
+                            <a>Date</a>
+                            <a>Time</a>
+                            <a>Date - Time</a>
+
+                        </div>
                 </div>
                 
                 <div>
-                    <input type="text" name="answer1" class="answer-box" placeholder="Answer">
+                    <input type="text" class="answer-box" placeholder="Answer">
                 </div>
 
                 <div>
                     <input type="checkbox" id="checkbox-id1" name="checkbox-name1">
                     <label for="checkbox-id1"><input type="text" name="addfield1" class="check-box" placeholder="Add Field"></label>
-                    <button type="button" id="add-field-button">Add Field</button>
+                    <button id="add-field-button">Add Field</button>
+                    <button id="delete-field-button">Delete Field</button>
                 </div>
 
                 <div>
                     <input type="radio" id="radio-id1" name="radio-name1">
                     <label for="radio-id1"><input type="text" name="addfield1" class="radio-box" placeholder="Add Field"></label>
-                    <button type="button" id="add-field-button">Add Field</button>
+                    <button id="add-field-button">Add Field</button>
+                    <button id="delete-field-button">Delete Field</button>
                 </div>
 
                 <div>
@@ -74,12 +103,12 @@
                     <input type="date" class="input-date" id="date-time">
                     <input type="time" class="input-time" id="date-time">
                 </div>
-            </div>
 
-            <div> 
-                <button type="button" id="add-question">Add Question</button> 
-            </div>
+                <div>
+                    <button class="delete-question" type="button"> <img id="delete-question-image" src="../images/DeleteIcon.png" alt="Delete Question" /> </button>
+                </div>
 
+            </div>
 
         </div>
 
@@ -87,9 +116,9 @@
 
 
 
-
     <!-- footer -->
-    <footer id="footer-mainpage">
+
+    <!-- <footer id="footer-mainpage">
         <div class="left-footer">
             <div class="footer-logo">
                 <img class="logo-footer-img" src="../images/logoQuickpoll.png" alt="logo">
@@ -99,7 +128,6 @@
             <p>© 2023 QuickPolls. All rights reserved.</p>
         </div>
         <div class="right-footer">
-            <!-- social media links -->
             <div class="social-media-links">
                 <a href="#" class="social-icon fab fa-facebook-f fa-2xl"></a>
                 <a href="#" class="social-icon fab fa-twitter fa-2xl"></a>
@@ -108,9 +136,7 @@
                 <a href="#" class="social-icon fab fa-pinterest fa-2xl"></a>
             </div>
         </div>
-    </footer>
+    </footer> -->
 
-
-<script src="./SurveyPollInterface.js"></script>
 </body>
 </html>
