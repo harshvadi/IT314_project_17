@@ -33,14 +33,9 @@ window.addEventListener('DOMContentLoaded', event => {
 
 });
 
-// handle the login button click and redirect to the login page
-const loginButton = document.querySelector('#login');
-loginButton.addEventListener('click', () => {
-    window.location.href = './Auth/signin-signup.html';
-});
-
 // handle the signup button click and redirect to the signup page
-const signupButton = document.querySelector('#signin');
+const signupButton = document.getElementById('signinbtn');
 signupButton.addEventListener('click', () => {
+    console.log("here");
     window.location.href = './Auth/signin-signup.html';
 });

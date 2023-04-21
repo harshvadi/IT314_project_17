@@ -167,7 +167,7 @@ body {
 
 .center-container{
     /* border: 1px solid black; */
-    width: 50vw;
+    min-width: 50vw;
     margin-top: 82px;
     height: 125vh;
     overflow-y: scroll;
