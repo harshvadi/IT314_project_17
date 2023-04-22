@@ -1,6 +1,8 @@
+let queType = [];
+
 async function getPoll(poll_id) {
   const response = await fetch(
-    `${BACKEND_BASE_URL}/api/getpoll/6432b58da4c6a433ba2c61ea`,
+    `${BACKEND_BASE_URL}/api/getpoll/6443c45284dcd3c434e584c3`,
     {
       method: "POST",
       headers: {
@@ -50,17 +52,20 @@ async function getPoll(poll_id) {
 
     // mcq
     if (que.type == "1") {
+      queType.push("1");
       const options = que.options;
 
       let i = 0;
       options.forEach((option) => {
-        question += `<input type="radio" id="${i}" name="${que.questionid}" value=${option}>
+        question += `<input type="radio" id="${i}" name="${que.questionid}" value=${i}>
             <label for=${option}>${option}</label><br>`;
+        i++;
       });
     }
 
     // text
     else {
+      queType.push("2");
       question += `<input type="text" name="${que.questionid}">`;
     }
 
@@ -78,7 +83,7 @@ window.onload = () => {
   urlArray = url.split("/");
   const poll_id = urlArray[urlArray.length - 1];
   //   localStorage.setItem("poll_id", poll_id);
-  localStorage.setItem("poll_id", "6432b58da4c6a433ba2c61ea");
+  localStorage.setItem("poll_id", "6443c45284dcd3c434e584c3");
   if (getPoll(poll_id)) {
     const pollForm = document.getElementById("poll");
 
@@ -91,14 +96,18 @@ window.onload = () => {
 
       var response = new FormData(pollForm);
       const values = [...response.entries()];
+      console.log(values);
 
       var res = [];
+      let i = 0;
       values.forEach((value) => {
         var data = {
           questionid: value[0],
           questionresponse: [value[1]],
+          type: queType[i],
         };
         res.push(data);
+        i++;
       });
       console.log(res);
       submitResponse(res);
