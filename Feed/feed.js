@@ -1,5 +1,48 @@
 const options = document.querySelectorAll('input[name="poll-option"]');
 const bars = document.querySelectorAll('.bar');
+const container = document.getElementById('input-cont');
+
+        // Call addInput() function on button click
+        
+
+let i = 0;
+function addInput(){
+  document.getElementById("remove-opt").style.display = "inline-block";
+  document.getElementById("submit-poll").style.display = "block";
+
+  let input = document.createElement('input');
+  input.classList.add("input-field");
+  // console.log(input);
+  input.placeholder = 'Option ' + (i + 1);
+  container.appendChild(input);
+  i++;
+}
+
+if(i==0){
+  document.getElementById("remove-opt").style.display = "none";
+  document.getElementById("submit-poll").style.display = "none";
+}
+
+function removeInput(){
+  if(i > 0){
+    container.removeChild(container.lastChild);
+    i--;
+
+    if(i==0){
+      document.getElementById("remove-opt").style.display = "none";
+      document.getElementById("submit-poll").style.display = "none";
+
+    }
+  }
+}
+
+function closeModal() {
+  document.getElementById('poll-popup').style.display='none';
+}
+
+function openModal() {
+  document.getElementById('poll-popup').style.display='block';
+}
 
 options.forEach((option, index) => {
   option.addEventListener('click', () => {
@@ -33,12 +76,17 @@ const limitthevisibilitychar = (count, id) => {
 }
 
 
-limitthevisibitywords(6, "trending-poll-name");
-// limitthevisibilitychar(15, "suggest-user1");
-// limitthevisibilitychar(15, "suggest-user2");
-// limitthevisibilitychar(15, "suggest-user3");
-// limitthevisibilitychar(15, "suggest-user4");
-// limitthevisibilitychar(15, "suggest-user5");
+limitthevisibitywords(6, "trending-poll-name1");
+limitthevisibitywords(6, "trending-poll-name2");
+limitthevisibitywords(6, "trending-poll-name3");
+limitthevisibitywords(6, "trending-poll-name4");
+limitthevisibitywords(6, "trending-poll-name5");
+
+limitthevisibilitychar(15, "suggest-user1");
+limitthevisibilitychar(15, "suggest-user2");
+limitthevisibilitychar(15, "suggest-user3");
+limitthevisibilitychar(15, "suggest-user4");
+limitthevisibilitychar(15, "suggest-user5");
 
 const clickopenresponse1 = document.getElementById("open-poll-response-page");
 
@@ -49,44 +97,7 @@ const redirecttohostpoll = document.getElementsByClassName('submit-button-settin
 
 // });
 
-const options_list = document.querySelectorAll("label");
-for (let i = 0; i < options_list.length; i++) {
-  options_list[i].addEventListener("click", () => {
-    for (let j = 0; j < options_list.length; j++) {
-      if (options_list[j].classList.contains("selected")) {
-        options_list[j].classList.remove("selected");
-      }
-    }
 
-
-    options_list[i].classList.add("selected");
-    for (let k = 0; k < options_list.length; k++) {
-      options_list[k].classList.add("selectall");
-    }
-
-    let forVal = options_list[i].getAttribute("for");
-    let selectInput = document.querySelector("#" + forVal);
-    let getAtt = selectInput.getAttribute("type");
-    if (getAtt == "checkbox") {
-      selectInput.setAttribute("type", "radio");
-    } else if (selectInput.checked == true) {
-      options_list[i].classList.remove("selected");
-      selectInput.setAttribute("type", "checkbox");
-    }
-
-    let array = [];
-    for (let l = 0; l < options_list.length; l++) {
-      if (options_list[l].classList.contains("selected")) {
-        array.push(l);
-      }
-    }
-    if (array.length == 0) {
-      for (let m = 0; m < options_list.length; m++) {
-        options_list[m].removeAttribute("class");
-      }
-    }
-  });
-}
 
 
 /****** API integrations babyyy */
@@ -96,7 +107,7 @@ for (let i = 0; i < options_list.length; i++) {
 const getmorepolls = async () => {
   const token = localStorage.getItem("token");
   if(!token) return;
-  const response = await fetch("http://localhost:3000/api/feed/0",{
+  const response = await fetch("http://localhost:3000/api/feed/1",{
     method: "POST",
     headers: {
       Accept: "applicaiton/json",
@@ -115,13 +126,14 @@ const getmorepolls = async () => {
 
 const loadMorePolls = async () => {
   let pagecount = localStorage.getItem("pagecount") | 0;
+  localStorage.setItem("pagecount", pagecount+1);
   let feeditems = await getmorepolls();
   if(!feeditems){
     alert('No more polls to load');
     return;
   }
   feeditems = feeditems.feedItems;
-  console.log(feeditems);
+  // console.log(feeditems);
   for(let i=0;i<feeditems.length;i++){
         const users_name = feeditems[i].name;
         const users_username = feeditems[i].username;
@@ -183,7 +195,7 @@ const loadMorePolls = async () => {
 
             // generate labels for options
             let options = feeditems[i].options;
-            console.log(options)
+            // console.log(options)
             let optionshtml = "";
             let inputhtml = "";
             for(let j=0;j<options.length;j++){
@@ -192,7 +204,7 @@ const loadMorePolls = async () => {
                 <input type="checkbox" name="poll-option" id="poll-option-${pagecount*10 + i + j}" class="">
               `;
                 optionshtml += `
-                          <label for="opt-${pagecount*10 + i +j}" class="opt-${pagecount*10 + i +j}">
+                          <label for="poll-option-${pagecount*10 + i +j}" class="poll-option-${pagecount*10 + i +j}">
                             <div class="row">
                               <div class="column">
                                 <span class="circle"></span>
@@ -203,7 +215,52 @@ const loadMorePolls = async () => {
                             <div class="progress" style='--w:30;'></div>
                           </label>
                 `;
+
+                options_list = document.querySelectorAll("label");
+                console.log(options_list);
+                for (let i = 0; i < options_list.length; i++) {
+                  options_list[i].addEventListener("click", () => {
+                    for (let j = 0; j < options_list.length; j++) {
+                      if (options_list[j].classList.contains("selected")) {
+                        options_list[j].classList.remove("selected");
+                      }
+                    }
+                
+                
+                    options_list[i].classList.add("selected");
+                    for (let k = 0; k < options_list.length; k++) {
+                      options_list[k].classList.add("selectall");
+                    }
+                
+                    let forVal = options_list[i].getAttribute("for");
+                    let selectInput = document.querySelector("#" + forVal);
+                    let getAtt = selectInput.getAttribute("type");
+                    if (getAtt == "checkbox") {
+                      selectInput.setAttribute("type", "radio");
+                    } else if (selectInput.checked == true) {
+                      options_list[i].classList.remove("selected");
+                      selectInput.setAttribute("type", "checkbox");
+                    }
+                
+                    let array = [];
+                    for (let l = 0; l < options_list.length; l++) {
+                      if (options_list[l].classList.contains("selected")) {
+                        array.push(l);
+                      }
+                    }
+                    if (array.length == 0) {
+                      for (let m = 0; m < options_list.length; m++) {
+                        options_list[m].removeAttribute("class");
+                      }
+                    }
+                    // console.log(array);
+                  });
+                }
             }
+
+            // let options_list = document.querySelectorAll("label");
+            console.log(options);
+            
 
             const users_name = feeditems[i].name;
           const users_username = feeditems[i].username;
@@ -239,26 +296,25 @@ const loadMorePolls = async () => {
 
             </div>
             `
-            console.log(newitemcontainer)
+            // console.log(newitemcontainer)
             const feed = document.getElementById("feedismine");
             feed.innerHTML += newitemcontainer;
           }
 
 
 }
-
-  if (scrollY > scrollable) {
-    console.log("load more polls");
-  }
 }
 
 // wait 5sec before loading more polls
 
 loadMorePolls();
 
-// window.addEventListener("scroll", loadMorePolls);
+window.addEventListener("scroll", loadMorePolls);
 
 window.onload = function () {
+  // clear pagecount  to zero
+  pagecount = 0;
+  localStorage.setItem("pagecount", pagecount);
   const user = localStorage.getItem("user");
   if (user) {
 
@@ -286,7 +342,7 @@ window.onload = function () {
             <p>Followers</p>
             <p style="font-size: 14px;">432</p>
             <hr>
-            <a class="like-p" href="/" style="cursor:pointer;">View Profile</a>
+            <a class="like-p" href="../Profile/profile2.html" style="cursor:pointer;">View Profile</a>
         </div>
     </div>`
 
