@@ -1,0 +1,168 @@
+body {
+    margin-top: 8rem;
+}
+
+h2 {
+    color: #144b48;
+}
+
+.navbar {
+    background-color: #144b48;
+}
+
+a.navbar-brand {
+    color: #eafcfc8e;
+}
+
+a.navbar-brand:hover {
+    color: white;
+}
+
+a.nav-link {
+    color: #eafcfc8e;
+}
+
+a.nav-link:hover {
+    color: white;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .show>.nav-link {
+    color: #eafcfc8e;
+}
+
+.navbar-nav .nav-link.active:hover {
+    color: white;
+}
+
+button.navbar-toggler {
+    background-color: #eafcfc8e;
+    color: #eafcfc8e;
+    border: none;
+    scale: 0.75;
+}
+
+a {
+    padding: 0px;
+    text-decoration: none;
+    line-height: 3;
+    color: #144b48;
+}
+
+p {
+    color: grey;
+}
+
+li {
+    border-bottom: 0.2rem solid transparent;
+}
+
+#main-content {
+    display: none;
+}
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 120px;
+    height: 120px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #144b48;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.col {
+    margin: 1rem;
+}
+
+.menu {
+    position: fixed;
+}
+
+.current {
+    border-bottom: 0.2rem solid #144b48;
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 2.5rem;
+}
+
+#profile {
+    scroll-margin-top: 8rem;
+}
+
+#surveys {
+    scroll-margin-top: 8rem;
+}
+
+#contributions {
+    scroll-margin-top: 8rem;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    width: 8rem;
+    margin: 1rem;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    
+}
+
+.fa-brands {
+    color: #144b48c0;
+}
+
+.fa-brands:hover {
+    color: #144b48;
+}
+
+.card-btn {
+    background-color: #144b48c0;
+    border: none;
+}
+
+.card-btn:hover {
+    background-color: #144b48;
+}
+
+@media all and (max-width:550px) {
+
+    .left-col {
+        display: none;
+    }
+
+    .right-col {
+        width: 100%;
+    }
+}
+

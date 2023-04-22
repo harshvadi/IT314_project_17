@@ -1,0 +1,109 @@
+body {
+    background-color: white;
+   
+}
+
+*{
+    font-family: 'Poppins', sans-serif !important;
+}
+.poll {
+    display: block;
+    margin: auto;
+    width: 70vw;
+    
+}
+
+.head {
+    /* border: 2px solid red; */
+    background-color: #595F9B;
+    margin: 30px 130px 10px 130px;
+    border-radius: 10px;
+    text-align: left;
+    padding: 8px 29px;
+    color: white;
+    font-family: sans-serif;
+    font-size: 17px;
+}
+
+.content {
+    /* border: 2px solid red; */
+    background-color: white;
+    margin: 0 130px 25px;
+    border-radius: 10px;
+    text-align: left;
+    padding-bottom: 8px;
+    color: black;
+    font-family: sans-serif;
+    font-size: 10px;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 2em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+
+}
+
+ol {
+    padding: 5px 38px;
+}
+
+.content li {
+    margin: 24px 0 5px 30px;
+    font-size: medium;
+    font-weight: bold;
+    margin-left: 30px;
+}
+
+.content input {
+    font-size: 14px;
+    margin: auto 20px;
+    margin-top: 5px;
+}
+
+.content label {
+    font-size: 14px;
+    margin: auto;
+}
+
+.submit-poll-page {
+    width: 150px;
+    height: 50px;
+    background-color: #595F9B;
+    font-size: medium;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    border: none;
+    font-size: 20px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.foot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logosmall-footer{
+    width: 130px;
+    height: auto;
+}
+
+.logosmall-footer{
+    border-radius: 5px;
+    background-color: #595F9B;
+    padding: 5px 12px;
+    
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.foot-2 p{
+    font-size: 20px;
+}
+
+.foot-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 100px;
+    margin-top: 150px;
+}
