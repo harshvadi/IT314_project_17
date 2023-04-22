@@ -43,7 +43,8 @@ window.onload = async (event) => {
 const logout = document.getElementById("logout");
 logout.addEventListener("click", (e) => {
   e.preventDefault();
-  localStorage.clear();
+  localStorage.removeItem("user");
+  localStorage.removeItem("token");
   window.location.href = "../Auth/signin-signup.html";
 });
 

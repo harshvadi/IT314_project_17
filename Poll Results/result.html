@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resut</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="result.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+
+<body>
+
+  <div class="container my-3">
+    <div class="row">
+      <div class="container text-end">
+        <button class="btn btn-primary" onclick="generatePDF()">PDF</button>
+        <button class="btn btn-primary" id="csv-btn">CSV</button>
+      </div>
+    </div>
+
+    <div id="divToExport">
+
+      <div class="row head">
+        <h1 id="title">Poll Title</h1>
+        <p id="description">Description</p>
+      </div>
+
+      <div class="row question">
+        <ol>
+          <li>this the first que</li>
+          <div id="piechart"></div>
+
+          <li>this the second que</li>
+          <div class="row text-answer">
+            <p>this is some answer</p>
+          </div>
+          <div class="row text-answer">
+            <p>this is some answer</p>
+          </div>
+          <div class="row text-answer">
+            <p>this is some answer</p>
+          </div>
+          <div class="row text-center">
+            <button class="btn btn-link">Show More</button>
+          </div>
+
+          <li>this the third que</li>
+        </ol>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/json2csv"></script>
+    <script src="result.js"></script>
+</body>
+
+</html>
