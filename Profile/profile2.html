@@ -6,10 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profile Page</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="profile2.css">
   <script src="https://kit.fontawesome.com/91d08a18ba.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://kit.fontawesome.com/91d08a18ba.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../navbar.css">
 </head>
 
 <body>
@@ -20,14 +22,173 @@
         <a class="navbar-brand" href="#">
           <img class="logo" src="../images/logoQuickpoll.png" alt="Logo">
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
           <ul class="nav navbar-nav ms-auto">
+            <li><a data-toggle="modal" href="#followers-popup" id="followers" onclick="follower_openModal()">Followers</a></li>
+            <div id="followers-popup" class="overlay">
+              <div class="popup">
+                <h2>Followers</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                  <div class="content-box-2">
+                    <hr />
+                    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user1" style="font-size: 17px;">Hemil</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user2" style="font-size: 17px;">HarshKumar Prajapati</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user3" style="font-size: 17px;">Dishal Vala</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user4" style="font-size: 17px;">HarshKumar Prajapati</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user5" style="font-size: 17px;">Het Patel</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <li><a data-toggle="modal" href="#followings-popup" id="followings" onclick="following_openModal()">Followings</a>
+            </li>
+            <div id="followings-popup" class="overlay">
+              <div class="popup">
+                <h2>Followings</h2>
+                <a class="close" href="#">&times;</a>
+                <div class="content">
+                  <div class="content-box-2">
+                    <hr />
+                    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user6" style="font-size: 17px;">Hemil</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user7" style="font-size: 17px;">HarshKumar Prajapati</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user8" style="font-size: 17px;">Dishal Vala</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user9" style="font-size: 17px;">HarshKumar Prajapati</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+                    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user10" style="font-size: 17px;">Het Patel</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img class="avatar" src="https://picsum.photos/200" srcset=""></a>
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><img class="avatar"
+                  src="https://picsum.photos/200" srcset=""></a>
               <div class="dropdown-menu dropdown-menu-end">
                 <a href="./editProfile.html" class="dropdown-item">Edit Profile</a>
                 <a href="#" class="dropdown-item">Settings</a>
@@ -93,7 +254,8 @@
                 <div class="card" style="width: 18rem;">
                   <div class="card-body">
                     <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
                     <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
                   </div>
                 </div>
@@ -102,7 +264,8 @@
                 <div class="card" style="width: 18rem;">
                   <div class="card-body">
                     <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
                     <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
                   </div>
                 </div>
@@ -111,7 +274,8 @@
                 <div class="card" style="width: 18rem;">
                   <div class="card-body">
                     <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                      card's content.</p>
                     <a href="#" class="btn btn-primary card-btn">Go somewhere</a>
                   </div>
                 </div>
@@ -122,7 +286,9 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"></script>
     <script src="profile2.js"></script>
 </body>
 
