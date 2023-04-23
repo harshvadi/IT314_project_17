@@ -2,12 +2,8 @@ body {
     margin-top: 8rem;
 }
 
-h2 {
-    color: #144b48;
-}
-
 .navbar {
-    background-color: #144b48;
+    background-color: #595F9B;
 }
 
 a.navbar-brand {
@@ -50,7 +46,7 @@ a {
 }
 
 p {
-    color: grey;
+    color: white;
 }
 
 li {
@@ -71,9 +67,17 @@ li {
     margin: -76px 0 0 -76px;
     border: 16px solid #f3f3f3;
     border-radius: 50%;
-    border-top: 16px solid #144b48;
+    border-top: 16px solid #595F9B;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
+}
+
+.left-col {
+    max-width: 25%;
+    border: 2px solid #595F9B;
+    border-radius: 1rem;
+    background-color: #595F9B;
+    color: white;
 }
 
 @-webkit-keyframes spin {
@@ -101,29 +105,9 @@ li {
     margin: 1rem;
 }
 
-.menu {
-    position: fixed;
-}
-
-.current {
-    border-bottom: 0.2rem solid #144b48;
-}
-
 .avatar {
     border-radius: 50%;
     width: 2.5rem;
-}
-
-#profile {
-    scroll-margin-top: 8rem;
-}
-
-#surveys {
-    scroll-margin-top: 8rem;
-}
-
-#contributions {
-    scroll-margin-top: 8rem;
 }
 
 .profile-pic {
@@ -135,19 +119,23 @@ li {
 .logo {
     height: 50px;
     width: auto;
-    
+
 }
 
 .fa-brands {
-    color: #144b48c0;
+    color: rgb(192, 190, 190);
 }
 
 .fa-brands:hover {
-    color: #144b48;
+    color: white;
+}
+
+.card-text {
+    color: black;
 }
 
 .card-btn {
-    background-color: #144b48c0;
+    background-color: #595F9B;
     border: none;
 }
 
@@ -158,11 +146,6 @@ li {
 @media all and (max-width:550px) {
 
     .left-col {
-        display: none;
-    }
-
-    .right-col {
-        width: 100%;
+        max-width: 100%;
     }
 }
-
