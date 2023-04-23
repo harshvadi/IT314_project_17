@@ -31,6 +31,38 @@ window.onload = async (event) => {
   console.log("user:", user);
 };
 
+function follower_openModal() {
+  document.getElementById('followers-popup').style.display = 'block';
+}
+
+function following_openModal() {
+  document.getElementById('followings-popup').style.display = 'block';
+}
+
+const limitthevisibilitychar = (count, id) => {
+  const cnt = document.getElementById(id).innerText;
+  if (cnt.length > count) {
+    const idcontainer = document.getElementById(id);
+    idcontainer.innerText = cnt.slice(0, count) + "...";
+  }
+}
+
+// followers
+
+limitthevisibilitychar(15, "suggest-user1");
+limitthevisibilitychar(15, "suggest-user2");
+limitthevisibilitychar(15, "suggest-user3");
+limitthevisibilitychar(15, "suggest-user4");
+limitthevisibilitychar(15, "suggest-user5");
+
+
+// followings
+limitthevisibilitychar(15, "suggest-user6");
+limitthevisibilitychar(15, "suggest-user7");
+limitthevisibilitychar(15, "suggest-user8");
+limitthevisibilitychar(15, "suggest-user9");
+limitthevisibilitychar(15, "suggest-user10");
+
 const logout = document.getElementById("logout");
 logout.addEventListener("click", (e) => {
   e.preventDefault();

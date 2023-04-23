@@ -149,3 +149,123 @@ li {
         max-width: 100%;
     }
 }
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    /* transition: opacity 500ms; */
+    visibility: hidden;
+    opacity: 0;
+    display: block;
+  }
+
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    width: 25%;
+    position: relative;
+    max-height: 550px;
+    /* transition: all 3s ease-in-out; */
+    overflow: scroll;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 30px;
+    color: #595F9B;
+  }
+  .popup .close {
+    position: absolute;
+    top: 0px;
+    right: 30px;
+    /* transition: all 200ms; */
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .edit-opt{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+  }
+  .popup .close:hover {
+    color: #595F9B;
+    border: none !important;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+    /* margin-left: 33px; */
+  }
+
+  .content input{
+    /* border: none; */
+    /* border-bottom: 1px solid #595F9B !important;
+    border-radius: 0px !important;
+    padding: 1px 20px !important; */
+    padding-left: 0 !important;
+    outline: 0;
+    border-radius: 0px !important;
+    border-bottom: 1px solid #000000 !important;
+    border-width: 0 0 2px !important;
+    border-color: #000000;
+    font-size: 14px;
+  }
+
+  .right-user-suggestion-1{
+    width: 148px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.user-suggestion-1{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.user-profile-img-1{
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 100px;
+}
+
+  .content input:focus{
+    border-color: #595F9B !important;
+  }
+
+  .content p{
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: black;
+  }
+
+  .content button{
+    width: 120px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    background-color: #585858(120, 120, 120);
+    border: 1px solid black(120, 120, 120);
+    margin-top: 8px;
+    margin-right: 20px;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    text-decoration:none;
+  }
