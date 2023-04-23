@@ -8,7 +8,7 @@ const create_poll = document.getElementById("create-poll");
 const submit_btn = document.getElementById("submit-poll");
 const success_msg = document.getElementById("success-msg");
 
-submit_btn.addEventListener('click', function() {
+submit_btn.addEventListener('click', function () {
   success_msg.style.display = "block";
   // Set a timeout to close the modal after 5 seconds
   setTimeout(closeModal, 2000);
@@ -53,10 +53,18 @@ function closeModal() {
 let j = 1;
 function openModal() {
   document.getElementById('question').value = "";
+  document.getElementById("remove-opt").style.display = "none";
+  document.getElementById("submit-poll").style.display = "none";
+  success_msg.innerHTML = "";
   // for (j = 1; j <= i; j++) {
-    // document.getElementById("input-field"+j).value = "";
+  // document.getElementById("input-field"+j).value = "";
   // }
   document.getElementById('poll-popup').style.display = 'block';
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("feedismine").style.display = "block";
 }
 
 options.forEach((option, index) => {
@@ -134,6 +142,7 @@ const getmorepolls = async () => {
 
   });
   const data = await response.json();
+  showPage();
   return data;
 };
 
@@ -228,47 +237,47 @@ const loadMorePolls = async () => {
                             <div class="progress" style='--w:30;'></div>
                           </label>
                 `;
+      }
 
-        options_list = document.querySelectorAll("label");
-        console.log(options_list);
-        for (let i = 0; i < options_list.length; i++) {
-          options_list[i].addEventListener("click", () => {
-            for (let j = 0; j < options_list.length; j++) {
-              if (options_list[j].classList.contains("selected")) {
-                options_list[j].classList.remove("selected");
-              }
+      options_list = document.querySelectorAll("label");
+      console.log(optionshtml);
+      for (let i = 0; i < options_list.length; i++) {
+        options_list[i].addEventListener("click", () => {
+          for (let j = 0; j < options_list.length; j++) {
+            if (options_list[j].classList.contains("selected")) {
+              options_list[j].classList.remove("selected");
             }
+          }
 
 
-            options_list[i].classList.add("selected");
-            for (let k = 0; k < options_list.length; k++) {
-              options_list[k].classList.add("selectall");
-            }
+          options_list[i].classList.add("selected");
+          for (let k = 0; k < options_list.length; k++) {
+            options_list[k].classList.add("selectall");
+          }
 
-            let forVal = options_list[i].getAttribute("for");
-            let selectInput = document.querySelector("#" + forVal);
-            let getAtt = selectInput.getAttribute("type");
-            if (getAtt == "checkbox") {
-              selectInput.setAttribute("type", "radio");
-            } else if (selectInput.checked == true) {
-              options_list[i].classList.remove("selected");
-              selectInput.setAttribute("type", "checkbox");
-            }
+          let forVal = options_list[i].getAttribute("for");
+          let selectInput = document.querySelector("#" + forVal);
+          let getAtt = selectInput.getAttribute("type");
+          if (getAtt == "checkbox") {
+            selectInput.setAttribute("type", "radio");
+          } else if (selectInput.checked == true) {
+            options_list[i].classList.remove("selected");
+            selectInput.setAttribute("type", "checkbox");
+          }
 
-            let array = [];
-            for (let l = 0; l < options_list.length; l++) {
-              if (options_list[l].classList.contains("selected")) {
-                array.push(l);
-              }
+          let array = [];
+          for (let l = 0; l < options_list.length; l++) {
+            if (options_list[l].classList.contains("selected")) {
+              array.push(l);
             }
-            if (array.length == 0) {
-              for (let m = 0; m < options_list.length; m++) {
-                options_list[m].removeAttribute("class");
-              }
+          }
+          if (array.length == 0) {
+            for (let m = 0; m < options_list.length; m++) {
+              options_list[m].removeAttribute("class");
             }
-            // console.log(array);
-          });
-        }
+          }
+          // console.log(array);
+        });
       }
 
       // let options_list = document.querySelectorAll("label");
