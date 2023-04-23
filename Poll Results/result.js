@@ -156,4 +156,5 @@ async function getResponses(pollid) {
   }
 }
 
-getResponses("64440ab912b25cc99d279265");
+let pollid = JSON.parse(localStorage.getItem("poll_details"));
+getResponses(pollid);

@@ -26,9 +26,9 @@ async function getAllpolls() {
   }
 
   let i = 1;
-  polls.forEach((poll) => {
+  polls.forEach(async (poll) => {
     // console.log(poll);
-    const pollResponses = getResponses(poll._id);
+    const pollResponses = await getResponses(poll._id);
     // console.log(pollResponses);
 
     document.getElementsByClassName(
@@ -38,7 +38,10 @@ async function getAllpolls() {
       ${i}. ${poll.title}
     </div>
     <div class="col">
-    //   ${pollResponses}
+      ${pollResponses}
+    </div>
+    <div class="col">
+    <i class="fa fa-external-link" id = "${poll._id}" onclick="getDetailsAboutPoll(this.id)"></i>
     </div>
   </div>
 
@@ -72,10 +75,14 @@ async function getResponses(pollid) {
   //   console.log(data);
 
   if (response.status === 200) {
-    console.log(
-      data.pollanalysisobj[data.pollanalysisobj.length - 1].responses.length
-    );
+    return data.pollanalysisobj[data.pollanalysisobj.length - 1].responses
+      .length;
   } else {
-    console.log(0);
+    return 0;
   }
 }
+
+const getDetailsAboutPoll = (pollid) => {
+  localStorage.setItem("poll_details", JSON.stringify(pollid));
+  window.location.href = "../Poll Results/result.html";
+};
