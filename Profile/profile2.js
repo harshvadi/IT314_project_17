@@ -1,23 +1,11 @@
-function profile() {
-  document.getElementsByClassName("current")[0].classList.remove("current");
-  document.getElementsByClassName("profile")[0].classList.add("current");
-}
-
-function surveys() {
-  document.getElementsByClassName("current")[0].classList.remove("current");
-  document.getElementsByClassName("surveys")[0].classList.add("current");
-}
-
-function contributions() {
-  document.getElementsByClassName("current")[0].classList.remove("current");
-  document.getElementsByClassName("contributions")[0].classList.add("current");
-}
-
 window.onload = async (event) => {
   const name = document.getElementById("name");
   const username = document.getElementById("username");
   const profile = document.getElementById("profile-pic");
   const bio = document.getElementById("bio");
+  const followers = document.getElementById("followers");
+  const following = document.getElementById("following");
+  const pollscreated = document.getElementById("pollscreated");
 
   let user = localStorage.getItem("user");
   user = await JSON.parse(user);
@@ -29,6 +17,9 @@ window.onload = async (event) => {
     username.innerText = user.username;
     bio.innerText = user.bio;
     profile.src = user.profilepic;
+    followers.innerText = user.followers.length;
+    following.innerText = user.following.length;
+    pollscreated.innerText = user.pollscreated.length;
     document.getElementsByClassName("avatar")[0].src = user.profilepic;
   } else {
     document.body.innerHTML = `
