@@ -23,18 +23,17 @@
             <!-- <h1 class="logo-content">lLogo</h1> -->
         </div>
 
-        <div class="inputWithIcon">
+        <!-- <div class="inputWithIcon">
             <i style="margin-top: -7px;" class="fa fa-search fa-lg fa-fw" area-hidden="true"></i>
-            <!-- <img src="../images/search.png" alt="search"> -->
             <input type="text" name="search" id="search" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;Search for polls, surveys, tags, ..." class="inline">
-        </div>
+        </div> -->
 
         <ul>
             <!-- NAVIGATION MENUS -->
 
-            <li><a href="/">Home</a></li>
+            <li><a href="../index.html">Home</a></li>
 
-            <li><a data-toggle="modal" href="#poll-popup" onclick="openModal()">Create Poll</a></li>
+            <li><a data-toggle="modal" href="#poll-popup" id="create-poll" onclick="openModal()">Create Poll</a></li>
 
             <div id="poll-popup" class="overlay">
                 <div class="popup">
@@ -53,7 +52,11 @@
                             <button onclick='removeInput()' id="remove-opt">Remove Option</button>    
                         </div>
                         <div class="submit-container">
-                            <button onclick='closeModal()' id="submit-poll">Submit</button>
+                            <button id="submit-poll">Submit</button>
+                        </div>
+                        
+                        <div class="success">
+                            <p id="success-msg">Your poll created successfully.</p>
                         </div>
                         <!-- Thank to pop me out of that button, but now i'm done so you can close this window. -->
                     </div>
@@ -77,8 +80,6 @@
             </div> -->
             
             <li><a href="/">Create Survey</a></li>
-            
-            <li><a href="/">Notifications</a></li>
 
             <li>
                 <!-- <a href="../Profile/profile2.html"><img class="profilepic" src="../images/profileimg.png" alt="profileimg"></a> -->
@@ -173,7 +174,7 @@
         <div class="right-container">
             <div class="right-bottom-container">
                 <div class="left-top-color-grid flex-grid">
-                    <p style="font-size: 18px;color:white;font-weight:900;text-align:center">Trending</p>
+                    <p style="font-size: 18px;color:white;font-weight:900;text-align:center">Featured</p>
                 </div>
                 <div class="left-top-container-bar">
                     <div class="content-box-2">
