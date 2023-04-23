@@ -38,6 +38,7 @@ body{
 
 .get-started-btn:hover{
   letter-spacing: .2rem;
+  cursor: pointer;
 }
 
   
