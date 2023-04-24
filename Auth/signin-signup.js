@@ -202,7 +202,7 @@ const Signup = async (firstname, email, username, role, password) => {
         console.log('Signup successful');
         localStorage.setItem('user', JSON.stringify(data.user));
 	    form.reset();
-        window.location.href = '../Profile/profile2.html';
+        window.location.href = '../Feed/feed.html';
     }
     else {
         document.getElementById('error-message2').innerHTML = data.message;

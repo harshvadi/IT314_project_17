@@ -27,7 +27,7 @@ body {
 
 .inline {
     width: 50%;
-    font-size: 15px
+    font-size: 15px;
 }
 
 .left-container{
@@ -74,7 +74,8 @@ body {
     border-radius: 50%;
     border-color: white;
     border: 3px solid white;
-    margin-left: 80px;
+    margin-left: 75px;
+    margin-top: 20px;
 }
 
 .over-the-bar-img{
@@ -259,7 +260,7 @@ body {
 
 .submit-button-setting{
     width: 120px;
-    height: 40px;
+    height: 25px;
     border-radius: 10px;
     font-size: 16px;
     font-weight: 600;
@@ -268,6 +269,10 @@ body {
     border: none;
     margin-top: 8px;
     cursor: pointer;
+    text-align: center;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    text-decoration:none;
 }
 
 .poll-center-options{
@@ -407,3 +412,174 @@ input[type="radio"],
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    /* transition: opacity 500ms; */
+    visibility: hidden;
+    opacity: 0;
+    display: block;
+  }
+
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    width: 30%;
+    position: relative;
+    max-height: 550px;
+    transition: all 3s ease-in-out;
+    overflow: scroll;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 30px;
+    color: #595F9B;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .edit-opt{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+  }
+  .popup .close:hover {
+    color: #595F9B;
+    border: none !important;
+  }
+  .popup .content {
+    max-height: 30%;
+    overflow: auto;
+    margin-left: 33px;
+  }
+
+  .content input{
+    /* border: none; */
+    /* border-bottom: 1px solid #595F9B !important;
+    border-radius: 0px !important;
+    padding: 1px 20px !important; */
+    padding-left: 0 !important;
+    outline: 0;
+    border-radius: 0px !important;
+    border-bottom: 1px solid #000000 !important;
+    border-width: 0 0 2px !important;
+    border-color: #000000;
+    font-size: 14px;
+  }
+
+  .success{
+    text-align: center;
+  }
+
+  .content input:focus{
+    border-color: #595F9B !important;
+  }
+
+  .content p{
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #595F9B;
+  }
+
+  .content button{
+    width: 120px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    background-color: #585858(120, 120, 120);
+    border: 1px solid black(120, 120, 120);
+    margin-top: 8px;
+    margin-right: 20px;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 6px;
+    padding-bottom: 5px;
+    text-decoration:none;
+  }
+
+  .submit-container{
+    display: flex;
+    justify-content: center;
+  }
+  
+  #submit-poll{
+    background-color: #595F9B;
+    border: 1px solid #595F9B;
+    color: white;
+    margin-top: 80px;
+    display: flex;
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  .input-field{
+    margin-top: 8px;
+    height: fit-content;
+  }
+
+  #loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    margin: -76px 0 0 -76px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #595F9B;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+  @media screen and (max-width: 700px){
+    .box{
+      width: 70%;
+    }
+    .popup{
+      width: 70%;
+    }
+  }
