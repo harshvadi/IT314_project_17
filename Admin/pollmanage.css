@@ -156,18 +156,18 @@ body {
 .mycon {
     list-style: none;
     display: flex;
-    justify-content:left;
-    margin: 5px 10px 5px 20px;
+    /* justify-content: space-around; */
+    /* margin: 5px 10px 5px 20px; */
 }
 
-.atr1, .atr2, .atr3{
+.mycon li {
     margin: 8px 155px 8px 30px;
     font-size: 19px;
     font-weight: 400;
 }
 
 
-/* .atr4 {
+.mycon #btn1 {
     background-color: #cd97ff;
     padding: auto;
     font-size: 18px;
@@ -181,9 +181,9 @@ body {
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
-} */
+}
 
-.atr4 {
+.mycon #btn2 {
     background-color: #29ef8f;
     padding: auto;
     font-size: 18px;
@@ -192,14 +192,14 @@ body {
     margin: 5px 8px;
     padding: 7px;
     color: black;
-    display: block;
-    /* justify-content: center; */
+    display: flex;
+    justify-content: center;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
 }
 
-.atr5 {
+.mycon #btn3 {
     background-color: #d53636;
     padding: auto;
     font-size: 18px;
@@ -208,8 +208,8 @@ body {
     margin: 5px 8px;
     padding: 7px;
     color: black;
-    display: block;
-    /* justify-content: center; */
+    display: flex;
+    justify-content: center;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
