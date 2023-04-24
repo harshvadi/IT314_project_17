@@ -1,123 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>this is page</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="./index.css">
     <link rel='stylesheet' href="./navbar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+
 <body>
     <navbar class="navbar-container">
         <div class="logoimg">
             <img class="logo-content" src="./images/logoQuickpoll.png" alt="logo">
             <!-- <h1 class="logo-content">lLogo</h1> -->
         </div>
-        <div class="header-btn-container">
-            <button class="header-btn" id="login">LOGIN</button>
-        </div>
+
+        <ul>
+            <!-- NAVIGATION MENUS -->
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#about">About</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
+            <li><a href="Auth/signin-signup.html">Login</a></li>
+
+        </ul>
+        <!-- <button class="header-btn" id="login">LOGIN</button> -->
+
     </navbar>
 
 
+
     <!-- main page -->
-    <div class="main-page-container">
-        <div id="left-panel-container">
-            <div id="heading-title">Let's <span style="color: #144b48;">poll</span> from here</div>
-            <div id="subheading-title">Get the customer feedback via online digital surveys</div>
-            <button class="get-started-btn" id="signin">Get Started</button>
+    <section class="home" id="home">
+        <div class="main-page-container">
+            <div id="left-panel-container">
+                <div id="heading-title">Discover what others think</div>
+                <div id="subheading-title">Express Your Opinion with Our Polls & Surveys!</div>
+                <button class="get-started-btn" id="signinbtn">Get Started</button>
+            </div>
+            <div id="right-panel-container">
+                <img class="main-page-img" src="./images/bg-right.png" alt="mainpageimg">
+            </div>
         </div>
-        <div id="right-panel-container">
-            <img class="main-page-img" src="./images/image-left.svg" alt="mainpageimg">
-        </div>  
-    </div>
+    </section>
 
-    <div id="motivate-business-quote-container">
-        <div class="business-quote">
-            Useful for increased efficiency. Designed for group work. Recognized for its built-in protection. Hello and
-      welcome to the site that citizens adore.
+    <section class="about" id="about">
+        <div id="motivate-business-quote-container">
+            <div class="business-quote-heading">Welcome to QuickPolls!</div>
+            <div class="business-quote1">
+                Here you can create, share and analyze polls and surveys quickly and easily.
+            </div>
+            <br>
+            <div class="business-quote2">
+                Take advantage of our advanced features to get the most out of your polls and surveys.
+            </div>
         </div>
-    </div>
 
-    <!-- three boxex -->
-    <div class="info-box-container">
-        <div class="infobox info-box-1">
-            <!-- <div class="info-box-1-img">
+
+        <!-- three boxex -->
+        <div class="info-box-container">
+            <div class="infobox info-box-1">
+                <!-- <div class="info-box-1-img">
                 <img src="" alt="infoimg-1">
             </div> -->
-            <div class="info-box-1-maintext">
-                Create Survey!
+                <i class="fa-solid fa-user fa-2xl" style="color: #595f9b; font-size: 50px; margin-top: 50px;"></i>
+                <div class="info-box-1-maintext">
+                    User Friendly
+                </div>
+                <div class="info-box-1-subtext">
+                    Our website offers an intuitive user interface that allows users to easily create, view and manage
+                    their polls and surveys.
+                </div>
             </div>
-            <div class="info-box-1-subtext">
-                <ul>
-                    <li>Engage with the right audience for the information you need</li>
-                    <li>Login to find templates and ideas to kickstart polls and surveys</li>
-                    <li>Stuck? Choose from the templates and explore variety of options at your doorstep</li>
-                    <li>Explore and find out more</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="infobox info-box-2">
-            <!-- <div class="info-box-2-img">
+            <div class="infobox info-box-2">
+                <!-- <div class="info-box-2-img">
                 <img src="" alt="infoimg-2">
             </div> -->
-            <div class="info-box-1-maintext">
-                Open Surveys
+                <i class="fa-solid fa-square-poll-vertical fa-2xl"
+                    style="color: #595f9b; font-size: 50px; margin-top: 50px;"></i>
+                <div class="info-box-1-maintext">
+                    Result Analysis
+                </div>
+                <div class="info-box-1-subtext">
+                    Our website makes it easy to see detailed insights and analytics of your polls and surveys.
+                </div>
             </div>
-            <div class="info-box-1-subtext">
-                <ul>
-                    <li>Board for latest Polls and Surveys</li>
-                    <li>To be updated soon</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="infobox info-box-3">
-            <!-- <div class="info-box-3-img">
+            <div class="infobox info-box-3">
+                <!-- <div class="info-box-3-img">
                 <img src="" alt="infoimg-3">
             </div> -->
-            <div class="info-box-1-maintext">
-                Services
-            </div>
-            <div class="info-box-1-subtext">
-                <ul>
-                    <li>Create and Edit polls and surveys at your convenience</li>
-                    <li>Get detailed analysis on the responses you get</li>
-                    <li>Limit your questions to the people you want</li>
-                    <li>Explore the open surveys going around the corner</li>
-                </ul>
+                <i class="fa-solid fa-lock fa-2xl" style="color: #595F9B; font-size: 50px; margin-top: 50px;"></i>
+                <div class="info-box-1-maintext">
+                    <!-- <img src="./images/secure.png" alt="security"> -->
+                    Security and Privacy
+                </div>
+                <div class="info-box-1-subtext">
+                    Our platform ensures the security and privacy of your data through secure servers and encryption.
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- footer -->
-    <footer id="footer-mainpage">
-        <div class="left-footer">
-            <div class="footer-logo">
-                <img class="logo-footer-img" src="./images/logoQuickpoll.png" alt="logo">
+    <section class="contact" id="contact">
+        <footer id="footer-mainpage">
+            <div class="left-footer">
+                <div class="footer-logo">
+                    <img class="logo-footer-img" src="./images/logoQuickpoll.png" alt="logo">
+                </div>
             </div>
-        </div>
-        <div id="copyright-text">
-            <p>© 2023 QuickPolls. All rights reserved.</p>
-        </div>
-        <div class="right-footer">
-            <!-- social media links -->
-            <div class="social-media-links">
-                <a href="#" class="social-icon fab fa-facebook-f fa-2xl"></a>
-                <a href="#" class="social-icon fab fa-twitter fa-2xl"></a>
-                <a href="#" class="social-icon fab fa-instagram fa-2xl"></a>
-                <a href="#" class="social-icon fab fa-linkedin fa-2xl"></a>
-                <a href="#" class="social-icon fab fa-pinterest fa-2xl"></a>
+            <div id="copyright-text">
+                <p>© 2023 QuickPolls. All rights reserved.</p>
             </div>
-        </div>
-    </footer>
+            <div class="right-footer">
+                <!-- social media links -->
+                <div class="social-media-links">
+                    <a href="#" class="social-icon fab fa-facebook-f fa-2xl"></a>
+                    <a href="#" class="social-icon fab fa-twitter fa-2xl"></a>
+                    <a href="#" class="social-icon fab fa-instagram fa-2xl"></a>
+                    <a href="#" class="social-icon fab fa-linkedin fa-2xl"></a>
+                </div>
+            </div>
+        </footer>
+    </section>
 
 
-<script src="./index.js"></script>
+    <script src="./index.js"></script>
 </body>
+
 </html>

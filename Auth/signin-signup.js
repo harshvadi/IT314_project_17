@@ -99,7 +99,8 @@ const Login = async (email, password) => {
     if(data.message) {
         console.log('login successful');
         localStorage.setItem('user', JSON.stringify(data.user));
-        window.location.href = '../Profile/profile2.html';
+        localStorage.setItem('token', JSON.stringify(data.token));
+        window.location.href = '../Feed/feed.html';
     }
     else {
         let errormessage;
@@ -164,12 +165,6 @@ loginForm.addEventListener('submit', async (e) => {    // event listener for the
         return false;
     }
 
-    /////////////////////////////////////////////////////////////////////////
-    // access cookie from the api cookie section   
-    // const cookie = document.cookie;
-    // console.log(cookie.jwt);
-    /////////////////////////////////////////////////////////////////////////
-
     console.log("login successful")
     document.getElementById('signin-home').innerText = 'Log in';
 });
@@ -204,7 +199,7 @@ const Signup = async (firstname, email, username, role, password) => {
         console.log('Signup successful');
         localStorage.setItem('user', JSON.stringify(data.user));
 	    form.reset();
-        window.location.href = '../Profile/profile2.html';
+        window.location.href = '../Feed/feed.html';
     }
     else {
         document.getElementById('error-message2').innerHTML = data.message;
