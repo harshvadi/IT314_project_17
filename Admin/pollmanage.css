@@ -147,8 +147,8 @@ body {
 }
 
 .line li {
-    margin: 0 50px 0;
-    margin-right: 150px;
+    margin: 0 102px;
+    margin-right: 52px;
     font-size: 20px;
     font-weight: 550;
 }
@@ -156,61 +156,76 @@ body {
 .mycon {
     list-style: none;
     display: flex;
-    /* justify-content: space-around; */
-    /* margin: 5px 10px 5px 20px; */
+    justify-content:left;
+    margin: 5px 10px 5px 20px;
 }
 
-.mycon li {
-    margin: 8px 155px 8px 30px;
+.atr1, .atr2, .atr3, .atr6{
     font-size: 19px;
     font-weight: 400;
+    width: 20%;
+    margin-left: 0;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
-
-.mycon #btn1 {
-    background-color: #cd97ff;
-    padding: auto;
-    font-size: 18px;
-    width: 92px;
-    text-align: center;
-    margin: 5px 8px;
-    padding: 7px;
-    color: black;
-    display: flex;
-    justify-content: center;
-    border-radius: 5px;
-    text-decoration: none;
+.atr1 li, .atr2 li{
+    font-size: 19px;
+    font-weight: 400;
+    margin: 16px 0;
     cursor: pointer;
 }
 
-.mycon #btn2 {
+.atr3 li, .atr6 li{
+    font-size: 19px;
+    font-weight: 400;
+    margin: 16px 0;
+}
+
+.atr4 a{
+    background-color: #766ffb;
+    padding: auto;
+    font-size: 15px;
+    font-weight: 600;
+    width: 84px;
+    text-align: center;
+    margin: 19px 8px;
+    color: black;
+    display: block;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    height: 19px;
+}
+
+.atr5 a{
     background-color: #29ef8f;
     padding: auto;
-    font-size: 18px;
-    width: 92px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 84px;
     text-align: center;
-    margin: 5px 8px;
-    padding: 7px;
+    margin: 19px 8px;
     color: black;
-    display: flex;
-    justify-content: center;
+    display: block;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
+    height: 19px;
 }
 
-.mycon #btn3 {
+.atr7 a{
     background-color: #d53636;
     padding: auto;
-    font-size: 18px;
-    width: 92px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 84px;
     text-align: center;
-    margin: 5px 8px;
-    padding: 7px;
+    margin: 19px 8px;
     color: black;
-    display: flex;
-    justify-content: center;
+    display: block;
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
+    height: 19px;
 }

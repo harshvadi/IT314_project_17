@@ -147,8 +147,8 @@ body {
 }
 
 .line li {
-    margin: 0 50px 0;
-    margin-right: 150px;
+    margin-left: 90px;
+    margin-right: 63px;
     font-size: 20px;
     font-weight: 550;
 }
@@ -161,9 +161,19 @@ body {
 }
 
 .atr1, .atr2, .atr3{
-    margin: 8px 155px 8px 30px;
     font-size: 19px;
     font-weight: 400;
+    width: 20%;
+    margin-left: 7px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.atr1 li, .atr2 li, .atr3 li{
+    font-size: 19px;
+    font-weight: 400;
+    margin: 16px 0;
+    cursor: pointer;
 }
 
 
@@ -183,34 +193,34 @@ body {
     cursor: pointer;
 } */
 
-.atr4 {
+.atr4 a{
     background-color: #29ef8f;
     padding: auto;
-    font-size: 18px;
-    width: 92px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 84px;
     text-align: center;
-    margin: 5px 8px;
-    padding: 7px;
+    margin: 19px 8px;
     color: black;
     display: block;
-    /* justify-content: center; */
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
+    height: 19px;
 }
 
-.atr5 {
+.atr5 a{
     background-color: #d53636;
     padding: auto;
-    font-size: 18px;
-    width: 92px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 84px;
     text-align: center;
-    margin: 5px 8px;
-    padding: 7px;
+    margin: 19px 8px;
     color: black;
     display: block;
-    /* justify-content: center; */
     border-radius: 5px;
     text-decoration: none;
     cursor: pointer;
+    height: 19px;
 }
