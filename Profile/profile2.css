@@ -78,6 +78,7 @@ li {
     border-radius: 1rem;
     background-color: #595F9B;
     color: white;
+    height: fit-content;
 }
 
 @-webkit-keyframes spin {
@@ -161,14 +162,14 @@ li {
     visibility: hidden;
     opacity: 0;
     display: block;
-  }
+}
 
-  .overlay:target {
+.overlay:target {
     visibility: visible;
     opacity: 1;
-  }
-  
-  .popup {
+}
+
+.popup {
     margin: 70px auto;
     padding: 20px;
     background: #fff;
@@ -177,15 +178,16 @@ li {
     max-height: 550px;
     /* transition: all 3s ease-in-out; */
     overflow: scroll;
-  }
-  
-  .popup h2 {
+}
+
+.popup h2 {
     margin-top: 0;
     color: #333;
     font-size: 30px;
     color: #595F9B;
-  }
-  .popup .close {
+}
+
+.popup .close {
     position: absolute;
     top: 0px;
     right: 30px;
@@ -194,24 +196,26 @@ li {
     font-weight: bold;
     text-decoration: none;
     color: #333;
-  }
+}
 
-  .edit-opt{
+.edit-opt {
     display: flex;
     justify-content: space-evenly;
     margin-top: 10px;
-  }
-  .popup .close:hover {
+}
+
+.popup .close:hover {
     color: #595F9B;
     border: none !important;
-  }
-  .popup .content {
+}
+
+.popup .content {
     max-height: 30%;
     overflow: auto;
     /* margin-left: 33px; */
-  }
+}
 
-  .content input{
+.content input {
     /* border: none; */
     /* border-bottom: 1px solid #595F9B !important;
     border-radius: 0px !important;
@@ -223,37 +227,38 @@ li {
     border-width: 0 0 2px !important;
     border-color: #000000;
     font-size: 14px;
-  }
+}
 
-  .right-user-suggestion-1{
+.right-user-suggestion-1 {
     width: 148px;
     display: flex;
     flex-direction: column;
     align-items: start;
 }
-.user-suggestion-1{
+
+.user-suggestion-1 {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.user-profile-img-1{
+.user-profile-img-1 {
     width: 50px !important;
     height: 50px !important;
     border-radius: 100px;
 }
 
-  .content input:focus{
+.content input:focus {
     border-color: #595F9B !important;
-  }
+}
 
-  .content p{
+.content p {
     margin-bottom: 5px;
     font-size: 16px;
     color: black;
-  }
+}
 
-  .content button{
+.content button {
     width: 120px;
     border-radius: 5px;
     font-size: 14px;
@@ -267,5 +272,5 @@ li {
     text-align: center;
     padding-top: 6px;
     padding-bottom: 5px;
-    text-decoration:none;
-  }
+    text-decoration: none;
+}

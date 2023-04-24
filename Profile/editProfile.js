@@ -24,7 +24,7 @@ window.onload = async (event) => {
 };
 
 editForm = document.getElementById("edit-form");
-editForm.addEventListener("submit", (e) => {
+editForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const name = document.getElementById("name").value;
@@ -32,7 +32,7 @@ editForm.addEventListener("submit", (e) => {
   const email = document.getElementById("email").value;
   const bio = document.getElementById("bio").value;
 
-  console.log(name, username, email, bio);
+  const res = await updateProfile(name, username, email, bio);
 });
 
 const logout = document.getElementById("logout");
@@ -41,3 +41,51 @@ logout.addEventListener("click", (e) => {
   localStorage.clear();
   window.location.href = "../Auth/signin-signup.html";
 });
+
+async function updateProfile(name, username, email, bio) {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const user = JSON.parse(localStorage.getItem("user"));
+  const response = await fetch(
+    `${BACKEND_BASE_URL}/api/updateProfile/${user._id}`,
+    {
+      method: "PUT",
+      headers: {
+        Accept: "applicaiton/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: token,
+        currUser: {
+          // name: name,
+          username: username,
+          email: email,
+          bio: bio,
+        },
+      }),
+      withCredentials: true, // should be there
+      credentials: "include", // should be there
+    }
+  );
+  console.log(response.status);
+
+  if (response.status === 200) {
+    const user = JSON.parse(localStorage.getItem("user"));
+    user.name = name;
+    user.username = username;
+    user.email = email;
+    user.bio = bio;
+
+    localStorage.setItem("user", JSON.stringify(user));
+
+    document.getElementById("message").innerHTML =
+      "Profile updated successfully";
+
+    setTimeout(() => {
+      window.location.href = "./profile2.html";
+    }, 2000);
+  }
+}
+
+function cancelEdit() {
+  window.location.href = "./profile2.html";
+}
