@@ -100,7 +100,14 @@ const Login = async (email, password) => {
         console.log('login successful');
         localStorage.setItem('user', JSON.stringify(data.user));
         localStorage.setItem('token', JSON.stringify(data.token));
-        window.location.href = '../Feed/feed.html';
+        const user = JSON.parse(localStorage.getItem('user'));
+        const role = user.role;
+        if(role == 'admin') {
+            window.location.href = '../Admin/Admin.html';
+        }
+        else{
+            window.location.href = '../Feed/feed.html';
+        }
     }
     else {
         let errormessage;
@@ -130,18 +137,11 @@ window.onload = () => {
 loginForm.addEventListener('submit', async (e) => {    // event listener for the login form
 	e.preventDefault();
 	console.log("Start"); 
-    // document.getElementById('error-message').innerHTML = '';
-    // signInButton.value = 'Logging in...';
     console.log('login form submitted');
     // e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // check email and password
-    // if(!email && !password) {
-    //     document.getElementById('error-message').innerHTML = 'Please enter your email and password';
-    //     return false ;
-    // }
 	
     if(!email) {
         document.getElementById('error-message').innerHTML = 'Please enter your email';
@@ -160,10 +160,13 @@ loginForm.addEventListener('submit', async (e) => {    // event listener for the
 
 
 	const issuccessfull = Login(email, password);
+
     if(!issuccessfull){
-        
         return false;
     }
+
+    // get local storage and get the role
+    
 
     console.log("login successful")
     document.getElementById('signin-home').innerText = 'Log in';
