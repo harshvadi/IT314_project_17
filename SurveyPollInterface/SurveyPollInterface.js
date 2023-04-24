@@ -7,6 +7,9 @@
 // Scripts
 // 
 
+{/* <script src="https://ajax.googleapis.com/ajax/libsjquery/1.11jquery.mins.js"></script> */ }
+
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Activate Bootstrap scrollspy on the main nav element
@@ -31,16 +34,50 @@ window.addEventListener('DOMContentLoaded', event => {
         });
     });
 
-});
+    let mainform = document.body.querySelector('.main-form')
+    let question = document.body.querySelector('.question');
 
-$(document).ready(function(){
-    $('#add-question').click(function(){
-        $('.question').first().clone(true).appendTo('.main-form');
-    })
+    $('.answer-type').change(function () {
+        const type = $(this).prop('value')
+        console.log(type)
+        console.log(this.parentElement.querySelector('.answer'))
 
-    $('.delete-question').click(function(e){
-        e.preventDefault(); 
-        $(this).parent().parent().empty();
-    })
+        let answerContent = ``;
+        // const div = document.createElement("div")
+        // const input = document.createElement("input");
+        // const answer = document.body.querySelector('.answer');
 
+        if (type === "text-box") {
+            // console.log('text box');
+            answerContent = `<input type="text" class="answer-box" placeholder="Answer">`
+        }
+
+        // $(this).parentElement.querySelector('.answer').innerHTML = answerContent;
+
+    });
+
+    $('#add-question').click(function () {
+        var questionContent = `  <div class="question">
+
+        <input type="text" class="question-box" placeholder="Question">
+
+        <select class="answer-type">
+            <option selected>--Select--</option>
+            <option value="text-box">Text Box</option>
+            <option value="check-box">Check Box</option>
+            <option value="multiple-choice">Multiple Choice</option>
+            <option value="file-upload">Upload File</option>
+            <option value="date-box">Date</option>
+            <option value="time-box">Time</option>
+        </select>
+
+        <i class="fa-solid fa-trash"></i>
+
+        <div class="answer"></div>
+        
+        </div>`
+
+        mainform.innerHTML += questionContent;
+
+    });
 });
