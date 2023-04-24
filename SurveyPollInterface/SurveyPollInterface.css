@@ -1,365 +1,138 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+<!DOCTYPE html>
+<html lang="en">
 
-body{
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-family: poppins !important;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  }
-  
-  .main-page-container{
-    /* margin:%; */
-    /* width: vw; */
-    height: 100vh;
-    margin: auto;
-    margin-top: 75px;
-    margin-bottom: 20px;
-    padding: 5%;
-    /* background-color: black; */
-    border-radius: 30px;
-    align-items: center;
-  }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickPolls</title>
+    <link rel="stylesheet" href="./SurveyPollInterface.css">
+    <link rel='stylesheet' href="../navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11/jquery.mins.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+</head>
 
-  .heading{
-    padding: 10px;
-    width: 90%;
-    margin: auto;
-    background-color: aliceblue;
-    border-bottom: solid 3px rgb(149, 167, 182);
-    border-top: solid 3px rgb(149, 167, 182);
-    border-radius: 10px;
-  }
+<body>
+    <navbar class="navbar-container">
+        <div class="logoimg">
+            <img class="logo-content" src="../images/logoQuickpoll.png" alt="logo">
+        </div>
+        <div class="header-btn-container">
+            <button class="header-btn" id="login">Publish</button>
+        </div>
+    </navbar>
 
-  .heading-box{
-    margin: auto;
-    width: 99%;
-    height: 10vh;
-    margin-bottom: 20px;
-    border: outset;
-    background-color: rgb(138, 200, 255);
-    border-radius: 10px;
-    font-size: xx-large;
-  }
+    <div class="main-page-container">
+        <div class="heading">
+            <div class="heading-title">
+                <input type="text" class="heading-box" placeholder="Heading">
+            </div>
 
-  .heading-box::placeholder{
-    font-weight: bold;
-    font-size: xx-large;
-    opacity: 0.75;
-    color: black;
-  }
+            <div class="description">
+                <input type="text" class="description-box" placeholder="Write a short description for your survey...">
+            </div>
+        </div>
 
-  .description-box{
-    margin: auto;
-    border: 5px black;
-    width: 99%;
-    height: 8vh;
-    word-wrap:normal;
-    font-size: large;
-    border-bottom: solid black;
-    border-width: 2px;
-  }
+        <form class="main-form">
 
-  .main-form{
-    padding: 10px;
-    width: 90%;
-    margin: auto;
-    margin-top: 20px; 
-    background-color: aliceblue;
-    border-top: solid 3px rgb(149, 167, 182);
-    border-bottom: solid 3px rgb(149, 167, 182);
-    border-radius: 10px; 
-  }
+            <!-- <div class="question">
 
-  .question{
-    margin: auto;
-    margin-bottom: 20px;
-    border: 5px black;
-    width: 99%;
-    background-color: rgb(194, 224, 249);
-    border-left: solid 3px rgb(149, 167, 182);
-    border-right: solid 3px rgb(149, 167, 182);
-    border-radius: 10px;
-  }
+                <input type="text" class="question-box" placeholder="Question">
 
-  .question-box{
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    margin-left: 15px;
-    width: 70%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black;
-  }
+                <select class="answer-type">
+                    <option >--Select--</option>
+                    <option value="text-box">Text Box</option>
+                    <option value="check-box">Check Box</option>
+                    <option value="multiple-choice">Multiple Choice</option>
+                    <option value="file-upload">Upload File</option>
+                    <option value="date-box">Date</option>
+                    <option value="time-box">Time</option>
+                </select>
 
-   .answer-type, .answer-type option{
-    /* position: relative; */
-    margin: auto;
-    margin-left: 15px;
-    width: 20%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black;
-  }
+                <i class="fa-solid fa-trash"></i>
 
-  /* .answer-type select {
-    display: none;
-  }
+                <div class="answer">
 
-  .select-hide {
-    display: none;
-  }
-  
-  .select-items div:hover, .same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
-  }  */
+                </div> -->
 
-  .answer-box{
-    margin: auto;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    margin-left: 15px;
-    width: 70%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black;
-  }
+                <!-- <div>
+                    <input type="text" class="answer-box" placeholder="Answer">
+                </div>
 
+                <div>
+                    <input type="checkbox" id="checkbox-id">
+                    <label for="checkbox-id"><input type="text" class="check-box" placeholder="Add Field"></label>
+                    <button id="add-field-button">Add Field</button>
+                    <button id="delete-field-button">Delete Field</button>
+                </div>
 
-  /* #add-question:hover{
-    background-color: #4CAF50;
-    color: white
-  } */
+                <div>
+                    <input type="radio" id="radio-id">
+                    <label for="radio-id"><input type="text" class="radio-box" placeholder="Add Field"></label>
+                    <button id="add-field-button">Add Field</button>
+                    <button id="delete-field-button">Delete Field</button>
+                </div>
 
-  /* #answer-type-button{
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    margin-left: 25px;
-    width: 20%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black;  
-    cursor: pointer;
-    transition: 0.5s;
-  } */
+                <div>
+                    <label for="file" class="file-input-text">Select a file to upload</label>
+                    <input type="file" class="file-input" id="file">
+                </div>
 
+                <div>
+                    <input type="date" class="input-date" id="date">
+                </div>
 
-  .check-box{
-    margin: auto;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    width: 45%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black;
-  }
+                <div>
+                    <input type="time" class="input-time" id="time">
+                </div>
+             
+                <div>
+                    <input type="date" class="input-date" id="date-time">
+                    <input type="time" class="input-time" id="date-time">
+                </div>
 
-  .radio-box{
-    margin: auto;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    width: 45%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black;
-  }
+                 -->
 
-  .file-input-text{
-    margin: auto;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    margin-left: 25px;
-  }
+            <!-- </div> -->
 
-  .file-input{
-    margin: auto;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    margin-left: 25px;
-    width: 20%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-  }
+        </form>
 
-  .input-date{
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    margin-left: 25px;
-    width: 20%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black;  
-  }
-
-  .input-time{
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    margin-left: 25px;
-    width: 20%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black;  
-  }
-
-  .add-field-button{
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    margin-left: 27px;
-    width: 20%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black;  
-    cursor: pointer;
-    transition: 0.5s; 
-  }
-
-  #delete-field-button{
-    margin: auto;
-    margin-left: 25px;
-    width: 20%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black; 
-    cursor: pointer;
-    transition: 0.5s;  
-  }
-
- .fa-trash {
-  padding: 1em;
- }
-
- .fa-trash:hover {
-  cursor: pointer;
- }
-  
-  #add-question{
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    margin-left: 60px; 
-    width: 30%;
-    height: 5vh;
-    font-size: normal;
-    border: solid 1px black;  
-    border-bottom: solid 2px black;
-    border-right: solid 2px black;
-    cursor: pointer;
-    transition: 0.5s;
-  }
+        <button id="add-question">Add Question</button>
+    </div>
 
 
 
+    <!-- footer -->
 
-  /* footer */
-  /* Removing Footer to avoid unnecessary complications */
-  /* .logo-footer-img{
-    width: auto;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 50px;
-  }
+    <!-- <footer id="footer-mainpage">
+        <div class="left-footer">
+            <div class="footer-logo">
+                <img class="logo-footer-img" src="../images/logoQuickpoll.png" alt="logo">
+            </div>
+        </div>
+        <div id="copyright-text">
+            <p>© 2023 QuickPolls. All rights reserved.</p>
+        </div>
+        <div class="right-footer">
+            <div class="social-media-links">
+                <a href="#" class="social-icon fab fa-facebook-f fa-2xl"></a>
+                <a href="#" class="social-icon fab fa-twitter fa-2xl"></a>
+                <a href="#" class="social-icon fab fa-instagram fa-2xl"></a>
+                <a href="#" class="social-icon fab fa-linkedin fa-2xl"></a>
+                <a href="#" class="social-icon fab fa-pinterest fa-2xl"></a>
+            </div>
+        </div>
+    </footer> -->
 
-  #footer-mainpage{
-    
-    width: 100vw;
-    height: 100px;
-    background-color: #144b48;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 200px;
-  }
-  
-  .left-footer{
-    width: 25%;
-    height: 100%;
-    background-color: #144b48;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 50px;
-  }
-  
-  #copyright-text{
-    font-size: 20px;
-    font-weight: 400;
-    color: #fff;
-  }
-  
-  .right-footer{
-    width: 30%;
-    height: 100%;
-    background-color: #144b48;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 50px;
-  }
-  
-  .social-media-links{
-    width: 100px;
-    height: 100px;
-    background-color: #144b48;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-    border-radius: 50%;
-    transition: 0.5s;
-    margin-right: 7rem;
-  }
-  
-  .social-media-link{
-    width: 50px;
-    height: 50px;
-    background-color: #144b48;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: 0.5s;
-  }
-  
-  .social-icon{
-    background-color: #144b48;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: 0.5s;
-    margin-right: 2rem;
-    
-  }
-  
-  #copyright-text{
-    font-size: 15px;
-    font-weight: 300;
-    color: #fff;
-    margin-left: 50px;
-  }
-  
-  a{
-    text-decoration: none;
-    color: #fff;
-  } */
+</body>
+<script src="./test2.js"></script>
+
+</html>
