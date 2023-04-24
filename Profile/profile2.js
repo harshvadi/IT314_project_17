@@ -100,9 +100,9 @@ async function getAllpolls() {
   const polls = data.polls;
 
   if (polls.length == 0) {
-    document.getElementsByClassName(
-      "poll"
-    )[0].innerHTML = `<h1 class="text-center">No polls created.</h1>`;
+    document.getElementById(
+      "surveys"
+    ).innerHTML += `<h4 class="text-center my-3">No surveys or polls created.</h4>`;
   }
 
   let i = 1;
