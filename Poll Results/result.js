@@ -58,8 +58,28 @@ async function getResponses(pollid) {
   if (response.status === 200) {
     // console.log(data.pollanalysisobj);
 
+    const pollResponse = await fetch(
+      `${BACKEND_BASE_URL}/api/getpoll/6443c45284dcd3c434e584c3`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "applicaiton/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({}),
+        withCredentials: true, // should be there
+        credentials: "include", // should be there
+      }
+    );
+    // console.log(pollResponse.status);
+    const pollData = await pollResponse.json();
+
     const questions = document.getElementById("questions");
     const que = data.pollanalysisobj;
+
+    document.getElementById("title").innerHTML = pollData.pollobject.title;
+    document.getElementById("description").innerHTML =
+      pollData.pollobject.description;
 
     let pollQuestions = [];
 
@@ -71,22 +91,11 @@ async function getResponses(pollid) {
       if (que[i].question.type == "2") {
         const responses = que[i].optionsfrequency;
 
-        let count = 0;
-        responses.forEach((response) => {
+        for (let i = 0; i < responses.length; i++) {
           questions.innerHTML += `<div class="row text-answer">
-                <p>${response}</p>
+                <p>${responses[i]}</p>
             </div>`;
-
-          //   count++;
-
-          //   if (count > 1) {
-          //     questions.innerHTML += `<div class="row text-center">
-          //         <button class="btn btn-link">Show More</button>
-          //     </div>`;
-
-          //     break;
-          //   }
-        });
+        }
       }
 
       // mcq answer
@@ -153,6 +162,12 @@ async function getResponses(pollid) {
     downloadCsv.addEventListener("click", () => {
       generateCsv("test.csv", json2csv.parse(csvData));
     });
+  } else {
+    document.getElementsByClassName(
+      "question"
+    )[0].innerHTML = `<div class="text-center">
+      <h1>No responses received</h1>
+    </div>`;
   }
 }
 
