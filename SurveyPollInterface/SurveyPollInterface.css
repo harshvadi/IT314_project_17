@@ -88,7 +88,7 @@ body{
     margin-top: 15px;
     margin-bottom: 10px;
     margin-left: 15px;
-    width: 70%;
+    width: 60%;
     height: 5vh;
     font-size: normal;
     border: none;
@@ -106,17 +106,18 @@ body{
     border-bottom: solid 1px black;
   }
 
-  /* .answer-type select {
-    display: none;
+  .delete-question{
+    margin: auto;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    width: 10%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;
+    cursor: pointer;
+    transition: 0.5s;  
   }
-
-  .select-hide {
-    display: none;
-  }
-  
-  .select-items div:hover, .same-as-selected {
-    background-color: rgba(0, 0, 0, 0.1);
-  }  */
 
   .answer-box{
     margin: auto;
@@ -130,63 +131,45 @@ body{
     border-bottom: solid 1px black;
   }
 
-
-  /* #add-question:hover{
-    background-color: #4CAF50;
-    color: white
-  } */
-
-  /* #answer-type-button{
-    margin: auto;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    margin-left: 25px;
-    width: 20%;
-    height: 5vh;
-    font-size: normal;
-    border: none;
-    border-bottom: solid 1px black;  
-    cursor: pointer;
-    transition: 0.5s;
-  } */
-
-
-  .check-box{
-    margin: auto;
+  .multiple-box{
+    margin: auto; 
     margin-top: 5px;
     margin-bottom: 10px;
-    margin-left: 5px;
+    margin-left: 15px;
     width: 45%;
     height: 5vh;
     font-size: normal;
     border: none;
     border-bottom: solid 1px black;
-  }
+    /* background-color: black; */
+
+  } 
 
   .radio-box{
     margin: auto;
     margin-top: 5px;
     margin-bottom: 10px;
-    margin-left: 5px;
+    margin-left: 15px;
     width: 45%;
     height: 5vh;
     font-size: normal;
     border: none;
     border-bottom: solid 1px black;
+    /* background-color: black; */
   }
 
   .file-input-text{
     margin: auto;
     margin-top: 5px;
     margin-bottom: 10px;
-    margin-left: 25px;
+    margin-left: 15px;
   }
 
   .file-input{
     margin: auto;
     margin-top: 5px;
     margin-bottom: 10px;
-    margin-left: 25px;
+    margin-left: 15px;
     width: 20%;
     height: 5vh;
     font-size: normal;
@@ -197,7 +180,7 @@ body{
     margin: auto;
     margin-top: 15px;
     margin-bottom: 10px;
-    margin-left: 25px;
+    margin-left: 15px;
     width: 20%;
     height: 5vh;
     font-size: normal;
@@ -209,7 +192,7 @@ body{
     margin: auto;
     margin-top: 15px;
     margin-bottom: 10px;
-    margin-left: 25px;
+    margin-left: 15px;
     width: 20%;
     height: 5vh;
     font-size: normal;
@@ -217,7 +200,7 @@ body{
     border-bottom: solid 1px black;  
   }
 
-  .add-field-button{
+  #add-field-button{
     margin: auto;
     margin-top: 15px;
     margin-bottom: 10px;
@@ -243,14 +226,7 @@ body{
     transition: 0.5s;  
   }
 
- .fa-trash {
-  padding: 1em;
- }
 
- .fa-trash:hover {
-  cursor: pointer;
- }
-  
   #add-question{
     margin: auto;
     margin-top: 15px;
