@@ -46,7 +46,7 @@ async function updateProfile(name, username, email, bio) {
   const token = JSON.parse(localStorage.getItem("token"));
   const user = JSON.parse(localStorage.getItem("user"));
   const response = await fetch(
-    `${BACKEND_BASE_URL}/api/updateProfile/${user._id}`,
+    `https://quickpolls-2zqu.onrender.com/api/updateProfile/${user._id}`,
     {
       method: "PUT",
       headers: {

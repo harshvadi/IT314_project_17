@@ -1,24 +1,23 @@
 
-const clickone_btn_1 = document.getElementById('active-hover-sidebar-1');
-const clickone_btn_2 = document.getElementById('active-hover-sidebar-2');
-const clickone_btn_3 = document.getElementById('active-hover-sidebar-3');
+const clickone_btn_11 = document.getElementById('active-hover-sidebar-11');
+const clickone_btn_22 = document.getElementById('active-hover-sidebar-22');
+const clickone_btn_33 = document.getElementById('active-hover-sidebar-33');
 
-clickone_btn_1.style.backgroundColor = "none";
-clickone_btn_3.style.backgroundColor = "none";
 
-clickone_btn_1.addEventListener('click', () => {
+
+clickone_btn_11.addEventListener('click', () => {
     console.log('clicked');
-    window.location.href = 'http://localhost:5500/admin/admin.html';
+    window.location.href = './admin.html';
 });
 
-clickone_btn_2.addEventListener('click', () => {
+clickone_btn_22.addEventListener('click', () => {
     console.log('clicked');
     console.log("already on this")
 });
 
-clickone_btn_3.addEventListener('click', () => {
+clickone_btn_33.addEventListener('click', () => {
     console.log('clicked');
-    window.location.href = 'http://localhost:5500/admin/surveymanage.html';
+    window.location.href = './surveymanage.html';
 });
 
 const loadAdmininfo = (admin_info) => {
@@ -104,6 +103,11 @@ searchbtnone.addEventListener('click', async function (e) {
       </tr>`;
     }
 });
+
+
+const greetadmin1 = document.getElementById('admin-greeting-2');
+const currentadmininfo1 = JSON.parse(localStorage.getItem("user"));
+greetadmin1.innerText = `Hello ${currentadmininfo1.name}!`;
 
 searchbtntwo.addEventListener('click', async function (e) {
     const username = document.getElementById('demoteusername').value;

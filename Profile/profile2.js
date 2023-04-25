@@ -131,7 +131,7 @@ async function getAllpolls() {
 async function getResponses(pollid) {
   const token = JSON.parse(localStorage.getItem("token"));
   const username = JSON.parse(localStorage.getItem("user")).username;
-  const response = await fetch(`${BACKEND_BASE_URL}/api/getdetailsaboutPoll`, {
+  const response = await fetch('https://quickpolls-2zqu.onrender.com/api/getdetailsaboutPoll', {
     method: "POST",
     headers: {
       Accept: "applicaiton/json",
@@ -214,7 +214,7 @@ getFollowings();
 // get followers list of the user
 async function getFollowers() {
   const token = JSON.parse(localStorage.getItem("token"));
-  const response = await fetch(`${BACKEND_BASE_URL}/api/followers`, {
+  const response = await fetch('https://quickpolls-2zqu.onrender.com/api/followers', {
     method: "POST",
     headers: {
       Accept: "applicaiton/json",

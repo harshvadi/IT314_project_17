@@ -1,25 +1,23 @@
 
 
-const clickone_btn_11 = document.getElementById('active-hover-sidebar-11');
-const clickone_btn_22 = document.getElementById('active-hover-sidebar-22');
-const clickone_btn_33 = document.getElementById('active-hover-sidebar-33');
+const clickone_btn_111 = document.getElementById('active-hover-sidebar-111');
+const clickone_btn_222 = document.getElementById('active-hover-sidebar-222');
+const clickone_btn_333 = document.getElementById('active-hover-sidebar-333');
 
-clickone_btn_11.style.backgroundColor = "none";
-clickone_btn_22.style.backgroundColor = "none";
 
-clickone_btn_11.addEventListener('click', () => {
+clickone_btn_111.addEventListener('click', () => {
     console.log('clicked');
-    window.location.href = 'http://localhost:5500/admin/admin.html';
+    window.location.href = './admin.html';
 });
 
-clickone_btn_33.addEventListener('click', () => {
+clickone_btn_333.addEventListener('click', () => {
     console.log('clicked');
     console.log("already on this")
 });
 
-clickone_btn_22.addEventListener('click', () => {
+clickone_btn_222.addEventListener('click', () => {
     console.log('clicked');
-    window.location.href = 'http://localhost:5500/admin/adminmanage.html';
+    window.location.href = './adminmanage.html';
 });
 
 
@@ -42,6 +40,11 @@ window.addEventListener('load', function () {
     }
     loadAdmininfo(admin_info);
 });
+
+
+const greetadmin2 = document.getElementById('admin-greeting-3');
+const currentadmininfo2 = JSON.parse(localStorage.getItem("user"));
+greetadmin2.innerText = `Hello ${currentadmininfo2.name}!`;
 
 
 const surveymanage_input = document.getElementById('surveymanage-input');

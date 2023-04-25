@@ -2,7 +2,7 @@ let queType = [];
 
 async function getPoll(poll_id) {
   const response = await fetch(
-    `${BACKEND_BASE_URL}/api/getpoll/6443c45284dcd3c434e584c3`,
+    'https://quickpolls-2zqu.onrender.com/api/getpoll/6443c45284dcd3c434e584c3',
     {
       method: "POST",
       headers: {
@@ -124,7 +124,7 @@ async function submitResponse(res) {
     userid = localStorage.getItem("user")._id;
   }
 
-  const response = await fetch(`${BACKEND_BASE_URL}/api/takeresponse`, {
+  const response = await fetch('https://quickpolls-2zqu.onrender.com/api/takeresponse', {
     method: "POST",
     headers: {
       Accept: "applicaiton/json",
