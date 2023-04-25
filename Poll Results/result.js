@@ -115,7 +115,7 @@ async function getResponses(pollid) {
         }
         // console.log(frequency);
 
-        questions.innerHTML += `<div id="piechart${i}"></div>`;
+        questions.innerHTML += `<div class="pie-chart"><div id="piechart${i}"></div></div>`;
 
         google.charts.setOnLoadCallback(drawChart);
 
@@ -133,6 +133,7 @@ async function getResponses(pollid) {
           chart.draw(data, options);
         }
       }
+      questions.innerHTML += `<hr>`;
     }
 
     // formatting the data for CSV
