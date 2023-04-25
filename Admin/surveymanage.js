@@ -1,23 +1,35 @@
-const clickone_btn_11 = document.getElementById("active-hover-sidebar-11");
-const clickone_btn_22 = document.getElementById("active-hover-sidebar-22");
-const clickone_btn_33 = document.getElementById("active-hover-sidebar-33");
+const clickone_btn_111 = document.getElementById("active-hover-sidebar-111");
+const clickone_btn_222 = document.getElementById("active-hover-sidebar-222");
+const clickone_btn_333 = document.getElementById("active-hover-sidebar-333");
 
-clickone_btn_11.style.backgroundColor = "none";
-clickone_btn_22.style.backgroundColor = "none";
-
-clickone_btn_11.addEventListener("click", () => {
+clickone_btn_111.addEventListener("click", () => {
   console.log("clicked");
   window.location.href = "http://localhost:5500/admin/admin.html";
 });
 
-clickone_btn_33.addEventListener("click", () => {
+clickone_btn_333.addEventListener("click", () => {
   console.log("clicked");
   console.log("already on this");
 });
 
-clickone_btn_22.addEventListener("click", () => {
+clickone_btn_222.addEventListener("click", () => {
   console.log("clicked");
   window.location.href = "http://localhost:5500/admin/adminmanage.html";
+});
+
+window.addEventListener("load", () => {
+  if (!localStorage.getItem("user")) {
+    window.location.href = "../index.html";
+  }
+});
+
+const logoutuseradmin = document.getElementById("logoutuseradmin");
+logoutuseradmin.addEventListener("click", () => {
+  // console.log("sadasd");
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  localStorage.removeItem("admin-info");
+  // window.location.href = "../index.html";
 });
 
 const loadAdmininfo = (admin_info) => {
@@ -70,7 +82,7 @@ sumbitform.addEventListener("submit", async (e) => {
     data = data.data;
     const userinfo = document.getElementById("user-info");
     userinfo.innerHTML = `
-    <div class="mycon1" ><table class="table">
+    <div class="mycon1 container" ><table class="table">
         <thead class="table-secondary">
           <tr>
             <th scope="col">Creator ID</th>
@@ -132,6 +144,10 @@ async function deletePoll(pollid) {
   }
 }
 
+const greetadmin3 = document.getElementById("admin-greeting-3");
+const currentadmininfo3 = JSON.parse(localStorage.getItem("user"));
+greetadmin3.innerText = `Hello ${currentadmininfo3.name}!`;
+
 async function promotePoll(pollid) {
   const response = await fetch(
     "https://quickpolls-2zqu.onrender.com/api/updatepromoted",
@@ -148,10 +164,12 @@ async function promotePoll(pollid) {
     }
   );
 
-  if (response.status == 200) {
+  const data = await response.json();
+
+  if (response.status === 200) {
     alert("Poll promoted successfully");
     window.location.reload();
   } else {
-    alert("Error promoting poll");
+    alert(data.message);
   }
 }

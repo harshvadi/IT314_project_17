@@ -3,8 +3,20 @@ const clickone_btn_1 = document.getElementById("active-hover-sidebar-1");
 const clickone_btn_2 = document.getElementById("active-hover-sidebar-2");
 const clickone_btn_3 = document.getElementById("active-hover-sidebar-3");
 
-clickone_btn_2.style.backgroundColor = "none";
-clickone_btn_3.style.backgroundColor = "none";
+window.addEventListener("load", () => {
+  if (!localStorage.getItem("user")) {
+    window.location.href = "../index.html";
+  }
+});
+
+const logoutuseradmin = document.getElementById("logoutuseradmin");
+logoutuseradmin.addEventListener("click", () => {
+  // console.log("sadasd");
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  localStorage.removeItem("admin-info");
+  // window.location.href = "../index.html";
+});
 
 clickone_btn_1.addEventListener("click", () => {
   console.log("clicked");
@@ -13,12 +25,12 @@ clickone_btn_1.addEventListener("click", () => {
 
 clickone_btn_2.addEventListener("click", () => {
   console.log("clicked");
-  window.location.href = "http://localhost:5500/Admin/adminmanage.html";
+  window.location.href = "./adminmanage.html";
 });
 
 clickone_btn_3.addEventListener("click", () => {
   console.log("clicked");
-  window.location.href = "http://localhost:5500/Admin/surveymanage.html";
+  window.location.href = "./surveymanage.html";
 });
 
 const GetDOMAdminUserFit = (data) => {
@@ -61,6 +73,10 @@ const loadPromotedPolls = async () => {
   currentadmininfo.third = data.data.length;
   localStorage.setItem("admin-info", JSON.stringify(currentadmininfo));
 };
+
+const greetadmin = document.getElementById("admin-greeting");
+const currentadmininfo = JSON.parse(localStorage.getItem("user"));
+greetadmin.innerText = `Hello ${currentadmininfo.name}!`;
 
 const loadUserDataAtAdmin = async () => {
   const response = await fetch(

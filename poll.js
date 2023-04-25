@@ -125,20 +125,23 @@ async function submitResponse(res) {
     userid = localStorage.getItem("user")._id;
   }
 
-  const response = await fetch(`${BACKEND_BASE_URL}/api/takeresponse`, {
-    method: "POST",
-    headers: {
-      Accept: "applicaiton/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      pollid: poll_id,
-      userid: userid,
-      responses: res,
-    }),
-    withCredentials: true, // should be there
-    credentials: "include", // should be there
-  });
+  const response = await fetch(
+    "https://quickpolls-2zqu.onrender.com/api/takeresponse",
+    {
+      method: "POST",
+      headers: {
+        Accept: "applicaiton/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        pollid: poll_id,
+        userid: userid,
+        responses: res,
+      }),
+      withCredentials: true, // should be there
+      credentials: "include", // should be there
+    }
+  );
   console.log(response.status);
 
   if (response.status === 200) {
