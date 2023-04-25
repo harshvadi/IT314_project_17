@@ -53,7 +53,7 @@ sumbitform.addEventListener('submit', async(e) => {
     // get last info from the url by splitting it
     const pollid = document.getElementById('surveymanage-input').split('/').pop();
     console.log(pollid);
-    const response = await fetch('http://localhost:3000/api/getallpolls', {
+    const response = await fetch('https://quickpolls-2zqu.onrender.com/api/getallpolls', {
         method: 'POST',
         headers: {
             Accept: "applicaiton/json",

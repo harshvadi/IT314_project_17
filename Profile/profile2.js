@@ -22,6 +22,7 @@ window.onload = async (event) => {
     followers.innerText = user.followers.length;
     following.innerText = user.following.length;
     pollscreated.innerText = user.pollscreated.length;
+    pollsanswered.innerText = user.pollsanswered;
     document.getElementsByClassName("avatar")[0].src = user.profilepic;
   } else {
     document.body.innerHTML = `
@@ -159,3 +160,101 @@ const getDetailsAboutPoll = (pollid) => {
   localStorage.setItem("poll_details", JSON.stringify(pollid));
   window.open("../Poll Results/result.html", "_blank");
 };
+
+
+// get followings list of the user
+async function getFollowings() {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const response = await fetch(`${BACKEND_BASE_URL}/api/following`, {
+    method: "POST",
+    headers: {
+      Accept: "applicaiton/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      token: token,
+    }),
+    withCredentials: true, // should be there
+    credentials: "include", // should be there
+  });
+  console.log(response.status);
+  const data = await response.json();
+
+  const followings = data.following;
+  console.log(followings);
+
+  document.getElementById("following_list").innerHTML = ""; 
+
+  followings.forEach((following)=> {
+    console.log(following.username);
+
+    document.getElementById("following_list").innerHTML += `
+    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user6" style="font-size: 17px;">${following.name}</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@${following.username}</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+    `
+  })
+
+
+}
+
+getFollowings();
+
+
+// get followers list of the user
+async function getFollowers() {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const response = await fetch(`${BACKEND_BASE_URL}/api/followers`, {
+    method: "POST",
+    headers: {
+      Accept: "applicaiton/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      token: token,
+    }),
+    withCredentials: true, // should be there
+    credentials: "include", // should be there
+  });
+  console.log(response.status);
+  const data = await response.json();
+
+  const followers = data.followers;
+  console.log(followers);
+
+  document.getElementById("followers_list").innerHTML = ""; 
+
+  followers.forEach((follower)=> {
+    console.log(follower.username);
+
+    document.getElementById("followers_list").innerHTML += `
+    <div class="user-suggestion-1">
+                      <div>
+                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                      </div>
+                      <div class="right-user-suggestion-1">
+                        <p class="right-user-suggestion-1-name" id="suggest-user6" style="font-size: 17px;">${follower.name}</p>
+                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@${follower.username}</p>
+                      </div>
+                      <div>
+                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
+                      </div>
+                    </div>
+                    <hr />
+    `
+  })
+
+
+}
+
+getFollowers();
