@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickPolls</title>
+    <link rel="stylesheet" href="./SurveyPollInterface.css">
+    <link rel='stylesheet' href="../navbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11/jquery.mins.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+</head>
+
+<body>
+    <navbar class="navbar-container">
+        <div class="logoimg">
+            <img class="logo-content" src="../images/logoQuickpoll.png" alt="logo">
+        </div>
+        <div class="header-btn-container">
+            <button type="submit" class="header-btn" id="login">Publish</button>
+        </div>
+    </navbar>
+
+    <div class="main-page-container">
+        <div class="heading">
+            <div class="heading-title">
+                <input type="text" class="heading-box" placeholder="Heading">
+            </div>
+
+            <div class="description">
+                <input type="text" class="description-box" placeholder="Write a short description for your survey...">
+            </div>
+        </div>
+
+        <form class="main-form" id="main-form">
+
+            <!-- <div class="question">
+
+                <input type="text" class="question-box" placeholder="Question">
+
+                <select class="answer-type">
+                    <option >--Select--</option>
+                    <option value="text-box">Text Box</option>
+                    <option value="check-box">Check Box</option>
+                    <option value="multiple-choice">Multiple Choice</option>
+                    <option value="file-upload">Upload File</option>
+                    <option value="date-box">Date</option>
+                    <option value="time-box">Time</option>
+                </select>
+
+                <i class="fa-solid fa-trash"></i>
+
+                <div class="answer">
+
+                </div> -->
+
+                <!-- <div>
+                    <input type="text" class="answer-box" placeholder="Answer">
+                </div>
+
+                <div>
+                    <input type="checkbox" id="checkbox-id">
+                    <label for="checkbox-id"><input type="text" class="check-box" placeholder="Add Field"></label>
+                    <button id="add-field-button">Add Field</button>
+                    <button id="delete-field-button">Delete Field</button>
+                </div>
+
+                <div>
+                    <input type="radio" id="radio-id">
+                    <label for="radio-id"><input type="text" class="radio-box" placeholder="Add Field"></label>
+                    <button id="add-field-button">Add Field</button>
+                    <button id="delete-field-button">Delete Field</button>
+                </div>
+
+                <div>
+                    <label for="file" class="file-input-text">Select a file to upload</label>
+                    <input type="file" class="file-input" id="file">
+                </div>
+
+                <div>
+                    <input type="date" class="input-date" id="date">
+                </div>
+
+                <div>
+                    <input type="time" class="input-time" id="time">
+                </div>
+             
+                <div>
+                    <input type="date" class="input-date" id="date-time">
+                    <input type="time" class="input-time" id="date-time">
+                </div>
+
+                 -->
+
+            <!-- </div> -->
+
+        </form>
+
+        <button id="add-question" onclick="addQuestion()">Add Question</button>
+    </div>
+
+
+
+    <!-- footer -->
+
+    <!-- <footer id="footer-mainpage">
+        <div class="left-footer">
+            <div class="footer-logo">
+                <img class="logo-footer-img" src="../images/logoQuickpoll.png" alt="logo">
+            </div>
+        </div>
+        <div id="copyright-text">
+            <p>© 2023 QuickPolls. All rights reserved.</p>
+        </div>
+        <div class="right-footer">
+            <div class="social-media-links">
+                <a href="#" class="social-icon fab fa-facebook-f fa-2xl"></a>
+                <a href="#" class="social-icon fab fa-twitter fa-2xl"></a>
+                <a href="#" class="social-icon fab fa-instagram fa-2xl"></a>
+                <a href="#" class="social-icon fab fa-linkedin fa-2xl"></a>
+                <a href="#" class="social-icon fab fa-pinterest fa-2xl"></a>
+            </div>
+        </div>
+    </footer> -->
+
+</body>
+<script src="./SurveyPollInterface.js"></script>
+
+</html>
