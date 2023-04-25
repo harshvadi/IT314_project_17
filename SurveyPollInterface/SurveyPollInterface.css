@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-family: poppins !important;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  }
+  
+  .main-page-container{
+    /* margin:%; */
+    /* width: vw; */
+    height: 100vh;
+    margin: auto;
+    margin-top: 75px;
+    margin-bottom: 20px;
+    padding: 5%;
+    /* background-color: black; */
+    border-radius: 30px;
+    align-items: center;
+  }
+
+  .heading{
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+    background-color: aliceblue;
+    border-bottom: solid 3px rgb(149, 167, 182);
+    border-top: solid 3px rgb(149, 167, 182);
+    border-radius: 10px;
+  }
+
+  .heading-box{
+    margin: auto;
+    width: 99%;
+    height: 10vh;
+    margin-bottom: 20px;
+    border: outset;
+    background-color: rgb(138, 200, 255);
+    border-radius: 10px;
+    font-size: xx-large;
+  }
+
+  .heading-box::placeholder{
+    font-weight: bold;
+    font-size: xx-large;
+    opacity: 0.75;
+    color: black;
+  }
+
+  .description-box{
+    margin: auto;
+    border: 5px black;
+    width: 99%;
+    height: 8vh;
+    word-wrap:normal;
+    font-size: large;
+    border-bottom: solid black;
+    border-width: 2px;
+  }
+
+  .main-form{
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px; 
+    background-color: aliceblue;
+    border-top: solid 3px rgb(149, 167, 182);
+    border-bottom: solid 3px rgb(149, 167, 182);
+    border-radius: 10px; 
+  }
+
+  .question{
+    margin: auto;
+    margin-bottom: 20px;
+    border: 5px black;
+    width: 99%;
+    background-color: rgb(194, 224, 249);
+    border-left: solid 3px rgb(149, 167, 182);
+    border-right: solid 3px rgb(149, 167, 182);
+    border-radius: 10px;
+  }
+
+  .question-box{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    width: 60%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;
+  }
+
+   .answer-type, .answer-type option{
+    /* position: relative; */
+    margin: auto;
+    margin-left: 15px;
+    width: 20%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;
+  }
+
+  .delete-question{
+    margin: auto;
+    margin-left: 15px;
+    margin-bottom: 5px;
+    width: 10%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;
+    cursor: pointer;
+    transition: 0.5s;  
+  }
+
+  .answer-box{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    width: 70%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;
+  }
+
+  .multiple-box{
+    margin: auto; 
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    width: 45%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;
+    /* background-color: black; */
+
+  } 
+
+  .radio-box{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    width: 45%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;
+    /* background-color: black; */
+  }
+
+  .file-input-text{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+  }
+
+  .file-input{
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    width: 20%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+  }
+
+  .input-date{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    width: 20%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;  
+  }
+
+  .input-time{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+    width: 20%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;  
+  }
+
+  #add-field-button{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 27px;
+    width: 20%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black;  
+    cursor: pointer;
+    transition: 0.5s; 
+  }
+
+  #delete-field-button{
+    margin: auto;
+    margin-left: 25px;
+    width: 20%;
+    height: 5vh;
+    font-size: normal;
+    border: none;
+    border-bottom: solid 1px black; 
+    cursor: pointer;
+    transition: 0.5s;  
+  }
+
+
+  #add-question{
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 60px; 
+    width: 30%;
+    height: 5vh;
+    font-size: normal;
+    border: solid 1px black;  
+    border-bottom: solid 2px black;
+    border-right: solid 2px black;
+    cursor: pointer;
+    transition: 0.5s;
+  }
+
+
+
+
+  /* footer */
+  /* Removing Footer to avoid unnecessary complications */
+  /* .logo-footer-img{
+    width: auto;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+  }
+
+  #footer-mainpage{
+    
+    width: 100vw;
+    height: 100px;
+    background-color: #144b48;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 200px;
+  }
+  
+  .left-footer{
+    width: 25%;
+    height: 100%;
+    background-color: #144b48;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 50px;
+  }
+  
+  #copyright-text{
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+  }
+  
+  .right-footer{
+    width: 30%;
+    height: 100%;
+    background-color: #144b48;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 50px;
+  }
+  
+  .social-media-links{
+    width: 100px;
+    height: 100px;
+    background-color: #144b48;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    border-radius: 50%;
+    transition: 0.5s;
+    margin-right: 7rem;
+  }
+  
+  .social-media-link{
+    width: 50px;
+    height: 50px;
+    background-color: #144b48;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.5s;
+  }
+  
+  .social-icon{
+    background-color: #144b48;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 0.5s;
+    margin-right: 2rem;
+    
+  }
+  
+  #copyright-text{
+    font-size: 15px;
+    font-weight: 300;
+    color: #fff;
+    margin-left: 50px;
+  }
+  
+  a{
+    text-decoration: none;
+    color: #fff;
+  } */
