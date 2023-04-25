@@ -7,22 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="./surveymanage.css">
+    <link rel="stylesheet" href="./admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="editProfile.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/91d08a18ba.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://kit.fontawesome.com/91d08a18ba.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="../navbar.css">
 </head>
-<!-- <footer>
-    <h3>QuickPolls</h3>
-    <li>Home</li>
-    <li>Feed</li>
-    <button>Logout</button>    
-</footer> -->
 
 <body>
-    <div class="container">
-        <div class="header">
-            <h3>QuickPolls</h3>
-            <li>Home</li>
-            <li>Feed</li>
-            <a href="../Feed/feed.html">Logout</a>
-        </div>
+        <nav class="navbar-container">
+            <div class="logoimg">
+                <img class="logo-content" src="../images/logoQuickpoll.png" alt="logo">
+            </div>
+    
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="/">Create Survey</a></li>
+                <li><a href="../index.html">Logout</a></li>
+            </ul> 
+        </nav>
 
         <div class="leftside">
             <h2>Hello, Hardik!</h2><br>
@@ -34,129 +39,41 @@
             </ul>
             <h3>MANAGEMENT</h3>
             <ul>
-                <li>User Management</li>
-                <li>Admin Management</li>
-                <li>Poll Management</li>
-                <li>Survey Management</li>
+                <li id="active-hover-sidebar-11">User Management</li>
+                <li id="active-hover-sidebar-22">Admin Management</li>
+                <li id="active-hover-sidebar-33">Survey Management</li>
             </ul>
         </div>
 
         <div class="mid">
             <div class="item">
-                <div id="item1">
+                <div class="item-box"id="item1">
                     <li>Total Users</li>
-                    <li>1088</li>
+                    <li id="item1-first">--</li>
                 </div>
-                <div id="item2">
+                <div class="item-box" id="item2">
                     <li>Total Polls conducted</li>
-                    <li>4096</li>
+                    <li id="item2-second">--</li>
                 </div>
-                <div id="item3">
-                    <li>Total Surveys conducted</li>
-                    <li>2348</li>
-                </div>
-            </div>
-
-            <div class="line">
-                <li>Title</li>
-                <li>Creator's ID</li>
-                <li>Date</li>
-                <li>Time</li>
-            </div>
-
-            <div class="mycon">
-                <div class="atr1">
-                    <li>SBG Convenor</li>
-                    <li>SBG Convenor</li>
-                    <li>SBG Convenor</li>
-                    <li>SBG Convenor</li>
-                    <li>SBG Convenor</li>
-                    <li>SBG Convenor</li>
-                    <li>SBG Convenor</li>
-                    <li>SBG Convenor</li>
-                    <li>SBG Convenor</li>
-                    <li>SBG</li>
-                </div>
-
-                <div class="atr2">
-                    <li>@hetbpatel</li>
-                    <li>@hetbpatel</li>
-                    <li>@hetbpatel</li>
-                    <li>@hetbpatel</li>
-                    <li>@hetbpatel</li>
-                    <li>@hetbpatel</li>
-                    <li>@hetbpatel</li>
-                    <li>@hetbpatel</li>
-                    <li>@hetbpatel</li>
-                    <li>@hetbpatel</li>
-                </div>
-
-                <div class="atr3">
-                    <li>24-04-2023</li>
-                    <li>24-04-2023</li>
-                    <li>24-04-2023</li>
-                    <li>24-04-2023</li>
-                    <li>24-04-2023</li>
-                    <li>24-04-2023</li>
-                    <li>24-04-2023</li>
-                    <li>24-04-2023</li>
-                    <li>24-04-2023</li>
-                    <li>24-04-2023</li>
-                </div>
-
-                <div class="atr6">
-                    <li>20:54:24</li>
-                    <li>20:54:24</li>
-                    <li>20:54:24</li>
-                    <li>20:54:24</li>
-                    <li>20:54:24</li>
-                    <li>20:54:24</li>
-                    <li>20:54:24</li>
-                    <li>20:54:24</li>
-                    <li>20:54:24</li>
-                    <li>20:54:24</li>
-                </div>
-
-                <div class="atr4">
-                    <a id="btn2">Open</a>
-                    <a id="btn2">Open</a>
-                    <a id="btn2">Open</a>
-                    <a id="btn2">Open</a>
-                    <a id="btn2">Open</a>
-                    <a id="btn2">Open</a>
-                    <a id="btn2">Open</a>
-                    <a id="btn2">Open</a>
-                    <a id="btn2">Open</a>
-                    <a id="btn2">Open</a>
-                </div>
-
-                <div class="atr5">
-                    <a id="btn3">Result</a>
-                    <a id="btn3">Result</a>
-                    <a id="btn3">Result</a>
-                    <a id="btn3">Result</a>
-                    <a id="btn3">Result</a>
-                    <a id="btn3">Result</a>
-                    <a id="btn3">Result</a>
-                    <a id="btn3">Result</a>
-                    <a id="btn3">Result</a>
-                    <a id="btn3">Result</a>
-                </div>
-
-                <div class="atr7">
-                    <a id="btn2">Delete</a>
-                    <a id="btn2">Delete</a>
-                    <a id="btn2">Delete</a>
-                    <a id="btn2">Delete</a>
-                    <a id="btn2">Delete</a>
-                    <a id="btn2">Delete</a>
-                    <a id="btn2">Delete</a>
-                    <a id="btn2">Delete</a>
-                    <a id="btn2">Delete</a>
-                    <a id="btn2">Delete</a>
+                <div class="item-box" id="item3">
+                    <li>Promoted polls</li>
+                    <li id="item3-third">--</li>
                 </div>
             </div>
+
+<hr>
+                <div id="conv">
+                    <form>
+                        <div class="form-group">
+                          <label for="surveymanage-input"class="fontsizelabel">Survey Management</label>
+                          <input type="text" class="form-control" id="surveymanage-input" placeholder="Enter survey id">
+                        </div>
+                        <div class="container test-file">
+                        <button type="submit" class="btn btn-primary" id="getuserinfo">Submit</button>
+                        </div>
+                      </form>
+                </div>
         </div>
 </body>
-
+<script src="./surveymanage.js"></script>
 </html>
