@@ -48,7 +48,7 @@ const searchbtnone = document.getElementById('searchbutton1');
 const searchbtntwo = document.getElementById('searchbutton2');
 
 const getuserdetails = async (username) => {
-    const response = await fetch('http://localhost:3000/api/getsingleuserinfo', {
+    const response = await fetch('https://quickpolls-2zqu.onrender.com/api/getsingleuserinfo', {
         method: 'POST',
         headers: {
             Accept: "applicaiton/json",
@@ -145,7 +145,7 @@ searchbtntwo.addEventListener('click', async function (e) {
 promoteuserform.addEventListener('submit', async function (e) {
     e.preventDefault();
     const username = document.getElementById('promoteusername').value;
-    const response = await fetch('http://localhost:3000/api/promoteuser', {
+    const response = await fetch('https://quickpolls-2zqu.onrender.com/api/promoteuser', {
         method: 'POST',
         headers: {
             Accept: "applicaiton/json",
@@ -171,7 +171,7 @@ promoteuserform.addEventListener('submit', async function (e) {
 demoteuserform.addEventListener('submit', async function (e) {
     e.preventDefault();
     const username = document.getElementById('demoteusername').value;
-    const response = await fetch('http://localhost:3000/api/demoteuser', {
+    const response = await fetch('https://quickpolls-2zqu.onrender.com/api/demoteuser', {
         method: 'POST',
         headers: {
             Accept: "applicaiton/json",

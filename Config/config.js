@@ -1,1 +1,1 @@
-var BACKEND_BASE_URL = 'http://localhost:3000';
+var BACKEND_BASE_URL = 'https://quickpolls-2zqu.onrender.com';
