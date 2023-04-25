@@ -8,11 +8,7 @@ const create_poll = document.getElementById("create-poll");
 const submit_btn = document.getElementById("submit-poll");
 const success_msg = document.getElementById("success-msg");
 
-submit_btn.addEventListener('click', function () {
-  success_msg.style.display = "block";
-  // Set a timeout to close the modal after 5 seconds
-  setTimeout(closeModal, 2000);
-});
+let poll;
 
 let i = 0;
 function addInput() {
@@ -27,10 +23,20 @@ function addInput() {
   i++;
 }
 
+
+submit_btn.addEventListener('click', function () {
+  // console.log("called")
+  // success_msg.style.display = "block";
+  success_msg.innerHTML = "Poll Created Successfully";
+  // Set a timeout to close the modal after 5 seconds
+  setTimeout(closeModal, 2000);
+});
+
 if (i == 0) {
   document.getElementById("remove-opt").style.display = "none";
   document.getElementById("submit-poll").style.display = "none";
-  success_msg.style.display = "none";
+  // success_msg.style.display = "none";
+  success_msg.innerHTML = "";
 }
 
 function removeInput() {
@@ -41,13 +47,20 @@ function removeInput() {
     if (i == 0) {
       document.getElementById("remove-opt").style.display = "none";
       document.getElementById("submit-poll").style.display = "none";
-      success_msg.style.display = "none";
+      // success_msg.style.display = "none";
+      success_msg.innerHTML = "";
     }
   }
 }
 
 function closeModal() {
+  // success_msg.style.display = "none";
+  success_msg.innerHTML = "";
   document.getElementById('poll-popup').style.display = 'none';
+  while (i--) {
+    container.removeChild(container.lastChild);
+  }
+  i++;
 }
 
 let j = 1;
@@ -81,7 +94,7 @@ options.forEach((option, index) => {
 // / limit the word count by 6 words only in the div id=trending-poll-name
 
 const limitthevisibitywords = (count, id) => {
-  console.log(id)
+  // console.log(id)
   const cnt = document.getElementById(id).innerText;
   let words = cnt.split(" ");
   if (words.length > count) {
@@ -155,7 +168,7 @@ const loadMorePolls = async () => {
     return;
   }
   feeditems = feeditems.feedItems;
-  // console.log(feeditems);
+  console.log(feeditems);
   for (let i = 0; i < feeditems.length; i++) {
     const users_name = feeditems[i].name;
     const users_username = feeditems[i].username;
@@ -188,6 +201,7 @@ const loadMorePolls = async () => {
                 </div>
             </div>
             <hr/>
+            
             <div class="feed-center-poll-question">
                 <p id="question-title-center-feed">${(question && question.length > 0) ? question : questiontitle}</p>
                 <p class="poll-question-desc">
@@ -216,72 +230,32 @@ const loadMorePolls = async () => {
     else {
 
       // generate labels for options
-      let options = feeditems[i].options;
-      // console.log(options)
-      let optionshtml = "";
-      let inputhtml = "";
-      for (let j = 0; j < options.length; j++) {
-        const option = options[j];
-        inputhtml += `
-                <input type="checkbox" name="poll-option" id="poll-option-${pagecount * 10 + i + j}" class="">
-              `;
-        optionshtml += `
-                          <label for="poll-option-${pagecount * 10 + i + j}" class="poll-option-${pagecount * 10 + i + j}">
-                            <div class="row">
-                              <div class="column">
-                                <span class="circle"></span>
-                                <span class="text">${options[j]}</span>
-                              </div>
-                              <span class="percent">30%</span>
-                            </div>
-                            <div class="progress" style='--w:30;'></div>
-                          </label>
-                `;
-      }
+      poll = {
+        question: feeditems[i].question,
+        answers: feeditems[i].options,
+        answerweight: [40, 10, 10, 25, 15],
+        pollcount: 100,
+        selectanswer: -1
+      };
+      let polldom = {
+        question: document.querySelector(".poll .question"),
+        answers: document.querySelector(".poll .answers")
+      };
+      console.log(poll.answers);
+      polldom.question = poll.question;
+      polldom.answers = poll.answers.map(function (answer, i) {
+        return (
+          `
+        <div class="answer" onclick="markanswer('${i}')">
+        ${answer}
+        <span class="percentage_bar"></span>
+        <span class="percentage_value"></span>
+        </div>
+        `
+        );
+      }).join("");
 
-      options_list = document.querySelectorAll("label");
-      console.log(optionshtml);
-      for (let i = 0; i < options_list.length; i++) {
-        options_list[i].addEventListener("click", () => {
-          for (let j = 0; j < options_list.length; j++) {
-            if (options_list[j].classList.contains("selected")) {
-              options_list[j].classList.remove("selected");
-            }
-          }
-
-
-          options_list[i].classList.add("selected");
-          for (let k = 0; k < options_list.length; k++) {
-            options_list[k].classList.add("selectall");
-          }
-
-          let forVal = options_list[i].getAttribute("for");
-          let selectInput = document.querySelector("#" + forVal);
-          let getAtt = selectInput.getAttribute("type");
-          if (getAtt == "checkbox") {
-            selectInput.setAttribute("type", "radio");
-          } else if (selectInput.checked == true) {
-            options_list[i].classList.remove("selected");
-            selectInput.setAttribute("type", "checkbox");
-          }
-
-          let array = [];
-          for (let l = 0; l < options_list.length; l++) {
-            if (options_list[l].classList.contains("selected")) {
-              array.push(l);
-            }
-          }
-          if (array.length == 0) {
-            for (let m = 0; m < options_list.length; m++) {
-              options_list[m].removeAttribute("class");
-            }
-          }
-          // console.log(array);
-        });
-      }
-
-      // let options_list = document.querySelectorAll("label");
-      console.log(options);
+      // console.log(options);
 
 
       const users_name = feeditems[i].name;
@@ -309,10 +283,11 @@ const loadMorePolls = async () => {
                 <hr/>
 
                 <div class="feed-center-poll-question">
-                    <p id="question-title-center-feed">${question}</p>
-                    <div class="poll-center-options">
-                        ${inputhtml}
-                        ${optionshtml}
+                    <!-- <p id="question-title-center-feed">${question}</p>
+                    // <div class="poll-center-options"> -->
+                    <div class="poll">
+                      <div class="question">${polldom.question}</div>
+                      <div class="answers">${polldom.answers}</div>
                     </div>
                 </div>
 
@@ -324,6 +299,42 @@ const loadMorePolls = async () => {
     }
 
 
+  }
+}
+
+function markanswer(i){
+  poll.selectanswer = +i;
+  try{
+    document.querySelector(".poll .answers .answer.selected").classList.remove(".selected");
+  }
+  catch(msg){}
+
+  document.querySelectorAll(".poll .answers .answer")[+i].classList.add(".selected");
+
+  showresults();
+}
+
+function showresults(){
+  let answers = document.querySelectorAll(".poll .answers .answer");
+  
+  for(let x=0;x<answers.length; x++)
+  {
+    let percentage = 0;
+    if(x==poll.selectanswer){
+      percentage = 
+      (
+        (poll.answerweight[x]+1)*100 / (poll.pollcount + 1)
+      ).toFixed(2);
+    }
+    else{
+      percentage = (
+        (poll.answerweight[x])*100 / (poll.pollcount + 1)
+      ).toFixed(2);
+    }
+
+    if(percentage==0) answers[x].querySelector(".percentage_value").innerText = "0%";
+    answers[x].querySelector(".percentage_bar").style.width = percentage + "%";
+    answers[x].querySelector(".percentage_value").innerText = percentage + "%";
   }
 }
 
