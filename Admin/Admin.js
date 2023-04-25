@@ -40,7 +40,7 @@ const GetDOMAdminUserFit = (data) => {
 let totalpollsconducted = 0;
 
 const loadPromotedPolls = async () => {
-    const response = await fetch('http://localhost:3000/api/getpromoted', {
+    const response = await fetch('https://quickpolls-2zqu.onrender.com/api/getpromoted', {
         method: 'POST',
         headers: {
             Accept: "applicaiton/json",
@@ -65,7 +65,7 @@ const loadPromotedPolls = async () => {
 
 const loadUserDataAtAdmin = async () => {
 
-    const response = await fetch('http://localhost:3000/api/getallusers', {
+    const response = await fetch('https://quickpolls-2zqu.onrender.com/api/getallusers', {
         method: 'POST',
         headers: {
             Accept: "applicaiton/json",
@@ -115,7 +115,7 @@ const table = document.getElementById('useradmintable');
 
 table.addEventListener('click', async (e) => {
     const id = e.target.id;
-    const response = await fetch('http://localhost:3000/api/removeuser', {
+    const response = await fetch('https://quickpolls-2zqu.onrender.com/api/removeuser', {
         method: 'POST',
         headers: {
             Accept: "applicaiton/json",
