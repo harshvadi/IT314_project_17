@@ -8,24 +8,6 @@ body {
     font-family: 'Serif', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
 }
 
-.container {
-    width: 100%;
-    /* border: 2px solid blue; */
-}
-
-.header {
-    /* border: 2px solid red; */
-    width: 100%;
-    height: 57px;
-    margin-top: -57px;
-    position: fixed;
-    z-index: 100;
-    background-color: #7474c4;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    font-size: large;
-}
 
 .header h3 {
     font-size: 24px;
@@ -107,27 +89,40 @@ body {
     list-style: none;
 }
 
-.item {
-    /* border: 2px solid red; */
-    display: flex;
-    justify-content: space-between;
-    text-align: center;
-    padding: 5px 20px;
+.formcontrolwithwidh{
+    width: 35% !important;
+    margin-top: 50px;
 }
 
-#item1,
-#item2,
-#item3 {
-    /* border: 2px solid blue; */
-    display: inline-block;
-    background-color: #a8f8ff;
-    padding: 30px;
-    position: relative;
-    width: 100px;
-    height: 100px;
-    margin: 10px auto;
-    border: 2px solid rgba(140, 140, 255, 0.825);
+.fontsizelabel{
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #5757964a;
+    color: #7474c4;
 }
+
+.movebtn{
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #ada9a992 !important;
+}
+
+
+.movebtn1{
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.formcontainer{
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    flex-direction: column;
+}
+
 
 .item li {
     padding: 7px;
@@ -146,6 +141,11 @@ body {
     margin-bottom: 5px;
 }
 
+#user-promoted-content{
+    margin-top: 20px;
+    width: 10px;
+}
+
 .line li {
     margin-left: 90px;
     margin-right: 63px;
@@ -158,6 +158,21 @@ body {
     display: flex;
     justify-content:left;
     margin: 5px 10px 5px 20px;
+
+}
+
+
+
+.mycon1{
+    position: relative;
+    left:-160px;
+}
+
+.mycon2{
+    list-style: none;
+    display: flex;
+    justify-content:left;
+    margin-top: 20px;
 }
 
 .atr1, .atr2, .atr3{
@@ -174,6 +189,13 @@ body {
     font-weight: 400;
     margin: 16px 0;
     cursor: pointer;
+}
+
+#active-hover-sidebar-2{
+    background-color: #7474c4;
+    border-radius: 5px;
+    margin-right: 43px;
+    padding-left: 20px;
 }
 
 
