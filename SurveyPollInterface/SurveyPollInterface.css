@@ -11,11 +11,11 @@ body{
   .main-page-container{
     /* margin:%; */
     /* width: vw; */
-    height: 100vh;
+    /*height: 100vh;*/
     margin: auto;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     padding: 5%;
+    padding-top: 3% !important;
     /* background-color: black; */
     border-radius: 30px;
     align-items: center;
@@ -589,4 +589,53 @@ body{
 .floating-container .float-element .material-icons {
   vertical-align: middle;
   font-size: 16px;
+}
+
+.submit-poll-page {
+  width: 150px;
+  height: 50px;
+  background-color: #595F9B;
+  font-size: medium;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-align: center;
+  border: none;
+  font-size: 20px;
+  color: white;
+  font-family: sans-serif;
+}
+
+.foot{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.logosmall-footer{
+  width: 130px;
+  height: auto;
+}
+
+.logosmall-footer{
+  border-radius: 5px;
+  background-color: #595F9B;
+  padding: 5px 12px;
+  
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+
+.foot-2 p{
+  font-size: 20px;
+}
+
+.foot-2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 100px;
+  margin-top: 80px;
 }
