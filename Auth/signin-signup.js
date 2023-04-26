@@ -10,10 +10,6 @@ const nextBtn = document.querySelectorAll("form .next-btn");
 const prevBtn = document.querySelectorAll("form .previous-btn");
 const form = document.querySelector("form");
 const loginForm = document.getElementById("login-form");
-// window onload
-window.onload = () => {
-  // resent the form
-};
 
 nextBtn.forEach((button) => {
   button.addEventListener("click", () => {
@@ -171,10 +167,10 @@ loginForm.addEventListener("submit", async (e) => {
 });
 
 //--------------------------------signup.js--------------------------------------------
-
-const Signup = async (firstname, email, username, role, password) => {
+// 
+const Signup = async (firstname, email, username, password) => {
   // api call to locahost:3000/api/auth/register
-  console.log(firstname, email, username, role, password);
+  console.log(firstname, email, username, password);
   const response = await fetch(
     "https://quickpolls-2zqu.onrender.com/api/auth/register",
     {
@@ -187,7 +183,6 @@ const Signup = async (firstname, email, username, role, password) => {
         name: firstname,
         email,
         username,
-        role,
         password,
       }),
       withCredentials: true, // should be there
@@ -201,6 +196,7 @@ const Signup = async (firstname, email, username, role, password) => {
   if (statuscode == 200) {
     console.log("Signup successful");
     localStorage.setItem("user", JSON.stringify(data.user));
+    localStorage.setItem("token", JSON.stringify(data.token));
     form.reset();
     window.location.href = "../Feed/feed.html";
   } else {
@@ -225,7 +221,7 @@ signupForm.addEventListener("submit", async (e) => {
   const firstname = document.getElementById("name").value;
   const email = document.getElementById("email2").value;
   const username = document.getElementById("username").value;
-  const role = document.getElementById("role").value;
+//   const role = document.getElementById("role").value;
   const password = document.getElementById("password1").value;
   const confirm_password = document.getElementById("password2").value;
 
@@ -251,7 +247,7 @@ signupForm.addEventListener("submit", async (e) => {
     return;
   }
   console.log("begin signup");
-  let signupsuccess = await Signup(firstname, email, username, role, password);
+  let signupsuccess = await Signup(firstname, email, username, password);
   if (!signupsuccess) {
     return false;
   }

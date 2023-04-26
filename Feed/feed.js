@@ -10,6 +10,19 @@ const success_msg = document.getElementById("success-msg");
 
 let poll;
 
+
+window.addEventListener('load',()=>{
+  const token = localStorage.getItem('token');
+  if(!token){
+      window.location.href = '../Auth/signin-signup.html';
+  }else{
+      const role = localStorage.getItem('user').role;
+      if(role == 'admin'){
+          window.location.href = '../Admin/Admin.html';
+      }
+  }
+});
+
 let i = 0;
 function addInput() {
   document.getElementById("remove-opt").style.display = "inline-block";
@@ -109,17 +122,17 @@ const limitthevisibilitychar = (count, id) => {
   }
 };
 
-limitthevisibitywords(6, "trending-poll-name1");
-limitthevisibitywords(6, "trending-poll-name2");
-limitthevisibitywords(6, "trending-poll-name3");
-limitthevisibitywords(6, "trending-poll-name4");
-limitthevisibitywords(6, "trending-poll-name5");
+// limitthevisibitywords(6, "trending-poll-name1");
+// limitthevisibitywords(6, "trending-poll-name2");
+// limitthevisibitywords(6, "trending-poll-name3");
+// limitthevisibitywords(6, "trending-poll-name4");
+// limitthevisibitywords(6, "trending-poll-name5");
 
-limitthevisibilitychar(15, "suggest-user1");
-limitthevisibilitychar(15, "suggest-user2");
-limitthevisibilitychar(15, "suggest-user3");
-limitthevisibilitychar(15, "suggest-user4");
-limitthevisibilitychar(15, "suggest-user5");
+// limitthevisibilitychar(15, "suggest-user1");
+// limitthevisibilitychar(15, "suggest-user2");
+// limitthevisibilitychar(15, "suggest-user3");
+// limitthevisibilitychar(15, "suggest-user4");
+// limitthevisibilitychar(15, "suggest-user5");
 
 const clickopenresponse1 = document.getElementById("open-poll-response-page");
 
@@ -163,7 +176,6 @@ const loadMorePolls = async () => {
   localStorage.setItem("pagecount", pagecount + 1);
   let feeditems = await getmorepolls();
   if (!feeditems) {
-    alert("No more polls to load");
     return;
   }
   feeditems = feeditems.feedItems;
@@ -178,6 +190,7 @@ const loadMorePolls = async () => {
     const totalquestions = feeditems[i].totalquestions;
     const totalresponses = feeditems[i].totalresponses;
     const endedAt = feeditems[i].endedAt;
+    console.log(feeditems[i].pollId);
     let iscontributedisabled = "none";
     if (feeditems[i].questionType == "multiple") {
       iscontributedisabled = "block";
@@ -195,7 +208,7 @@ const loadMorePolls = async () => {
                     </div>
                 </div>
                 <div class="submit-btn-contain">
-                    <a class="submit-button-setting" target="_blank" href="../poll.html" id="open-poll-response-page${
+                    <a class="submit-button-setting" href="../poll.html?pollid=${feeditems[i].pollId}" id="open-poll-response-page${
                       pagecount * 10 + i
                     }" style="display:${iscontributedisabled}">Contribute</a>
                 </div>
@@ -339,24 +352,43 @@ function showresults() {
 
 // wait 5sec before loading more polls
 
-loadMorePolls();
+window.addEventListener("load",()=> {
+  setTimeout(() => {
+    loadMorePolls();
+  }, 2000);
+})
+
+
+
+// --- Logout
+const logout = document.getElementById("logout-user");
+logout.addEventListener("click", () => {
+  localStorage.removeItem("user");
+  localStorage.removeItem("token");
+  window.location.href = "/login";
+});
+
 
 window.addEventListener("scroll", loadMorePolls);
 
-window.onload = function () {
+window.onload = async function () {
   // clear pagecount  to zero
   pagecount = 0;
   localStorage.setItem("pagecount", pagecount);
   const user = localStorage.getItem("user");
   if (user) {
     // const "{"_id":"642cb294f2c39fd0f2543008","username":"harshmp","email":"harshlove@gmail.com","role":"Customer","name":"Harsh Prajapati","bio":"Just started surveying.","profilepic":"https://www.w3schools.com/w3images/avatar2.png","__v":0}"
-    const userobj = JSON.parse(user);
+    const userobj = await JSON.parse(user);
     const profileimg = userobj.profilepic;
     const username = userobj.username;
     const name = userobj.name;
     const bio = userobj.bio;
     const email = userobj.email;
-
+    console.log(userobj.followers.length);
+    let h1 = userobj.followers.length;
+    let h2 = userobj.following.length;
+    let followings;
+      
     let obj = `<div class="left-top-color-grid">
                 
     </div>
@@ -367,16 +399,73 @@ window.onload = function () {
             <p class="shadow-color" style="font-size: 14px;">@${username}</p>
             <hr>
             <p>Followings</p>
-            <p style="font-size: 14px;">142</p>
+            <p id="following-text"style="font-size: 14px;">${h2}</p>
             <hr>
             <p>Followers</p>
-            <p style="font-size: 14px;">432</p>
+            <p id="follower-text" style="font-size: 14px;">${h1}</p>
             <hr>
             <a class="like-p" href="../Profile/profile2.html" style="cursor:pointer;">View Profile</a>
         </div>
     </div>`;
-
     const lefttop = document.getElementsByClassName("left-top-container")[0];
     lefttop.innerHTML = obj;
   }
-};
+}
+
+
+/**  Get promoted polls from the backend */
+
+const promotedpolls = [];
+
+const fetchpromotedpolls = async () => {
+  // https://quickpolls-2zqu.onrender.com
+    const response = await fetch("https://quickpolls-2zqu.onrender.com/api/getpromoted", {
+        method: "POST",
+        headers: {
+          Accept: "applicaiton/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token: localStorage.getItem("token"),
+        }),
+
+      });
+      const data = await response.json();
+      if(response.status==200){
+        console.log(data);
+        return data;
+      }
+      else{
+        console.log("error");
+        return data.message;
+      }
+    
+}
+
+
+const loadpromotedpolls = async () => {
+    let promotedpolls = await fetchpromotedpolls();
+  promotedpolls = promotedpolls.data;
+for(let i=0;i<promotedpolls.length;i++){
+
+  let promotedobj = `<div class="trending-box-item">
+  <div class="trending-box-item-left">
+  <p class="right-user-suggestion-1-name" id="trending-poll-name1" style="font-size: 17px;">${promotedpolls[i].title}</p>
+        <p class="right-user-suggestion-1-username shadow-color " style="font-size: 15px;">@${promotedpolls[i].creator}</p>
+    </div>
+    <div>
+    <i id="${promotedpolls[i].pollid}" onclick="redirectToPoll(this.id)" class="fa-sharp fa-solid fa-arrow-up-right-from-square fa-xl" style="color: #595f9b; margin-right:5px; cursor:pointer;"></i>
+    </div>
+    </div><hr/>  `;
+    const promotedpollscontainer = document.getElementById("promoted-poll-container");
+    promotedpollscontainer.innerHTML += promotedobj;
+  }
+}
+
+function redirectToPoll(id){
+  window.location.href = `../poll.html?pollid=${id}`;
+}
+
+window.addEventListener('load', () => {
+    loadpromotedpolls();
+});

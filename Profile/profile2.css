@@ -275,3 +275,31 @@ li {
     padding-bottom: 5px;
     text-decoration: none;
 }
+
+#followings{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    top: 8px;
+}
+
+#followers{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    top: 8px;
+}
+
+#follow-btn{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border-color: white;
+}
