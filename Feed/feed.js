@@ -1,6 +1,6 @@
 const options = document.querySelectorAll('input[name="poll-option"]');
-const bars = document.querySelectorAll('.bar');
-const container = document.getElementById('input-cont');
+const bars = document.querySelectorAll(".bar");
+const container = document.getElementById("input-cont");
 
 // Call addInput() function on button click
 
@@ -15,16 +15,15 @@ function addInput() {
   document.getElementById("remove-opt").style.display = "inline-block";
   document.getElementById("submit-poll").style.display = "block";
 
-  let input = document.createElement('input');
+  let input = document.createElement("input");
   input.classList.add("input-field");
   // console.log(input);
-  input.placeholder = 'Option ' + (i + 1);
+  input.placeholder = "Option " + (i + 1);
   container.appendChild(input);
   i++;
 }
 
-
-submit_btn.addEventListener('click', function () {
+submit_btn.addEventListener("click", function () {
   // console.log("called")
   // success_msg.style.display = "block";
   success_msg.innerHTML = "Poll Created Successfully";
@@ -56,7 +55,7 @@ function removeInput() {
 function closeModal() {
   // success_msg.style.display = "none";
   success_msg.innerHTML = "";
-  document.getElementById('poll-popup').style.display = 'none';
+  document.getElementById("poll-popup").style.display = "none";
   while (i--) {
     container.removeChild(container.lastChild);
   }
@@ -65,14 +64,14 @@ function closeModal() {
 
 let j = 1;
 function openModal() {
-  document.getElementById('question').value = "";
+  document.getElementById("question").value = "";
   document.getElementById("remove-opt").style.display = "none";
   document.getElementById("submit-poll").style.display = "none";
   success_msg.innerHTML = "";
   // for (j = 1; j <= i; j++) {
   // document.getElementById("input-field"+j).value = "";
   // }
-  document.getElementById('poll-popup').style.display = 'block';
+  document.getElementById("poll-popup").style.display = "block";
 }
 
 function showPage() {
@@ -81,7 +80,7 @@ function showPage() {
 }
 
 options.forEach((option, index) => {
-  option.addEventListener('click', () => {
+  option.addEventListener("click", () => {
     const total = options.length;
     const count = Array.from(options).filter((o) => o.checked).length;
     const percentage = (count / total) * 100;
@@ -89,7 +88,6 @@ options.forEach((option, index) => {
     bars[index].style.width = `${percentage}%`;
   });
 });
-
 
 // / limit the word count by 6 words only in the div id=trending-poll-name
 
@@ -101,7 +99,7 @@ const limitthevisibitywords = (count, id) => {
     const idcontainer = document.getElementById(id);
     idcontainer.innerText = words.slice(0, 6).join(" ") + "...";
   }
-}
+};
 
 const limitthevisibilitychar = (count, id) => {
   const cnt = document.getElementById(id).innerText;
@@ -109,8 +107,7 @@ const limitthevisibilitychar = (count, id) => {
     const idcontainer = document.getElementById(id);
     idcontainer.innerText = cnt.slice(0, count) + "...";
   }
-}
-
+};
 
 limitthevisibitywords(6, "trending-poll-name1");
 limitthevisibitywords(6, "trending-poll-name2");
@@ -126,13 +123,13 @@ limitthevisibilitychar(15, "suggest-user5");
 
 const clickopenresponse1 = document.getElementById("open-poll-response-page");
 
-
-const redirecttohostpoll = document.getElementsByClassName('submit-button-setting');
+const redirecttohostpoll = document.getElementsByClassName(
+  "submit-button-setting"
+);
 
 // const redirecttohostpoll.addEventListener('click', () => {
 
 // });
-
 
 /****** API integrations babyyy */
 
@@ -141,19 +138,21 @@ const redirecttohostpoll = document.getElementsByClassName('submit-button-settin
 const getmorepolls = async () => {
   const token = localStorage.getItem("token");
   if (!token) return;
-  const response = await fetch("https://quickpolls-2zqu.onrender.com/api/feed/2", {
-    method: "POST",
-    headers: {
-      Accept: "applicaiton/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      'token': token,
-    }),
-    withCredentials: true, // should be there
-    credentials: 'include' // should be there 
-
-  });
+  const response = await fetch(
+    "https://quickpolls-2zqu.onrender.com/api/feed/1",
+    {
+      method: "POST",
+      headers: {
+        Accept: "applicaiton/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: token,
+      }),
+      withCredentials: true, // should be there
+      credentials: "include", // should be there
+    }
+  );
   const data = await response.json();
   showPage();
   return data;
@@ -164,7 +163,7 @@ const loadMorePolls = async () => {
   localStorage.setItem("pagecount", pagecount + 1);
   let feeditems = await getmorepolls();
   if (!feeditems) {
-    alert('No more polls to load');
+    alert("No more polls to load");
     return;
   }
   feeditems = feeditems.feedItems;
@@ -196,13 +195,17 @@ const loadMorePolls = async () => {
                     </div>
                 </div>
                 <div class="submit-btn-contain">
-                    <a class="submit-button-setting" target="_blank" href="../poll.html" id="open-poll-response-page${pagecount * 10 + i}" style="display:${iscontributedisabled}">Contribute</a>
+                    <a class="submit-button-setting" target="_blank" href="../poll.html" id="open-poll-response-page${
+                      pagecount * 10 + i
+                    }" style="display:${iscontributedisabled}">Contribute</a>
                 </div>
             </div>
             <hr/>
             
             <div class="feed-center-poll-question">
-                <p id="question-title-center-feed">${(question && question.length > 0) ? question : questiontitle}</p>
+                <p id="question-title-center-feed">${
+                  question && question.length > 0 ? question : questiontitle
+                }</p>
                 <p class="poll-question-desc">
                     ${questiondesc}
                 </p>
@@ -221,41 +224,38 @@ const loadMorePolls = async () => {
             </div>
 
         </div>
-            `
+            `;
       // console.log("item");
       const feed = document.getElementById("feedismine");
       feed.innerHTML += newitemcontainer;
-    }
-    else {
-
+    } else {
       // generate labels for options
       poll = {
         question: feeditems[i].question,
         answers: feeditems[i].options,
         answerweight: [40, 10, 10, 25, 15],
         pollcount: 100,
-        selectanswer: -1
+        selectanswer: -1,
       };
       let polldom = {
         question: document.querySelector(".poll .question"),
-        answers: document.querySelector(".poll .answers")
+        answers: document.querySelector(".poll .answers"),
       };
       console.log(poll.answers);
       polldom.question = poll.question;
-      polldom.answers = poll.answers.map(function (answer, i) {
-        return (
-          `
+      polldom.answers = poll.answers
+        .map(function (answer, i) {
+          return `
         <div class="answer" onclick="markanswer('${i}')">
         ${answer}
         <span class="percentage_bar"></span>
         <span class="percentage_value"></span>
         </div>
-        `
-        );
-      }).join("");
+        `;
+        })
+        .join("");
 
       // console.log(options);
-
 
       const users_name = feeditems[i].name;
       const users_username = feeditems[i].username;
@@ -263,7 +263,6 @@ const loadMorePolls = async () => {
       const questiontitle = feeditems[i].pollTitle;
       const question = feeditems[i].question;
       const questiondesc = feeditems[i].pollDescription;
-
 
       const newitemcontainer = `
             <div class="center-feed-poll-item">
@@ -291,47 +290,48 @@ const loadMorePolls = async () => {
                 </div>
 
             </div>
-            `
+            `;
       // console.log(newitemcontainer)
       const feed = document.getElementById("feedismine");
       feed.innerHTML += newitemcontainer;
     }
-
-
   }
-}
+};
 
-function markanswer(i){
+function markanswer(i) {
   poll.selectanswer = +i;
-  try{
-    document.querySelector(".poll .answers .answer.selected").classList.remove(".selected");
-  }
-  catch(msg){}
+  try {
+    document
+      .querySelector(".poll .answers .answer.selected")
+      .classList.remove(".selected");
+  } catch (msg) {}
 
-  document.querySelectorAll(".poll .answers .answer")[+i].classList.add(".selected");
+  document
+    .querySelectorAll(".poll .answers .answer")
+    [+i].classList.add(".selected");
 
   showresults();
 }
 
-function showresults(){
+function showresults() {
   let answers = document.querySelectorAll(".poll .answers .answer");
-  
-  for(let x=0;x<answers.length; x++)
-  {
+
+  for (let x = 0; x < answers.length; x++) {
     let percentage = 0;
-    if(x==poll.selectanswer){
-      percentage = 
-      (
-        (poll.answerweight[x]+1)*100 / (poll.pollcount + 1)
-      ).toFixed(2);
-    }
-    else{
+    if (x == poll.selectanswer) {
       percentage = (
-        (poll.answerweight[x])*100 / (poll.pollcount + 1)
+        ((poll.answerweight[x] + 1) * 100) /
+        (poll.pollcount + 1)
+      ).toFixed(2);
+    } else {
+      percentage = (
+        (poll.answerweight[x] * 100) /
+        (poll.pollcount + 1)
       ).toFixed(2);
     }
 
-    if(percentage==0) answers[x].querySelector(".percentage_value").innerText = "0%";
+    if (percentage == 0)
+      answers[x].querySelector(".percentage_value").innerText = "0%";
     answers[x].querySelector(".percentage_bar").style.width = percentage + "%";
     answers[x].querySelector(".percentage_value").innerText = percentage + "%";
   }
@@ -349,7 +349,6 @@ window.onload = function () {
   localStorage.setItem("pagecount", pagecount);
   const user = localStorage.getItem("user");
   if (user) {
-
     // const "{"_id":"642cb294f2c39fd0f2543008","username":"harshmp","email":"harshlove@gmail.com","role":"Customer","name":"Harsh Prajapati","bio":"Just started surveying.","profilepic":"https://www.w3schools.com/w3images/avatar2.png","__v":0}"
     const userobj = JSON.parse(user);
     const profileimg = userobj.profilepic;
@@ -357,7 +356,6 @@ window.onload = function () {
     const name = userobj.name;
     const bio = userobj.bio;
     const email = userobj.email;
-
 
     let obj = `<div class="left-top-color-grid">
                 
@@ -376,11 +374,9 @@ window.onload = function () {
             <hr>
             <a class="like-p" href="../Profile/profile2.html" style="cursor:pointer;">View Profile</a>
         </div>
-    </div>`
-
+    </div>`;
 
     const lefttop = document.getElementsByClassName("left-top-container")[0];
     lefttop.innerHTML = obj;
-
   }
-}
+};
