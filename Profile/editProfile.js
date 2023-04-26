@@ -57,7 +57,7 @@ async function updateProfile(name, username, email, bio, instragram, facebook, t
   const token = JSON.parse(localStorage.getItem("token"));
   const user = JSON.parse(localStorage.getItem("user"));
   const response = await fetch(
-    `http://localhost:3000/api/updateProfile/${user._id}`,
+    `https://quickpolls-2zqu.onrender.com/api/updateProfile/${user._id}`,
     {
       method: "PUT",
       headers: {

@@ -7,6 +7,12 @@
 // Scripts
 // 
 
+window.addEventListener('load', event => {
+    if(localStorage.getItem("token") != null){
+        window.location.href = './Feed/feed.html';
+    }
+});
+
 window.addEventListener('DOMContentLoaded', event => {
 
     // Activate Bootstrap scrollspy on the main nav element

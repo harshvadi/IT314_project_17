@@ -1,3 +1,7 @@
+body{
+    font-family: 'Serif', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+}
+
 li {
     font-weight: 500;
     font-size: large;

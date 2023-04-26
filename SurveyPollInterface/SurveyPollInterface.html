@@ -10,25 +10,37 @@
     <link rel='stylesheet' href="../navbar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11/jquery.mins.js"></script> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 </head>
 
 <body>
-    <navbar class="navbar-container">
+    <!-- <navbar class="navbar-container">
         <div class="logoimg">
             <img class="logo-content" src="../images/logoQuickpoll.png" alt="logo">
         </div>
-        <div class="header-btn-container">
-            <button type="submit" class="header-btn" id="login">Publish</button>
+
+        <!-- <div class="header-btn-container">
+            <button type="submit" class="header-btn" id="login">Submit</button>
         </div>
-    </navbar>
+        <div class="header-btn-container">
+            <button type="submit" class="header-btn" id="login">Cancel</button>
+        </div> -->
+        <!-- <ul>
+            <li><a href="#">Submit</a></li>
+            <li><a href="#">Cancel</a></li>
+        </ul>
+    </navbar> -->
 
     <div class="main-page-container">
         <div class="heading">
@@ -42,23 +54,26 @@
         </div>
 
         <form class="main-form" id="main-form">
+            <div class="main"></div>
+            <div class="question" id="question"></div>
+            <div id="input-cont"></div>
+            <div class="answer" id="answer"></div>
+                <!-- <div class="question-div">
 
-            <!-- <div class="question">
+                    <input type="text" class="question-box" placeholder="Question">
 
-                <input type="text" class="question-box" placeholder="Question">
+                    <select class="answer-type">
+                        <option>--Select--</option>
+                        <option value="text-box">Text Box</option>
+                        <option value="check-box">Check Box</option>
+                        <option value="multiple-choice">Multiple Choice</option>
+                        <option value="file-upload">Upload File</option>
+                        <option value="date-box">Date</option>
+                        <option value="time-box">Time</option>
+                    </select>
 
-                <select class="answer-type">
-                    <option >--Select--</option>
-                    <option value="text-box">Text Box</option>
-                    <option value="check-box">Check Box</option>
-                    <option value="multiple-choice">Multiple Choice</option>
-                    <option value="file-upload">Upload File</option>
-                    <option value="date-box">Date</option>
-                    <option value="time-box">Time</option>
-                </select>
-
-                <i class="fa-solid fa-trash"></i>
-
+                    <i class="fa-solid fa-trash"></i>
+                </div>
                 <div class="answer">
 
                 </div> -->
@@ -101,11 +116,47 @@
 
                  -->
 
-            <!-- </div> -->
-
+                <!-- </div> -->
         </form>
 
-        <button id="add-question" onclick="addQuestion()">Add Question</button>
+        <div class="btm-container">
+            <div class="time-limit">
+                <p style="margin-left: 18px;">Time limit:</p>
+                <!-- <div class="time-limit-box"> -->
+                <input type="text" class="date" placeholder="DD/MM/YYYY" required>
+                <input type="text" class="time" placeholder="HH:MM" required>
+                <!-- </div> -->
+            </div>
+            <div class="private">
+                <input type="checkbox" id="private-checkbox"
+                    style="height:16px; width:16px; padding: 10px; margin-top:20px; accent-color: #595f9b;">
+                <label for="private-checkbox"></label>
+                <p style="margin-left: 16px; margin-bottom: 10px;">Do you want to make this survey private?</p>
+                <!-- <div class="private-box"> -->
+                <!-- </div> -->
+            </div>
+        </div>
+
+
+
+        <div class="floating-container">
+            <div class="floating-button" onclick="addQuestion()" title="Add Question">+</div>
+            <!-- <div class="element-container">
+
+                <a href="google.com"> <span class="float-element tooltip-left">
+                        <i class="material-icons">phone
+                        </i></a>
+                </span>
+                <span class="float-element">
+                    <i class="material-icons">email
+                    </i>
+                </span>
+                <span class="float-element">
+                    <i class="material-icons">chat</i>
+                </span>
+            </div> -->
+        </div>
+        <!-- <button id="add-question" onclick="addQuestion()">Add Question</button> -->
     </div>
 
 
@@ -132,7 +183,19 @@
         </div>
     </footer> -->
 
+    <div class="btns">
+        <button class="btn-submit" id="btn-submit">Submit</button>
+        <button class="btn-cancel" id="btn-cancel">Cancel</button>
+    </div>
+
+    <footer>
+        <div class="foot-2">
+          <p>Powered by</p>
+          <img src="../images/logoQuickpoll.png" alt="logo" class="logosmall-footer">
+        </div>
+    </footer>
+
+    <script src="./SurveyPollInterface.js"></script>
 </body>
-<script src="./SurveyPollInterface.js"></script>
 
 </html>

@@ -35,79 +35,126 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 });
 
+const container = document.getElementById("input-cont");
+function addInput() {
+    // document.getElementById("remove-opt").style.display = "inline-block";
+  
+    const input = document.createElement('input');
+    input.classList.add("input-field");
+    input.placeholder = "Option";
+    // input.placeholder = 'Option ' + (i + 1);
+    
+    console.log(container);
+    questionsContainer.appendChild(input);
+    i++;
+  }
+
+  function removeInput() {
+    // while (i > 0) {
+      questionsContainer.removeChild(questionsContainer.lastChild);
+    //   i--;
+  
+      if (i == 0) {
+        document.getElementById("remove-opt").style.display = "none";
+        // success_msg.style.display = "none";
+      }
+    // }
+  }
 
 
 let questionCount = 0; // Keep track of the number of questions added
+let i=0;
+const main = document.getElementById('main');
+const mainDiv = document.createElement('div');
+mainDiv.className = 'main-div';
+
+const questionsContainer = document.getElementById('question');
+const answersContainer = document.getElementById('answer');
+const mainContainer = document.getElementById('main');
 
 function addQuestion() {
     questionCount++;
 
-    const questionsContainer = document.getElementById('main-form');
-
     const questionDiv = document.createElement('div');
-    questionDiv.className = 'question';
+
+    
+    questionDiv.className = 'question-div';
     questionDiv.innerHTML = `
+        <div class="question-number">Question</div>
         <input type="text" class="question-box" name="question${questionCount}" placeholder="Question">
 
-        <select class="answer-type" name="answerType${questionCount}" onchange="showAnswerOptions(this)">
+        <select class="answer-type" name="answerType${questionCount}" id="answer-type${questionCount}" onchange="addAnswer(this)">
             <option value="null">--Select--</option>
             <option value="text-box">Text Box</option>
             <option value="check-box">Check Box</option>
             <option value="multiple-choice">Multiple Choice</option>
-            <option value="file-upload">Upload File</option>
-            <option value="date-box">Date</option>
-            <option value="time-box">Time</option>
         </select>
 
-        <div class="answer" style="display: none;">
-            <div class="text-box" style="display: none;">
-                <input type="text" name="answerOptions${questionCount}" class="answer-box" placeholder="Answer">
-            </div>
+        
+            `;
+    // if(i%2==0)
+        questionsContainer.appendChild(questionDiv);
+    // else
+    //     questionsContainer.insertBefore(questionDiv,questionsContainer.firstChild);
+    console.log(questionDiv.innerHTML);
+    // mainContainer.appendChild(questionDiv);
+}
 
-            <div class="check-box" style="display: none;">
-                <input type="checkbox" id="checkbox-id" name="answerOptions${questionCount}">
-                <label for="checkbox-id"><input type="text" class="multiple-box" placeholder="Add Field"></label>
-                <button id="add-field-button">Add Field</button>
-                <button id="delete-field-button">Delete Field</button>
-            </div>
 
-            <div class="multiple-choice" style="display: none;">
-                <input type="radio" id="radio-id" name="answerOptions${questionCount}">
-                <label for="radio-id"><input type="text" class="radio-box" placeholder="Add Field"></label>
-                <button id="add-field-button">Add Field</button>
-                <button id="delete-field-button">Delete Field</button>
-            </div>
 
-            <div class="file-upload" style="display: none;">
-                <label for="file" class="file-input-text">Select a file to upload</label>
-                <input type="file" class="file-input" id="file" name="answerOptions${questionCount}">
-            </div>
+function addAnswer(){
+    const answerDiv = document.createElement('div');
+    let selectElement = document.querySelector(`#answer-type${questionCount}`);
+    let output = selectElement.value;
+    console.log(output);
 
-            <div class="date-box" style="display: none;">
-                <input type="date" class="input-date" id="date" name="answerOptions${questionCount}">
-            </div>
+    answerDiv.className = 'answer-div';
 
-            <div class="time-box" style="display: none;">
-                <input type="time" class="input-time" id="time" name="answerOptions${questionCount}">
-            </div>
+    if(output === 'text-box'){
+        answerDiv.innerHTML = `
+        <div class="text-box" style="display": none;">
         </div>
 
-        <button type="button" class="delete-question" onclick="deleteQuestion(this) ">Delete</button>
-    `;
+        
+        <button type="button" class="delete-question" onclick="deleteQuestion(this)">Delete Question</button>
+        `;
+    }
+    else if(output === 'check-box'){
+    answerDiv.innerHTML = `
+            
+            <button id="add-opt" onclick="addInput()">Add Option</button>
+            <button id="remove-opt" onclick="removeInput()">Delete Option</button>
 
-    questionsContainer.appendChild(questionDiv);
+            
+        <button type="button" class="delete-question" onclick="deleteQuestion(this)">Delete Question</button>
+            `;
+    }
+    else if(output === 'multiple-choice'){
+        answerDiv.innerHTML = `
+        
+            <button id="add-opt" onclick="addInput()">Add Option</button>
+            <button id="remove-opt" onclick="removeInput()">Delete Option</button>
+            
+
+        <button type="button" class="delete-question" onclick="deleteQuestion(this)">Delete Question</button>
+    `;
+    }
+   
+    console.log(answerDiv.innerHTML);
+    // mainContainer.appendChild(answerDiv);
+    // answersContainer.innerHTML += answerDiv.innerHTML;
+    questionsContainer.appendChild(answerDiv);
 }
+
+
+
 
 function showAnswerOptions(select) {
     const questionDiv = select.parentNode;
     const answerOptionsDiv = questionDiv.querySelector('.answer');
-
     answerOptionsDiv.querySelector('.text-box').style.display = 'none';
     answerOptionsDiv.querySelector('.check-box').style.display = 'none';
     answerOptionsDiv.querySelector('.multiple-choice').style.display = 'none';
-    answerOptionsDiv.querySelector('.file-upload').style.display = 'none';
-    answerOptionsDiv.querySelector('.date-box').style.display = 'none';
-    answerOptionsDiv.querySelector('.time-box').style.display = 'none';
 
 
     if (select.value === 'null'){
@@ -132,24 +179,6 @@ function showAnswerOptions(select) {
         ans.style.display = 'block';
     }
 
-    else if (select.value === 'file-upload'){
-        answerOptionsDiv.style.display = 'block';
-        const ans = answerOptionsDiv.querySelector('.file-upload');
-        ans.style.display = 'block';
-    }
-
-    else if (select.value === 'date-box'){
-        answerOptionsDiv.style.display = 'block';
-        const ans = answerOptionsDiv.querySelector('.date-box');
-        ans.style.display = 'block';
-    }
-
-    else if (select.value === 'time-box'){
-        answerOptionsDiv.style.display = 'block';
-        const ans = answerOptionsDiv.querySelector('.time-box');
-        ans.style.display = 'block';
-    }
-
     else {
         answerOptionsDiv.style.display = 'none';
     }
@@ -158,7 +187,12 @@ function showAnswerOptions(select) {
 
 function deleteQuestion(button) {
     const questionDiv = button.parentNode;
-    questionDiv.parentNode.removeChild(questionDiv);
+    console.log(i);
+    while(i>-2){
+        questionsContainer.removeChild(questionsContainer.firstChild);
+        i--;
+    }
+    questionCount--;
 }
 
 document.getElementById('questionForm').addEventListener('submit', function (event) {
