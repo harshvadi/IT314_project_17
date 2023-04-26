@@ -1,7 +1,7 @@
 async function getAllpolls() {
   const token = JSON.parse(localStorage.getItem("token"));
   const username = JSON.parse(localStorage.getItem("user")).username;
-  const response = await fetch(`${BACKEND_BASE_URL}/api/getallpollsbyuser`, {
+  const response = await fetch('https://quickpolls-2zqu.onrender.com/api/getallpollsbyuser', {
     method: "POST",
     headers: {
       Accept: "applicaiton/json",
@@ -57,7 +57,7 @@ window.onload = async () => {
 async function getResponses(pollid) {
   const token = JSON.parse(localStorage.getItem("token"));
   const username = JSON.parse(localStorage.getItem("user")).username;
-  const response = await fetch(`${BACKEND_BASE_URL}/api/getdetailsaboutPoll`, {
+  const response = await fetch('https://quickpolls-2zqu.onrender.com/api/getdetailsaboutPoll', {
     method: "POST",
     headers: {
       Accept: "applicaiton/json",

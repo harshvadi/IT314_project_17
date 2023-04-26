@@ -10,10 +10,9 @@ body {
 
 .container {
     width: 100%;
-    /* border: 2px solid blue; */
 }
 
-#active-hover-sidebar-3{
+#active-hover-sidebar-333 {
     background-color: #7474c4;
     border-radius: 5px;
     margin-right: 43px;
@@ -138,11 +137,14 @@ body {
 .mycon {
     list-style: none;
     display: flex;
-    justify-content:left;
+    justify-content: left;
     margin: 5px 10px 5px 20px;
 }
 
-.atr1, .atr2, .atr3, .atr6{
+.atr1,
+.atr2,
+.atr3,
+.atr6 {
     font-size: 19px;
     font-weight: 400;
     width: 20%;
@@ -151,20 +153,22 @@ body {
     text-align: center;
 }
 
-.atr1 li, .atr2 li{
+.atr1 li,
+.atr2 li {
     font-size: 19px;
     font-weight: 400;
     margin: 16px 0;
     cursor: pointer;
 }
 
-.atr3 li, .atr6 li{
+.atr3 li,
+.atr6 li {
     font-size: 19px;
     font-weight: 400;
     margin: 16px 0;
 }
 
-.atr4 a{
+.atr4 a {
     background-color: #766ffb;
     padding: auto;
     font-size: 15px;
@@ -180,7 +184,7 @@ body {
     height: 19px;
 }
 
-.atr5 a{
+.atr5 a {
     background-color: #29ef8f;
     padding: auto;
     font-size: 15px;
@@ -196,7 +200,7 @@ body {
     height: 19px;
 }
 
-.atr7 a{
+.atr7 a {
     background-color: #d53636;
     padding: auto;
     font-size: 15px;
@@ -213,14 +217,15 @@ body {
 }
 
 
-#conv{    display: flex;
+#conv {
+    display: flex;
     justify-content: space-around;
     margin: 20px 0;
     align-items: center;
 
 }
 
-#conv form{
+#conv form {
     width: 35%;
     height: 200px !important;
     display: flex;
@@ -229,17 +234,17 @@ body {
 }
 
 
-.form-group{
+.form-group {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
     font-size: 20px;
     height: 100px;
-    
+
 }
 
-.fontsizelabel{
+.fontsizelabel {
     font-size: 32px;
     font-weight: 500;
     margin-bottom: 10px;
@@ -247,7 +252,7 @@ body {
     color: #7474c4;
 }
 
-.test-file{
+.test-file {
     display: flex;
     align-items: center;
     justify-content: space-around;

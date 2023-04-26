@@ -43,3 +43,8 @@ li {
     margin: 5px 5px;
     border-radius: 0.5rem;
 }
+
+.pie-chart {
+    position: relative;
+    left: 13vw;
+}

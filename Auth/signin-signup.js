@@ -80,7 +80,7 @@ bck.addEventListener('click', () => {
 
 const Login = async (email, password) => {
     // api call to locahost:3000/api/auth/login
-    const response = await fetch(`${BACKEND_BASE_URL}/api/auth/login`, {
+    const response = await fetch('https://quickpolls-2zqu.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
             Accept: "applicaiton/json",
@@ -178,7 +178,7 @@ loginForm.addEventListener('submit', async (e) => {    // event listener for the
 const Signup = async (firstname, email, username, role, password) => {
     // api call to locahost:3000/api/auth/register
     console.log(firstname,email,username,role,password)
-    const response = await fetch(`${BACKEND_BASE_URL}/api/auth/register`, {
+    const response = await fetch('https://quickpolls-2zqu.onrender.com/api/auth/register', {
         method: 'POST',
         headers: {
             Accept: "applicaiton/json",

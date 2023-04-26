@@ -179,7 +179,6 @@ const loadMorePolls = async () => {
     const totalquestions = feeditems[i].totalquestions;
     const totalresponses = feeditems[i].totalresponses;
     const endedAt = feeditems[i].endedAt;
-    const hostedpoll_link = `http://localhost:5500/poll.html/`;
     let iscontributedisabled = "none";
     if (feeditems[i].questionType == "multiple") {
       iscontributedisabled = "block";

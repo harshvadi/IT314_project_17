@@ -2,7 +2,7 @@ let queType = [];
 
 async function getPoll(poll_id) {
   const response = await fetch(
-    `${BACKEND_BASE_URL}/api/getpoll/6443c45284dcd3c434e584c3`,
+    `${BACKEND_BASE_URL}/api/getpoll/6443e9592c5e04d3d25c5e82`,
     {
       method: "POST",
       headers: {
@@ -28,7 +28,8 @@ async function getPoll(poll_id) {
 
     pollsTaken.forEach((poll) => {
       if (localStorage.getItem("poll_id") == poll) {
-        document.body.innerHTML = `<h1 class="error" style="color: blue; text-align: center; margin-top: 10%">You've already responded this poll.</h1>`;
+        // document.body.innerHTML = `<h1 class="error" style="color: blue; text-align: center; margin-top: 10%">You've already responded this poll.</h1>`;
+        window.location.href = "./already_submitted.html";
         return false;
       }
     });
@@ -82,8 +83,8 @@ window.onload = () => {
   const url = window.location.href;
   urlArray = url.split("/");
   const poll_id = urlArray[urlArray.length - 1];
-  //   localStorage.setItem("poll_id", poll_id);
-  localStorage.setItem("poll_id", "6443c45284dcd3c434e584c3");
+  // localStorage.setItem("poll_id", poll_id);
+  localStorage.setItem("poll_id", "6443e9592c5e04d3d25c5e82");
   if (getPoll(poll_id)) {
     const pollForm = document.getElementById("poll");
 
@@ -124,24 +125,28 @@ async function submitResponse(res) {
     userid = localStorage.getItem("user")._id;
   }
 
-  const response = await fetch(`${BACKEND_BASE_URL}/api/takeresponse`, {
-    method: "POST",
-    headers: {
-      Accept: "applicaiton/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      pollid: poll_id,
-      userid: userid,
-      responses: res,
-    }),
-    withCredentials: true, // should be there
-    credentials: "include", // should be there
-  });
+  const response = await fetch(
+    "https://quickpolls-2zqu.onrender.com/api/takeresponse",
+    {
+      method: "POST",
+      headers: {
+        Accept: "applicaiton/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        pollid: poll_id,
+        userid: userid,
+        responses: res,
+      }),
+      withCredentials: true, // should be there
+      credentials: "include", // should be there
+    }
+  );
   console.log(response.status);
 
   if (response.status === 200) {
-    document.body.innerHTML = `<h1 class="success" style="color: green; text-align: center; margin-top: 10%">Thanks for submitting the poll.</h1>`;
+    // document.body.innerHTML = `<h1 class="success" style="color: green; text-align: center; margin-top: 10%">Thanks for submitting the poll.</h1>`;
+    window.location.href = "./submitted.html";
   } else {
     document.getElementById("error").innerHTML =
       "Please answer all the questions";

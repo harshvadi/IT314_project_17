@@ -38,7 +38,7 @@ function generateCsv(filename, csvData) {
 
 async function getResponses(pollid) {
   const token = JSON.parse(localStorage.getItem("token"));
-  const response = await fetch(`${BACKEND_BASE_URL}/api/getdetailsaboutPoll`, {
+  const response = await fetch('https://quickpolls-2zqu.onrender.com/api/getdetailsaboutPoll', {
     method: "POST",
     headers: {
       Accept: "applicaiton/json",
@@ -59,7 +59,7 @@ async function getResponses(pollid) {
     // console.log(data.pollanalysisobj);
 
     const pollResponse = await fetch(
-      `${BACKEND_BASE_URL}/api/getpoll/6443c45284dcd3c434e584c3`,
+      'https://quickpolls-2zqu.onrender.com/api/getpoll/6443c45284dcd3c434e584c3',
       {
         method: "POST",
         headers: {
@@ -115,7 +115,7 @@ async function getResponses(pollid) {
         }
         // console.log(frequency);
 
-        questions.innerHTML += `<div id="piechart${i}"></div>`;
+        questions.innerHTML += `<div class="pie-chart"><div id="piechart${i}"></div></div>`;
 
         google.charts.setOnLoadCallback(drawChart);
 
@@ -133,6 +133,7 @@ async function getResponses(pollid) {
           chart.draw(data, options);
         }
       }
+      questions.innerHTML += `<hr>`;
     }
 
     // formatting the data for CSV
