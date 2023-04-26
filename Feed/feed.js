@@ -10,6 +10,23 @@ const success_msg = document.getElementById("success-msg");
 
 let poll;
 
+
+window.addEventListener('load',()=>{
+  const token = localStorage.getItem('token');
+  if(!token){
+      window.location.href = '../Auth/signin-signup.html';
+  }else{
+      const role = localStorage.getItem('user').role;
+      if(role == 'admin'){
+          window.location.href = '../Admin/Admin.html';
+      }else if(role =='user'){
+          window.location.href = '../Feed/feed.html';
+      }else{
+          window.location.href = '../index.html';
+      }
+  }
+})
+
 let i = 0;
 function addInput() {
   document.getElementById("remove-opt").style.display = "inline-block";
@@ -141,7 +158,7 @@ const redirecttohostpoll = document.getElementsByClassName('submit-button-settin
 const getmorepolls = async () => {
   const token = localStorage.getItem("token");
   if (!token) return;
-  const response = await fetch("https://quickpolls-2zqu.onrender.com/api/feed/2", {
+  const response = await fetch("https://quickpolls-2zqu.onrender.com/api/feed/1", {
     method: "POST",
     headers: {
       Accept: "applicaiton/json",
@@ -384,3 +401,36 @@ window.onload = function () {
 
   }
 }
+
+
+
+
+/**  Get promoted polls from the backend */
+
+const promotedpolls = [];
+
+const fetchpromotedpolls = async () => {
+
+    const response = await fetch("https://quickpolls-2zqu.onrender.com/api/getpromoted", {
+        method: "POST",
+        headers: {
+          Accept: "applicaiton/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          token: localStorage.getItem("token"),
+        }),
+
+      });
+      if(response.status==200){
+        const data = await response.json();
+        console.log(data);
+      }
+      else{
+        console.log("error");
+      }
+}
+
+window.addEventListener('load', () => {
+    fetchpromotedpolls();
+});

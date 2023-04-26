@@ -2,7 +2,7 @@ let queType = [];
 
 async function getPoll(poll_id) {
   const response = await fetch(
-    `${BACKEND_BASE_URL}/api/getpoll/6443e9592c5e04d3d25c5e82`,
+    `${BACKEND_BASE_URL}/api/getpoll/64439049a61705f1c4d5cdf7`,
     {
       method: "POST",
       headers: {
@@ -84,7 +84,7 @@ window.onload = () => {
   urlArray = url.split("/");
   const poll_id = urlArray[urlArray.length - 1];
   // localStorage.setItem("poll_id", poll_id);
-  localStorage.setItem("poll_id", "6443e9592c5e04d3d25c5e82");
+  localStorage.setItem("poll_id", "64439049a61705f1c4d5cdf7");
   if (getPoll(poll_id)) {
     const pollForm = document.getElementById("poll");
 
@@ -117,6 +117,7 @@ window.onload = () => {
 };
 
 async function submitResponse(res) {
+  localStorage.clear();
   const poll_id = localStorage.getItem("poll_id");
   console.log(poll_id);
 
@@ -125,6 +126,8 @@ async function submitResponse(res) {
     userid = localStorage.getItem("user")._id;
   }
 
+  let poll_id1 = "64439049a61705f1c4d5cdf7";
+  console.log(poll_id1,res);
   const response = await fetch(
     "https://quickpolls-2zqu.onrender.com/api/takeresponse",
     {
@@ -134,7 +137,7 @@ async function submitResponse(res) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        pollid: poll_id,
+        pollid: poll_id1,
         userid: userid,
         responses: res,
       }),

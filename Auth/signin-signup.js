@@ -10,11 +10,8 @@ const nextBtn = document.querySelectorAll("form .next-btn");
 const prevBtn = document.querySelectorAll("form .previous-btn");
 const form = document.querySelector("form");
 const loginForm = document.getElementById('login-form');    
-// window onload
-window.onload = () => {
-    // resent the form
-    
-}
+
+
 
 
 nextBtn.forEach((button) => {

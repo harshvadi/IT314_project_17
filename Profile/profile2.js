@@ -156,6 +156,8 @@ async function getResponses(pollid) {
   }
 }
 
+const followbtn = document.getElementById("follow-btn");
+
 const getDetailsAboutPoll = (pollid) => {
   localStorage.setItem("poll_details", JSON.stringify(pollid));
   window.open("../Poll Results/result.html", "_blank");
@@ -196,9 +198,6 @@ async function getFollowings() {
                       <div class="right-user-suggestion-1">
                         <p class="right-user-suggestion-1-name" id="suggest-user6" style="font-size: 17px;">${following.name}</p>
                         <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@${following.username}</p>
-                      </div>
-                      <div>
-                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
                       </div>
                     </div>
                     <hr />
@@ -246,9 +245,6 @@ async function getFollowers() {
                         <p class="right-user-suggestion-1-name" id="suggest-user6" style="font-size: 17px;">${follower.name}</p>
                         <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@${follower.username}</p>
                       </div>
-                      <div>
-                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
-                      </div>
                     </div>
                     <hr />
     `
@@ -258,3 +254,8 @@ async function getFollowers() {
 }
 
 getFollowers();
+
+
+
+/****** follower and following page */
+
