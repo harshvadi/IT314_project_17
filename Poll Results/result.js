@@ -38,41 +38,65 @@ function generateCsv(filename, csvData) {
 
 async function getResponses(pollid) {
   const token = JSON.parse(localStorage.getItem("token"));
-  const response = await fetch('https://quickpolls-2zqu.onrender.com/api/getdetailsaboutPoll', {
-    method: "POST",
-    headers: {
-      Accept: "applicaiton/json",
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      token: token,
-      pollid: pollid,
-    }),
-    withCredentials: true, // should be there
-    credentials: "include", // should be there
-  });
+  const response = await fetch(
+    "https://quickpolls-2zqu.onrender.com/api/getdetailsaboutPoll",
+    {
+      method: "POST",
+      headers: {
+        Accept: "applicaiton/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: token,
+        pollid: pollid,
+      }),
+      withCredentials: true, // should be there
+      credentials: "include", // should be there
+    }
+  );
   console.log(response.status);
   const data = await response.json();
   //   console.log(data);
 
   if (response.status === 200) {
     // console.log(data.pollanalysisobj);
+    // const token = JSON.parse(localStorage.getItem("token"));
+    let currentUser = "";
+    if (JSON.parse(localStorage.getItem("user"))._id) {
+      currentUser = JSON.parse(localStorage.getItem("user"))._id;
+    }
+
+    console.log(currentUser);
 
     const pollResponse = await fetch(
-      'https://quickpolls-2zqu.onrender.com/api/getpoll/6443c45284dcd3c434e584c3',
+      `https://quickpolls-2zqu.onrender.com/api/getpoll/${pollid}`,
       {
         method: "POST",
         headers: {
           Accept: "applicaiton/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({}),
+        body: JSON.stringify({
+          currentUser: currentUser,
+        }),
         withCredentials: true, // should be there
         credentials: "include", // should be there
       }
     );
     // console.log(pollResponse.status);
+
     const pollData = await pollResponse.json();
+    console.log(pollData);
+    if (pollResponse.status !== 200) {
+      alert(pollData.error);
+      window.close();
+    }
+    // console.log("poll",pollData);
+
+    // if(JSON.parse(localStorage.getItem("user"))._id != pollData.pollobject.creator){
+    //   alert("This poll is private. You are not authorized to view the results.");
+    //   window.close();
+    // }
 
     const questions = document.getElementById("questions");
     const que = data.pollanalysisobj;
@@ -84,7 +108,7 @@ async function getResponses(pollid) {
     let pollQuestions = [];
 
     for (let i = 0; i < data.pollanalysisobj.length - 1; i++) {
-      questions.innerHTML += `<li class="my-3">${que[i].question.question}</li>`;
+      questions.innerHTML += `<li class="my-2">${que[i].question.question}</li>`;
       pollQuestions.push(que[i].question.question);
 
       // text answer
@@ -93,7 +117,7 @@ async function getResponses(pollid) {
 
         for (let i = 0; i < responses.length; i++) {
           questions.innerHTML += `<div class="row text-answer">
-                <p>${responses[i]}</p>
+                <p class="aligncenter">${responses[i]}</p>
             </div>`;
         }
       }
@@ -124,7 +148,7 @@ async function getResponses(pollid) {
           var data = google.visualization.arrayToDataTable(frequency);
 
           // Optional; add a title and set the width and height of the chart
-          var options = { width: 550, height: 400 };
+          var options = { width: 500, height: 500 };
 
           // Display the chart inside the <div> element with id="piechart"
           var chart = new google.visualization.PieChart(
@@ -172,5 +196,8 @@ async function getResponses(pollid) {
   }
 }
 
-let pollid = JSON.parse(localStorage.getItem("poll_details"));
+// let pollid = JSON.parse(localStorage.getItem("poll_details"));
+let url = window.location.href.split("=");
+let pollid = url[url.length - 1];
+
 getResponses(pollid);

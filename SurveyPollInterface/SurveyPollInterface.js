@@ -1,15 +1,3 @@
-/*!
-* Start Bootstrap - Scrolling Nav v5.0.6 (https://startbootstrap.com/template/scrolling-nav)
-* Copyright 2013-2023 Start Bootstrap
-* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-scrolling-nav/blob/master/LICENSE)
-*/
-//
-// Scripts
-// 
-
-{/* <script src="https://ajax.googleapis.com/ajax/libsjquery/1.11jquery.mins.js"></script> */ }
-
-
 window.addEventListener('DOMContentLoaded', event => {
 
     // Activate Bootstrap scrollspy on the main nav element
@@ -35,32 +23,6 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 });
 
-const container = document.getElementById("input-cont");
-function addInput() {
-    // document.getElementById("remove-opt").style.display = "inline-block";
-  
-    const input = document.createElement('input');
-    input.classList.add("input-field");
-    input.placeholder = "Option";
-    // input.placeholder = 'Option ' + (i + 1);
-    
-    console.log(container);
-    questionsContainer.appendChild(input);
-    i++;
-  }
-
-  function removeInput() {
-    // while (i > 0) {
-      questionsContainer.removeChild(questionsContainer.lastChild);
-    //   i--;
-  
-      if (i == 0) {
-        document.getElementById("remove-opt").style.display = "none";
-        // success_msg.style.display = "none";
-      }
-    // }
-  }
-
 
 let questionCount = 0; // Keep track of the number of questions added
 let i=0;
@@ -72,131 +34,158 @@ const questionsContainer = document.getElementById('question');
 const answersContainer = document.getElementById('answer');
 const mainContainer = document.getElementById('main');
 
+const mailformcontainer = document.getElementById('main-form')
+// const newsurvey = new FormData(mailformcontainer);
 function addQuestion() {
-    questionCount++;
-
-    const questionDiv = document.createElement('div');
-
-    
-    questionDiv.className = 'question-div';
-    questionDiv.innerHTML = `
-        <div class="question-number">Question</div>
-        <input type="text" class="question-box" name="question${questionCount}" placeholder="Question">
-
-        <select class="answer-type" name="answerType${questionCount}" id="answer-type${questionCount}" onchange="addAnswer(this)">
-            <option value="null">--Select--</option>
-            <option value="text-box">Text Box</option>
-            <option value="check-box">Check Box</option>
-            <option value="multiple-choice">Multiple Choice</option>
-        </select>
-
-        
-            `;
-    // if(i%2==0)
-        questionsContainer.appendChild(questionDiv);
-    // else
-    //     questionsContainer.insertBefore(questionDiv,questionsContainer.firstChild);
-    console.log(questionDiv.innerHTML);
-    // mainContainer.appendChild(questionDiv);
-}
-
-
-
-function addAnswer(){
-    const answerDiv = document.createElement('div');
-    let selectElement = document.querySelector(`#answer-type${questionCount}`);
-    let output = selectElement.value;
-    console.log(output);
-
-    answerDiv.className = 'answer-div';
-
-    if(output === 'text-box'){
-        answerDiv.innerHTML = `
-        <div class="text-box" style="display": none;">
+    questionCount = questionCount + 1;
+    let onebox = document.createElement('div');
+    onebox.innerHTML = `<div class="main-form" id="newquestion${questionCount}" >
+    <div class="mb-3">
+        <div class="firstcol1">
+        <label for="exampleFormControlTextarea${questionCount}" class="form-label">Add Question</label>
+        <select class="form-select select1" name="type${questionCount}" id="newquestionselect${questionCount}" aria-label="Default select example">
+            <option disabled>Question type</option>
+            <option selected value="2">Text</option>
+            <option value="1">Options</option>
+          </select>
         </div>
-
-        
-        <button type="button" class="delete-question" onclick="deleteQuestion(this)">Delete Question</button>
-        `;
-    }
-    else if(output === 'check-box'){
-    answerDiv.innerHTML = `
-            
-            <button id="add-opt" onclick="addInput()">Add Option</button>
-            <button id="remove-opt" onclick="removeInput()">Delete Option</button>
-
-            
-        <button type="button" class="delete-question" onclick="deleteQuestion(this)">Delete Question</button>
-            `;
-    }
-    else if(output === 'multiple-choice'){
-        answerDiv.innerHTML = `
-        
-            <button id="add-opt" onclick="addInput()">Add Option</button>
-            <button id="remove-opt" onclick="removeInput()">Delete Option</button>
-            
-
-        <button type="button" class="delete-question" onclick="deleteQuestion(this)">Delete Question</button>
-    `;
-    }
-   
-    console.log(answerDiv.innerHTML);
-    // mainContainer.appendChild(answerDiv);
-    // answersContainer.innerHTML += answerDiv.innerHTML;
-    questionsContainer.appendChild(answerDiv);
+        <br>
+        <textarea name="question${questionCount}" class="form-control textarea-harsh-style" style="width: 98%;max-width: 98%;" id="exampleFormControlTextarea${questionCount}" rows="3"></textarea>
+    </div>
+</div>`;
+    mailformcontainer.appendChild(onebox);
 }
 
+let response;
 
+mailformcontainer.addEventListener('change', function (e) {
+    // save form data to localstorage
 
+    response = new FormData(mailformcontainer);
+    response = [...response.entries()];
 
-function showAnswerOptions(select) {
-    const questionDiv = select.parentNode;
-    const answerOptionsDiv = questionDiv.querySelector('.answer');
-    answerOptionsDiv.querySelector('.text-box').style.display = 'none';
-    answerOptionsDiv.querySelector('.check-box').style.display = 'none';
-    answerOptionsDiv.querySelector('.multiple-choice').style.display = 'none';
+    // console.log(response)
 
+    let survey = [];
 
-    if (select.value === 'null'){
-        answerOptionsDiv.style.display = 'none';
-    }
+    let i=0;
+    let data = {}
+    response.forEach((item) => {
+        if(i==0) {
+            data["type"] = item[1];
+            i=1;
+        } else {
+            data["question"] = item[1];
+            survey.push(data);
+            data = {};
+            i=0;
+        }
+        // console.log(item[1]);
+    })
 
-    else if (select.value === 'text-box'){
-        answerOptionsDiv.style.display = 'block';
-        const ans = answerOptionsDiv.querySelector('.text-box');
-        ans.style.display = 'block';
-    }
-
-    else if (select.value === 'check-box'){
-        answerOptionsDiv.style.display = 'block';
-        const ans = answerOptionsDiv.querySelector('.check-box');
-        ans.style.display = 'block';
-    }
-
-    else if (select.value === 'multiple-choice'){
-        answerOptionsDiv.style.display = 'block';
-        const ans = answerOptionsDiv.querySelector('.multiple-choice');
-        ans.style.display = 'block';
-    }
-
-    else {
-        answerOptionsDiv.style.display = 'none';
-    }
-
-}
-
-function deleteQuestion(button) {
-    const questionDiv = button.parentNode;
-    console.log(i);
-    while(i>-2){
-        questionsContainer.removeChild(questionsContainer.firstChild);
-        i--;
-    }
-    questionCount--;
-}
-
-document.getElementById('questionForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-    // Handle form submission logic here
-    // Access the questions and their answer types and values using the form elements
+    console.log(survey);
+    localStorage.setItem('survey', JSON.stringify(survey));
 });
+// https://quickpolls-2zqu.onrender.com
+const sendSurveyData = async (obj) => {
+    const token = localStorage.getItem('token');
+    const response = await fetch('https://quickpolls-2zqu.onrender.com/api/createpoll', {
+        method: "POST",
+        headers: {
+          Accept: "applicaiton/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            token: token,
+            title: obj.title,
+            description: obj.description,
+            userid: obj.userid,
+            questions: obj.questions,
+            endedAt: obj.endedAt,
+            isprivate: obj.isprivate
+        }),
+        withCredentials: true, // should be there
+        credentials: "include", // should be there
+    });
+
+    console.log(response);
+    return response;
+
+}
+
+document.getElementById('btn-submit').addEventListener('click', async function (event) {
+    event.preventDefault();
+
+    /*  get meta data*/
+    const obj = {};
+    const title = document.getElementById('surveytitle').value;
+    const description = document.getElementById('surveydesc').value;
+    const userid = JSON.parse(localStorage.getItem('user'))._id;
+    obj['title'] = title;
+    obj['description'] = description;
+    obj['userid'] = userid;
+    const questions = JSON.parse(localStorage.getItem('survey'));
+    console.log(questions);
+
+    let surveyObj = [];
+    if(questions == null) {
+        alert("Please add questions");
+        return;
+    }
+    questions.forEach((question) => {
+        let queObj = {}
+        // mcq
+        if(question.type == "1") {
+            let x = question.question.split('\n');
+            let que = x[0];
+            let options = [];
+
+            for(let i=1;i<x.length;i++) {
+                options.push(x[i]);
+            }
+            if(options.length == 0){
+                alert("Please add options");
+                return;
+            }
+            
+            queObj["question"] = que;
+            queObj["type"] = "1";
+            queObj["options"] = options;
+        } else {
+            let x = question.question.split('\n');
+            let que = x[0];
+            queObj["question"] = que;
+            queObj["type"] = "2";
+        }
+
+        surveyObj.push(queObj);
+    });
+
+    const enddateofsurvey = document.getElementById('enddateofsurvey').value;
+    const private_checkbox = document.getElementById('private-checkbox').checked;
+    console.log(enddateofsurvey);
+    obj['questions'] = surveyObj;
+    obj['endedAt'] = enddateofsurvey;
+    obj['isprivate'] = private_checkbox;
+    console.log(obj);
+    const response = await sendSurveyData(obj);
+    const data = await response.json();
+    if(response.status == 200) {
+        // alert(data.message);
+        prompt("Copy the link", data.pollurl);
+        localStorage.removeItem('survey');
+        window.location.href = '../Feed/Feed.html';
+
+    }else{
+        alert(data.message);
+    }
+
+});
+
+
+const btn_cancel = document.getElementById('btn-cancel');
+btn_cancel.addEventListener('click', function (event) {
+    event.preventDefault();
+    window.location.href = '../Feed/Feed.html';
+}
+);

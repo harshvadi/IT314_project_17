@@ -133,7 +133,7 @@ window.addEventListener("load", async function () {
 });
 
 const table = document.getElementById("useradmintable");
-
+// https://quickpolls-2zqu.onrender.com
 table.addEventListener("click", async (e) => {
   const id = e.target.id;
   const response = await fetch(

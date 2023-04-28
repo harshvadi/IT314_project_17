@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
 body {
     font-family: 'Serif', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
 }
@@ -49,6 +52,13 @@ body {
     padding-bottom: 5px ;
 }
 
+
+.icon-show{
+    width: 30px;
+    height: 30px;
+
+}
+
 .left-top-color-grid{
     background-color: #595F9B;
     width: 100%;
@@ -56,6 +66,18 @@ body {
     border-radius: 10px 10px 0 0;
 }
 
+@media screen and (max-width: 950px) {
+    .left-container{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .right-container{
+        display: none;
+    }
+}
+    
 .left-top-container-bar{
     width: 100%;
     /* box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em; */
@@ -69,19 +91,17 @@ body {
 }
 
 .left-top-container-bar-img{
-    width: 100px;
-    height: 100px;
+    width: 5rem;
+    height: auto;
     border-radius: 50%;
     border-color: white;
     border: 3px solid white;
     margin-left: 75px;
     margin-top: 20px;
+    position: relative;
 }
 
-.over-the-bar-img{
-    position: absolute;
-    top: 130px;
-}
+
 
 .left-top-container-bar p{
     font-size: 18px;
@@ -282,9 +302,44 @@ body {
     text-decoration:none;
 }
 
+@media screen and (max-width:768px) {
+    .submit-button-setting{
+        width: 80px;
+        height: 20px;
+        font-size: 14px;
+    }
+    .submit-btn-contain{
+        margin-right: 0.5rem;
+    }
+    .feed-center-title-bar{
+        width: 50%;
+    }
+    .side-info-question-feed{
+        font-size: 14px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+    .side-info-question-feed div{
+        width: 30%;
+    }
+    #like-p{
+        display: block;
+        margin-top: 10px;
+        margin-left: 10px;
+        font-size: 14px;
+        color: rgba(0, 0, 0, 0.7);
+    }
+}
+
 .poll-center-options{
     display: flex;
     flex-direction: column;
+}
+
+#like-p{
+    display:none;
 }
 
 .poll-center-options label{

@@ -1,5 +1,9 @@
+const getDetailsAboutPoll = (pollid) => {
+  localStorage.setItem("poll_details", JSON.stringify(pollid));
+  window.open(`../Poll Results/result.html?pollid=${pollid}`, "_blank");
+};
 window.onload = async (event) => {
-  getAllpolls();
+  await getAllpolls();
 
   const name = document.getElementById("name");
   const username = document.getElementById("username");
@@ -52,18 +56,18 @@ const limitthevisibilitychar = (count, id) => {
 
 // followers
 
-limitthevisibilitychar(15, "suggest-user1");
-limitthevisibilitychar(15, "suggest-user2");
-limitthevisibilitychar(15, "suggest-user3");
-limitthevisibilitychar(15, "suggest-user4");
-limitthevisibilitychar(15, "suggest-user5");
+// limitthevisibilitychar(15, "suggest-user1");
+// limitthevisibilitychar(15, "suggest-user2");
+// limitthevisibilitychar(15, "suggest-user3");
+// limitthevisibilitychar(15, "suggest-user4");
+// limitthevisibilitychar(15, "suggest-user5");
 
-// followings
-limitthevisibilitychar(15, "suggest-user6");
-limitthevisibilitychar(15, "suggest-user7");
-limitthevisibilitychar(15, "suggest-user8");
-limitthevisibilitychar(15, "suggest-user9");
-limitthevisibilitychar(15, "suggest-user10");
+// // followings
+// limitthevisibilitychar(15, "suggest-user6");
+// limitthevisibilitychar(15, "suggest-user7");
+// limitthevisibilitychar(15, "suggest-user8");
+// limitthevisibilitychar(15, "suggest-user9");
+// limitthevisibilitychar(15, "suggest-user10");
 
 const logout = document.getElementById("logout");
 logout.addEventListener("click", (e) => {
@@ -78,11 +82,25 @@ function showPage() {
   document.getElementById("main-content").style.display = "block";
 }
 
+function copyclicpboard(id){
+  // take n-1 characters from id
+  const pollid = id.slice(0, id.length-1);
+  console.log(pollid);
+  navigator.clipboard.writeText(`http://localhost:5500/poll.html?pollid=${pollid}`);
+  let btn = document.getElementById(id);
+  btn.innerText = "Copied!";
+  window.setTimeout(() => {
+    btn.innerText = "Copy";
+  }
+  , 5000);
+
+}
+
 // displaying user polls
 async function getAllpolls() {
   const token = JSON.parse(localStorage.getItem("token"));
   const username = JSON.parse(localStorage.getItem("user")).username;
-  const response = await fetch(`${BACKEND_BASE_URL}/api/getallpollsbyuser`, {
+  const response = await fetch(`https://quickpolls-2zqu.onrender.com/api/getallpollsbyuser`, {
     method: "POST",
     headers: {
       Accept: "applicaiton/json",
@@ -106,7 +124,11 @@ async function getAllpolls() {
     ).innerHTML += `<h4 class="text-center my-3">No surveys or polls created.</h4>`;
   }
 
+
   let i = 1;
+  let user = JSON.parse(localStorage.getItem("user"));
+  user = data.user;
+  localStorage.setItem("user", JSON.stringify(user));
   polls.forEach(async (poll) => {
     // console.log(poll);
     const pollResponses = await getResponses(poll._id);
@@ -120,7 +142,11 @@ async function getAllpolls() {
         <h5 class="card-title">${poll.title}</h5>
         <p class="card-text">${poll.description}</p>
         <p class="card-text"><b>Responses: </b>${pollResponses}</p>
-        <button class="btn btn-primary card-btn" id="${poll._id}" onclick="getDetailsAboutPoll(this.id)">See Details</button>
+        <hr>
+        <div class="flexprofilebtn">
+        <button class="btn btn-outline-dark card-btn widthcontroll" id="${poll._id}" onclick="getDetailsAboutPoll(this.id)">See Details</button>
+        <button class="btn btn-outline-dark card-btn" id="${poll._id}1" onclick="copyclicpboard(this.id)">Copy</button>
+        </div>
       </div>
     </div>
   </div>`;
@@ -158,16 +184,29 @@ async function getResponses(pollid) {
 
 const followbtn = document.getElementById("follow-btn");
 
-const getDetailsAboutPoll = (pollid) => {
-  localStorage.setItem("poll_details", JSON.stringify(pollid));
-  window.open("../Poll Results/result.html", "_blank");
-};
+
+
+const facebook = document.getElementById("facebbokimg");
+const twitter = document.getElementById("twitterimg");
+const instagram = document.getElementById("instagramimg");
+
+facebook.addEventListener("click", () => { 
+  window.open(JSON.parse(localStorage.getItem("user")).facebook, "_blank");
+});
+
+twitter.addEventListener("click", () => {
+  window.open(JSON.parse(localStorage.getItem("user")).twitter, "_blank");
+});
+
+instagram.addEventListener("click", () => {
+  window.open(JSON.parse(localStorage.getItem("user")).instagram, "_blank");
+});
 
 
 // get followings list of the user
 async function getFollowings() {
   const token = JSON.parse(localStorage.getItem("token"));
-  const response = await fetch(`${BACKEND_BASE_URL}/api/following`, {
+  const response = await fetch(`https://quickpolls-2zqu.onrender.com/api/following`, {
     method: "POST",
     headers: {
       Accept: "applicaiton/json",

@@ -11,6 +11,9 @@
   <script src="https://kit.fontawesome.com/91d08a18ba.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://kit.fontawesome.com/91d08a18ba.css" crossorigin="anonymous">
   <link rel="stylesheet" href="../navbar.css">
+  <script src="../Config/config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="profile2.js"></script>
 </head>
 
 <body>
@@ -18,12 +21,13 @@
   <div id="main-content">
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="../Feed/feed.html">
           <img class="logo" src="../images/logoQuickpoll.png" alt="Logo">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
           <ul class="nav navbar-nav ms-auto">
@@ -34,39 +38,12 @@
                 <a class="close" href="#">&times;</a>
                 <div class="content">
                   <div class="content-box-2" id="followers_list">
-                    <hr />
-                    <div class="user-suggestion-1">
-                      <div>
-                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
-                      </div>
-                      <div class="right-user-suggestion-1">
-                        <p class="right-user-suggestion-1-name" id="suggest-user1" style="font-size: 17px;">Hemil</p>
-                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
-                      </div>
-                      <div>
-                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
-                      </div>
-                    </div>
-                    <hr />
                     <div class="user-suggestion-1">
                       <div>
                         <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
                       </div>
                       <div class="right-user-suggestion-1">
                         <p class="right-user-suggestion-1-name" id="suggest-user2" style="font-size: 17px;">HarshKumar Prajapati</p>
-                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
-                      </div>
-                      <div>
-                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
-                      </div>
-                    </div>
-                    <hr />
-                    <div class="user-suggestion-1">
-                      <div>
-                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
-                      </div>
-                      <div class="right-user-suggestion-1">
-                        <p class="right-user-suggestion-1-name" id="suggest-user3" style="font-size: 17px;">Dishal Vala</p>
                         <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
                       </div>
                       <div>
@@ -114,70 +91,11 @@
                 <div class="content">
                   <div class="content-box-2" id="following_list">
                     <hr />
-                    <div class="user-suggestion-1">
-                      <div>
-                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
-                      </div>
-                      <div class="right-user-suggestion-1">
-                        <p class="right-user-suggestion-1-name" id="suggest-user6" style="font-size: 17px;">Hemil</p>
-                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
-                      </div>
-                      <div>
-                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
-                      </div>
-                    </div>
-                    <hr />
-                    <div class="user-suggestion-1">
-                      <div>
-                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
-                      </div>
-                      <div class="right-user-suggestion-1">
-                        <p class="right-user-suggestion-1-name" id="suggest-user7" style="font-size: 17px;">HarshKumar Prajapati</p>
-                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
-                      </div>
-                      <div>
-                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
-                      </div>
-                    </div>
-                    <hr />
-                    <div class="user-suggestion-1">
-                      <div>
-                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
-                      </div>
-                      <div class="right-user-suggestion-1">
-                        <p class="right-user-suggestion-1-name" id="suggest-user8" style="font-size: 17px;">Dishal Vala</p>
-                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
-                      </div>
-                      <div>
-                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
-                      </div>
-                    </div>
-                    <hr />
-                    <div class="user-suggestion-1">
-                      <div>
-                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
-                      </div>
-                      <div class="right-user-suggestion-1">
-                        <p class="right-user-suggestion-1-name" id="suggest-user9" style="font-size: 17px;">HarshKumar Prajapati</p>
-                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
-                      </div>
-                      <div>
-                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
-                      </div>
-                    </div>
-                    <hr />
-                    <div class="user-suggestion-1">
-                      <div>
-                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
-                      </div>
-                      <div class="right-user-suggestion-1">
-                        <p class="right-user-suggestion-1-name" id="suggest-user10" style="font-size: 17px;">Het Patel</p>
-                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@harshmp</p>
-                      </div>
-                      <div>
-                        <i class="fa-solid fa-user-plus fa-xl" style="color: #595f9b; cursor:pointer;"></i>
-                      </div>
-                    </div>
+                    
+                   
+                    
+
+
                     <hr />
                   </div>
                 </div>
@@ -209,16 +127,16 @@
             <div class="row text-start community-stats">
               <hr>
               <h5>Community Stats</h5>
-              <p><i class="fa-solid fa-eye"></i> Following:
+              <p>Following:
                 <span id="community-following"></span>
               </p>
-              <p><i class="fa-solid fa-user"></i> Followers:
+              <p> Followers:
                 <span id="community-followers"></span>
               </p>
-              <p><i class="fa-sharp fa-solid fa-square-poll-vertical"></i> Surveys taken:
+              <p> Surveys taken:
                 <span id="pollscreated"></span>
               </p>
-              <p><i class="fa-solid fa-list-check"></i> Surveys Answered: 
+              <p> Surveys Answered: 
                 <span id="pollsanswered"></span>
               </p>
             </div>
@@ -233,13 +151,13 @@
               <br>
               <br>
               <div class="col">
-                <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+                <a href="#" id="facebbokimg"><img src="../images/facebook.png" class="icon-show"></a>
               </div>
               <div class="col">
-                <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+                <a href="#" id="instagramimg"><img src="../images/instagram.png" class="icon-show"></a>
               </div>
               <div class="col">
-                <a href="#"><i class="fa-brands fa-twitter fa-2x"></i></a>
+                <a href="#" id="twitterimg"><img src="../images/twitter.png" class="icon-show"></a>
               </div>
             </div>
           </div>
@@ -256,9 +174,7 @@
         </div>
       </div>
     </div>
-    <script src="../Config/config.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script src="profile2.js"></script>
+    
 </body>
 
 </html>

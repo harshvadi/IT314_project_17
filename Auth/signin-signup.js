@@ -3,7 +3,7 @@ const signUpHomeButton = document.getElementById("signup-home");
 const signInButton = document.getElementById("signIn");
 const signInHomeButton = document.getElementById("signin-home");
 const container = document.getElementById("container");
-const bck = document.getElementById("back");
+// const bck = document.getElementById("back");
 
 const steps = Array.from(document.querySelectorAll("form .step"));
 const nextBtn = document.querySelectorAll("form .next-btn");
@@ -66,9 +66,9 @@ signInHomeButton.addEventListener("click", () => {
 //   window.location.href = "../Profile/profile.html";
 // });
 
-bck.addEventListener("click", () => {
-  window.location.href = "../index.html";
-});
+// bck.addEventListener("click", () => {
+//   window.location.href = "../index.html";
+// });
 
 //--------------------------------signin.js--------------------------------------------
 
