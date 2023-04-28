@@ -117,7 +117,7 @@ async function getResponses(pollid) {
 
         for (let i = 0; i < responses.length; i++) {
           questions.innerHTML += `<div class="row text-answer">
-                <p class="aligncenter">${responses[i]}</p>
+                <p>${responses[i]}</p>
             </div>`;
         }
       }
