@@ -118,7 +118,7 @@ html {
 }
 
 .business-quote1 {
-  width: 75%;
+  width: 100%;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -131,7 +131,7 @@ html {
 }
 
 .business-quote2 {
-  width: 75%;
+  width: 100%;
   text-align: center;
   display: flex;
   justify-content: center;
