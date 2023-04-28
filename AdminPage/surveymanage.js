@@ -4,7 +4,7 @@ const clickone_btn_333 = document.getElementById("active-hover-sidebar-333");
 
 clickone_btn_111.addEventListener("click", () => {
   console.log("clicked");
-  window.location.href = "http://localhost:5500/admin/admin.html";
+  window.location.href = "http://localhost:5500/AdminPage/adminPage.html";
 });
 
 clickone_btn_333.addEventListener("click", () => {
@@ -14,7 +14,7 @@ clickone_btn_333.addEventListener("click", () => {
 
 clickone_btn_222.addEventListener("click", () => {
   console.log("clicked");
-  window.location.href = "http://localhost:5500/admin/adminmanage.html";
+  window.location.href = "http://localhost:5500/AdminPage/adminmanage.html";
 });
 
 window.addEventListener("load", () => {

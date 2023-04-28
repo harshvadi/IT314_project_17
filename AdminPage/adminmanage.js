@@ -4,7 +4,7 @@ const clickone_btn_33 = document.getElementById("active-hover-sidebar-33");
 
 clickone_btn_11.addEventListener("click", () => {
   console.log("clicked");
-  window.location.href = "./admin.html";
+  window.location.href = "./adminPage.html";
 });
 
 clickone_btn_22.addEventListener("click", () => {
