@@ -119,6 +119,7 @@ window.onload = () => {
   const pollForm = document.getElementById("poll");
 
   pollForm.addEventListener("submit", async (event) => {
+    document.getElementById("submitPoll").disabled = true;
     event.preventDefault();
 
     var response = new FormData(pollForm);
