@@ -266,7 +266,15 @@ const loadMorePolls = async () => {
     let endedAt = feeditems[i].endedAt;
     // parse the date
     endedAt = new Date(endedAt);
-    endedAt = endedAt.toLocaleString();
+    endedAt = endedAt.toISOString();
+    const OFFSET = 5;
+    const OFFSET2 = 30;
+    let date = new Date(endedAt);
+    // 5 hours and 30 minutes
+    date.setHours(date.getHours() - OFFSET);
+    date.setMinutes(date.getMinutes() - OFFSET2);
+    // console.log(date.toISOString());
+    date = date.toLocaleString();
 
     console.log(feeditems[i].pollId);
     // let iscontributedisabled = "none";
@@ -315,7 +323,7 @@ const loadMorePolls = async () => {
                         <span>Responses : <span>${totalresponses}</span></span>
                     </div>
                     <div>
-                        <span>Due : <span>${endedAt}</span></span>
+                        <span>Due : <span>${date}</span></span>
                     </div>
                     
                 </div>
