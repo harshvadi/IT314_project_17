@@ -60,7 +60,7 @@ sumbitform.addEventListener("submit", async (e) => {
   // get last info from the url by splitting it
   const pollid = document
     .getElementById("surveymanage-input")
-    .value.split("/")
+    .value.split("=")
     .pop();
   console.log(pollid);
   const response = await fetch(
