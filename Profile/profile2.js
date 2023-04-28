@@ -3,6 +3,15 @@ const getDetailsAboutPoll = (pollid) => {
   window.open(`../Poll Results/result.html?pollid=${pollid}`, "_blank");
 };
 window.onload = async (event) => {
+  let user = localStorage.getItem("user");
+  user = await JSON.parse(user);
+
+  if (!user) {
+    document.body.innerHTML = `
+    <div class="container-fluid align-self-center">
+    <div class="h1 text-center">Session Expired. Please <a style="text-decoration:underline" href="../Auth/signin-signup.html">LogIn</a> again.</div>
+    </div>`;
+  }
   await getAllpolls();
   await getFollowers();
   await getFollowings();
@@ -13,9 +22,6 @@ window.onload = async (event) => {
   const followers = document.getElementById("community-followers");
   const following = document.getElementById("community-following");
   const pollscreated = document.getElementById("pollscreated");
-
-  let user = localStorage.getItem("user");
-  user = await JSON.parse(user);
 
   showPage();
 
@@ -29,11 +35,6 @@ window.onload = async (event) => {
     pollscreated.innerText = user.pollscreated.length;
     pollsanswered.innerText = user.pollsanswered;
     document.getElementsByClassName("avatar")[0].src = user.profilepic;
-  } else {
-    document.body.innerHTML = `
-      <div class="container-fluid align-self-center">
-        <div class="h1 text-center">Session Expired. Please <a style="text-decoration:underline" href="../Auth/signin-signup.html">LogIn</a> again.</div>
-      </div>`;
   }
 
   console.log("user:", user);
@@ -69,14 +70,6 @@ const limitthevisibilitychar = (count, id) => {
 // limitthevisibilitychar(15, "suggest-user8");
 // limitthevisibilitychar(15, "suggest-user9");
 // limitthevisibilitychar(15, "suggest-user10");
-
-const logout = document.getElementById("logout");
-logout.addEventListener("click", (e) => {
-  e.preventDefault();
-  localStorage.removeItem("user");
-  localStorage.removeItem("token");
-  window.location.href = "../Auth/signin-signup.html";
-});
 
 function showPage() {
   document.getElementById("loader").style.display = "none";
@@ -304,3 +297,12 @@ async function getFollowers() {
 getFollowers();
 
 /****** follower and following page */
+
+const logout = document.getElementById("logout-btn");
+logout.addEventListener("click", (e) => {
+  console.log("logout");
+  e.preventDefault();
+  localStorage.removeItem("user");
+  localStorage.removeItem("token");
+  window.location.href = "../Auth/signin-signup.html";
+});
