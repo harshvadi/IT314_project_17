@@ -3,7 +3,7 @@ const signUpHomeButton = document.getElementById("signup-home");
 const signInButton = document.getElementById("signIn");
 const signInHomeButton = document.getElementById("signin-home");
 const container = document.getElementById("container");
-const bck = document.getElementById("back");
+// const bck = document.getElementById("back");
 
 const steps = Array.from(document.querySelectorAll("form .step"));
 const nextBtn = document.querySelectorAll("form .next-btn");
@@ -66,9 +66,9 @@ signInHomeButton.addEventListener("click", () => {
 //   window.location.href = "../Profile/profile.html";
 // });
 
-bck.addEventListener("click", () => {
-  window.location.href = "../index.html";
-});
+// bck.addEventListener("click", () => {
+//   window.location.href = "../index.html";
+// });
 
 //--------------------------------signin.js--------------------------------------------
 
@@ -100,7 +100,7 @@ const Login = async (email, password) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const role = user.role;
     if (role == "admin") {
-      window.location.href = "../Admin/Admin.html";
+      window.location.href = "../AdminPage/adminPage.html";
     } else {
       window.location.href = "../Feed/feed.html";
     }
@@ -167,7 +167,7 @@ loginForm.addEventListener("submit", async (e) => {
 });
 
 //--------------------------------signup.js--------------------------------------------
-// 
+//
 const Signup = async (firstname, email, username, password) => {
   // api call to locahost:3000/api/auth/register
   console.log(firstname, email, username, password);
@@ -221,7 +221,7 @@ signupForm.addEventListener("submit", async (e) => {
   const firstname = document.getElementById("name").value;
   const email = document.getElementById("email2").value;
   const username = document.getElementById("username").value;
-//   const role = document.getElementById("role").value;
+  //   const role = document.getElementById("role").value;
   const password = document.getElementById("password1").value;
   const confirm_password = document.getElementById("password2").value;
 
