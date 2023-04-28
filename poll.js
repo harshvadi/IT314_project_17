@@ -2,10 +2,9 @@ let queType = [];
 let poll;
 let currentUser = "";
 let isuserexist = localStorage.getItem("user");
-if(isuserexist && JSON.parse(localStorage.getItem("user"))._id){
+if (isuserexist && JSON.parse(localStorage.getItem("user"))._id) {
   currentUser = JSON.parse(localStorage.getItem("user"))._id;
 }
-
 
 const disableloader = () => {
   const loader = document.getElementById("loader");
@@ -21,7 +20,7 @@ async function getPoll(poll_id) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        currentUser: currentUser
+        currentUser: currentUser,
       }),
       withCredentials: true, // should be there
       credentials: "include", // should be there
@@ -80,7 +79,7 @@ async function getPoll(poll_id) {
     // text
     else {
       queType.push("2");
-      question += `<input type="text" name="${que.questionid}">`;
+      question += `<textarea type="text" name="${que.questionid}" style="min-width: 43vw; min-height: 10vh; padding: 10px; font-weight: 200; font-size: 20px; margin-left: 20px">`;
     }
 
     pollForm.innerHTML += question;
@@ -88,7 +87,8 @@ async function getPoll(poll_id) {
 
   pollForm.innerHTML += `<br>
   <div class="foot">
-  <input type="submit" class="submit-poll-page"></div>`;
+  <input type="submit" class="submit-poll-page" id="submitPoll"></div>`;
+  // console.log(document.getElementById("submitPoll").innerHTML);
   return true;
 }
 
@@ -252,7 +252,9 @@ async function submitResponse(res) {
 
   if (response.status === 200) {
     let redirectpage = "./index.html";
-    if(localStorage.getItem("user")){redirectpage = "./Feed/feed.html"}
+    if (localStorage.getItem("user")) {
+      redirectpage = "./Feed/feed.html";
+    }
     document.body.innerHTML = `<div class="text-center"><h1 class="error" style="color: blue; text-align: center; margin-top: 10%">Your response has been recorded successfully.</h1><h2><a href=${redirectpage}>Create your own poll</a></h2></div>`;
   } else {
     alert("Please answer all the questions");
