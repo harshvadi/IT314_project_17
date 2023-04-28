@@ -100,7 +100,7 @@ const Login = async (email, password) => {
     const user = JSON.parse(localStorage.getItem("user"));
     const role = user.role;
     if (role == "admin") {
-      window.location.href = "../admin/admin.html";
+      window.location.href = "../admin/Admin.html";
     } else {
       window.location.href = "../Feed/feed.html";
     }
