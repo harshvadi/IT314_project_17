@@ -153,10 +153,10 @@ li {
     color: black;
 }
 
-.card-btn {
-    /* background-color: #595F9B; */
-    /* border: none; */
-}
+/* .card-btn { */
+/* background-color: #595F9B; */
+/* border: none; */
+/* } */
 
 .card-btn:hover {
     background-color: #595F9B;
