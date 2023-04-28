@@ -14,16 +14,16 @@ const navMenu = document.querySelector(".myLinks");
 hamburger.addEventListener("click", mobileMenu);
 
 function mobileMenu() {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
 }
 const navLink = document.querySelectorAll(".nav-link");
 
-navLink.forEach(n => n.addEventListener("click", closeMenu));
+navLink.forEach((n) => n.addEventListener("click", closeMenu));
 
 function closeMenu() {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
+  hamburger.classList.remove("active");
+  navMenu.classList.remove("active");
 }
 
 let poll;
@@ -252,6 +252,7 @@ const loadMorePolls = async () => {
   feeditems = feeditems.feedItems;
   console.log(feeditems);
   for (let i = 0; i < feeditems.length; i++) {
+    const user_id = feeditems[i].userid;
     const users_name = feeditems[i].creatorname;
     const users_username = feeditems[i].username;
     const profileimg = feeditems[i].profilepic;
@@ -260,7 +261,8 @@ const loadMorePolls = async () => {
     const questiondesc = feeditems[i].pollDescription;
     const totalquestions = feeditems[i].totalquestions;
     let totalresponses = feeditems[i].totalresponses;
-    if(totalresponses == null || totalresponses == undefined) totalresponses = 0;
+    if (totalresponses == null || totalresponses == undefined)
+      totalresponses = 0;
     let endedAt = feeditems[i].endedAt;
     // parse the date
     endedAt = new Date(endedAt);
@@ -278,7 +280,7 @@ const loadMorePolls = async () => {
             <div class="feed-center-title-bar-1">
                 <div class="feed-center-title-bar">
                     <img src=${profileimg} class="user-profile-img-1" alt="profileimg">
-                    <div class="feed-center-title-user-info">
+                    <div class="feed-center-title-user-info" id=${users_username} onclick="viewProfile(this.id)">
                         <p id="feed-user-info-name">${users_name}</p>
                         <p id="feed-user-info-username">@${users_username}</p>
                     </div>
@@ -561,3 +563,9 @@ function redirectToPoll(id) {
 window.addEventListener("load", () => {
   loadpromotedpolls();
 });
+
+function viewProfile(username) {
+  // alert(username);
+  // window.location.href = "../Profile/otherProfile.html?username=" + username;
+  window.open("../Profile/otherProfile.html?username=" + username);
+}

@@ -4,8 +4,7 @@ const getDetailsAboutPoll = (pollid) => {
 };
 window.onload = async (event) => {
   await getAllpolls();
-  await getFollowers();
-  await getFollowings();
+
   const name = document.getElementById("name");
   const username = document.getElementById("username");
   const profile = document.getElementById("profile-pic");
@@ -14,8 +13,30 @@ window.onload = async (event) => {
   const following = document.getElementById("community-following");
   const pollscreated = document.getElementById("pollscreated");
 
-  let user = localStorage.getItem("user");
-  user = await JSON.parse(user);
+  let url = window.location.href;
+  let urlArray = url.split("=");
+  const otherUsername = urlArray[urlArray.length - 1];
+
+  const token = JSON.parse(localStorage.getItem("token"));
+  const response = await fetch(
+    `https://quickpolls-2zqu.onrender.com/api/auth/otherprofile/${otherUsername}`,
+    {
+      method: "POST",
+      headers: {
+        Accept: "applicaiton/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: token,
+      }),
+      withCredentials: true, // should be there
+      credentials: "include", // should be there
+    }
+  );
+
+  let data = await response.json();
+  //   console.log("user", data.data);
+  const user = data.data;
 
   showPage();
 
@@ -31,9 +52,9 @@ window.onload = async (event) => {
     document.getElementsByClassName("avatar")[0].src = user.profilepic;
   } else {
     document.body.innerHTML = `
-      <div class="container-fluid align-self-center">
-        <div class="h1 text-center">Session Expired. Please <a style="text-decoration:underline" href="../Auth/signin-signup.html">LogIn</a> again.</div>
-      </div>`;
+        <div class="container-fluid align-self-center">
+          <div class="h1 text-center">Session Expired. Please <a style="text-decoration:underline" href="../Auth/signin-signup.html">LogIn</a> again.</div>
+        </div>`;
   }
 
   console.log("user:", user);
@@ -100,7 +121,9 @@ function copyclicpboard(id) {
 // displaying user polls
 async function getAllpolls() {
   const token = JSON.parse(localStorage.getItem("token"));
-  const username = JSON.parse(localStorage.getItem("user")).username;
+  let url = window.location.href;
+  let urlArray = url.split("=");
+  const otherUsername = urlArray[urlArray.length - 1];
   const response = await fetch(
     `https://quickpolls-2zqu.onrender.com/api/getallpollsbyuser`,
     {
@@ -111,7 +134,7 @@ async function getAllpolls() {
       },
       body: JSON.stringify({
         token: token,
-        username: username,
+        username: otherUsername,
       }),
       withCredentials: true, // should be there
       credentials: "include", // should be there
@@ -129,9 +152,9 @@ async function getAllpolls() {
   }
 
   let i = 1;
-  let user = JSON.parse(localStorage.getItem("user"));
-  user = data.user;
-  localStorage.setItem("user", JSON.stringify(user));
+  //   let user = JSON.parse(localStorage.getItem("user"));
+  //   user = data.user;
+  //   localStorage.setItem("user", JSON.stringify(user));
   polls.forEach(async (poll) => {
     // console.log(poll);
     const pollResponses = await getResponses(poll._id);
@@ -140,19 +163,14 @@ async function getAllpolls() {
     document.getElementsByClassName(
       "polls"
     )[0].innerHTML += `<div class="col poll d-flex justify-content-center">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body" style = "display: flex; flex-direction: column; justify-content: space-evenly">
-        <h5 class="card-title">${poll.title}</h5>
-        <p class="card-text">${poll.description}</p>
-        <p class="card-text"><b>Responses: </b>${pollResponses}</p>
-        <hr>
-        <div class="flexprofilebtn">
-        <button class="btn btn-outline-dark card-btn widthcontroll" id="${poll._id}" onclick="getDetailsAboutPoll(this.id)">See Details</button>
-        <button class="btn btn-outline-dark card-btn" id="${poll._id}1" onclick="copyclicpboard(this.id)">Copy</button>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body" style = "display: flex; flex-direction: column; justify-content: space-evenly">
+          <h5 class="card-title">${poll.title}</h5>
+          <p class="card-text">${poll.description}</p>
+          <p class="card-text"><b>Responses: </b>${pollResponses}</p>
         </div>
       </div>
-    </div>
-  </div>`;
+    </div>`;
     i++;
   });
 }
@@ -226,7 +244,6 @@ async function getFollowings() {
   );
   console.log(response.status);
   const data = await response.json();
-  console.log("sddfsfsd");
 
   const followings = data.following;
   console.log(followings);
@@ -237,24 +254,21 @@ async function getFollowings() {
     console.log(following.username);
 
     document.getElementById("following_list").innerHTML += `
-    <div class="user-suggestion-1">
-                      <div>
-                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+      <div class="user-suggestion-1">
+                        <div>
+                          <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                        </div>
+                        <div class="right-user-suggestion-1">
+                          <p class="right-user-suggestion-1-name" id="suggest-user6" style="font-size: 17px;">${following.name}</p>
+                          <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@${following.username}</p>
+                        </div>
                       </div>
-                      <div class="right-user-suggestion-1">
-                        <p class="right-user-suggestion-1-name" id="suggest-user6" style="font-size: 17px;">${following.name}</p>
-                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@${following.username}</p>
-                      </div>
-                    </div>
-                    <hr />
-    `;
+                      <hr />
+      `;
   });
 }
 
-// window.addEventListener("load", () => {
-console.log("dasdad");
-// getFollowings();
-// });
+getFollowings();
 
 // get followers list of the user
 async function getFollowers() {
@@ -276,7 +290,6 @@ async function getFollowers() {
   );
   console.log(response.status);
   const data = await response.json();
-  console.log("followers");
 
   const followers = data.followers;
   console.log(followers);
@@ -287,20 +300,74 @@ async function getFollowers() {
     console.log(follower.username);
 
     document.getElementById("followers_list").innerHTML += `
-    <div class="user-suggestion-1">
-                      <div>
-                        <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+      <div class="user-suggestion-1">
+                        <div>
+                          <img src="../images/profileimg.png" class="user-profile-img-1" alt="profileimg">
+                        </div>
+                        <div class="right-user-suggestion-1">
+                          <p class="right-user-suggestion-1-name" id="suggest-user6" style="font-size: 17px;">${follower.name}</p>
+                          <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@${follower.username}</p>
+                        </div>
                       </div>
-                      <div class="right-user-suggestion-1">
-                        <p class="right-user-suggestion-1-name" id="suggest-user6" style="font-size: 17px;">${follower.name}</p>
-                        <p class="right-user-suggestion-1-username shadow-color" style="font-size: 15px;">@${follower.username}</p>
-                      </div>
-                    </div>
-                    <hr />
-    `;
+                      <hr />
+      `;
   });
 }
 
 getFollowers();
 
 /****** follower and following page */
+
+async function followUser() {
+  let url = window.location.href;
+  let urlArray = url.split("=");
+  const otherUsername = urlArray[urlArray.length - 1];
+  let currentUser = JSON.parse(localStorage.getItem("user"))._id;
+
+  const token = JSON.parse(localStorage.getItem("token"));
+  const response = await fetch(
+    `https://quickpolls-2zqu.onrender.com/api/follow/${otherUsername}`,
+    {
+      method: "POST",
+      headers: {
+        Accept: "applicaiton/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: token,
+      }),
+      withCredentials: true, // should be there
+      credentials: "include", // should be there
+    }
+  );
+  console.log(response.status);
+  const data = await response.json();
+  alert(data.message);
+}
+
+async function unfollowUser() {
+  let url = window.location.href;
+  let urlArray = url.split("=");
+  const otherUsername = urlArray[urlArray.length - 1];
+  let currentUser = JSON.parse(localStorage.getItem("user"))._id;
+
+  const token = JSON.parse(localStorage.getItem("token"));
+  const response = await fetch(
+    `https://quickpolls-2zqu.onrender.com/api/unfollow/${otherUsername}`,
+    {
+      method: "POST",
+      headers: {
+        Accept: "applicaiton/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        token: token,
+      }),
+      withCredentials: true, // should be there
+      credentials: "include", // should be there
+    }
+  );
+  console.log(response.status);
+  const data = await response.json();
+  alert(data.message);
+}
