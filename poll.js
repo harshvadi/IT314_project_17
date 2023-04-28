@@ -56,6 +56,7 @@ async function getPoll(poll_id) {
   console.log(questions);
 
   document.getElementById("title").innerHTML = poll.title;
+  document.title = poll.title;
   document.getElementById("description").innerHTML = poll.description;
 
   const pollForm = document.getElementById("poll");
