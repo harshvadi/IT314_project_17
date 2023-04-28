@@ -41,8 +41,20 @@ editForm.addEventListener("submit", async (e) => {
   const facebook = document.getElementById("facebook").value;
   const twitter = document.getElementById("twitter").value;
 
+  if (email == "") {
+    alert("Please enter a valid email address");
+    return;
+  }
 
-  const res = await updateProfile(name, username, email, bio, instragram, facebook, twitter);
+  const res = await updateProfile(
+    name,
+    username,
+    email,
+    bio,
+    instragram,
+    facebook,
+    twitter
+  );
 });
 
 const logout = document.getElementById("logout");
@@ -53,7 +65,15 @@ logout.addEventListener("click", (e) => {
 });
 
 //https://quickpolls-2zqu.onrender.com/api/updateProfile/${user._id}
-async function updateProfile(name, username, email, bio, instragram, facebook, twitter) {
+async function updateProfile(
+  name,
+  username,
+  email,
+  bio,
+  instragram,
+  facebook,
+  twitter
+) {
   const token = JSON.parse(localStorage.getItem("token"));
   const user = JSON.parse(localStorage.getItem("user"));
   const response = await fetch(

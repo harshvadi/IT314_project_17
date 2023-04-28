@@ -1,25 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-body{
+body {
     font-family: 'Serif', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
     margin-top: 100px;
 }
 
-#headbox{
+#headbox {
     width: 50vw;
 }
 
 @media screen and (max-width: 768px) {
-    #headbox{
+    #headbox {
         width: 80vw;
     }
 }
 
-.aligncenter{
+.aligncenter {
     display: flex;
     align-items: center;
-    height: 20px;
+    /* height: 20px; */
     margin: 10px 20px;
+    padding: 5px;
 }
 
 
@@ -68,7 +69,8 @@ li {
     margin: 5px 3px;
     border-radius: 0.5rem;
     display: flex;
-    
+    height: fit-content;
+    padding: 5px;
 }
 
 /* .pie-chart {

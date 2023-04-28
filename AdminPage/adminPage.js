@@ -39,7 +39,7 @@ const GetDOMAdminUserFit = (data) => {
     <td>${data.username}</td>
     <td>${data.email}</td>
     <td>
-        <button type="button" class="btn btn-danger remove-btn" id="${data.username}">Remove</button>
+        <button type="button" class="btn btn-danger remove-btn" id=${data.username} onclick="removeUser(this.id)">Remove</button>
     </td>
   </tr>`;
 
@@ -65,9 +65,16 @@ const loadPromotedPolls = async () => {
     }
   );
 
+  // console.log(response.status);
   const data = await response.json();
+  // console.log(data);
   const firstbox = document.getElementById("item3-third");
-  firstbox.innerText = data.data.length;
+  firstbox.innerHTML = 0;
+
+  if (response.status !== 404) {
+    firstbox.innerText = data.data.length;
+  }
+
   // fetch the localstorage and update the third value
   const currentadmininfo = JSON.parse(localStorage.getItem("admin-info"));
   currentadmininfo.third = data.data.length;
@@ -132,10 +139,11 @@ window.addEventListener("load", async function () {
   await loadPromotedPolls();
 });
 
-const table = document.getElementById("useradmintable");
+// const table = document.getElementById("useradmintable");
 // https://quickpolls-2zqu.onrender.com
-table.addEventListener("click", async (e) => {
-  const id = e.target.id;
+// table.addEventListener("click", async (e) => {
+async function removeUser(id) {
+  // const id = e.target.id;
   const response = await fetch(
     "https://quickpolls-2zqu.onrender.com/api/removeuser",
     {
@@ -155,4 +163,4 @@ table.addEventListener("click", async (e) => {
   const data = await response.json();
   alert(data.message);
   window.location.reload();
-});
+}
