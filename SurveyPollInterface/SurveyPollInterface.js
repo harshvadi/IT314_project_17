@@ -40,7 +40,7 @@ function addQuestion() {
   onebox.innerHTML = `<div class="main-form" id="newquestion${questionCount}" >
     <div class="mb-3">
         <div class="firstcol1">
-        <label for="exampleFormControlTextarea${questionCount}" class="form-label">Add Question</label>
+        <label for="exampleFormControlTextarea${questionCount}" class="form-label">Question ${questionCount}</label>
         <select class="form-select select1" name="type${questionCount}" id="newquestionselect${questionCount}" aria-label="Default select example">
             <option disabled>Question type</option>
             <option selected value="2">Text</option>
